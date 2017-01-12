@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { Input, Header, Output } from './App';
 import './index.css';
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+  <div>
+  <Header />
+  <Input />
+  <Output />
+  </div>,
+  document.getElementById('root'),
 );
