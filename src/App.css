@@ -29,14 +29,14 @@
   bottom: 0%;
 }
 
-#text{
+#usr_input{
   position: fixed;
   width: 90%;
   height: 30px;
   top: 89%;
 
 }
-#submit{
+#send_button{
   position: fixed;
   width: 9.5%;
   top: 89%;
