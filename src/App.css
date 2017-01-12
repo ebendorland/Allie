@@ -29,6 +29,37 @@
   bottom: 0%;
 }
 
+#ally_message {
+  position:relative;
+  padding:15px;
+  margin:1em 0 3em;
+  width: 10%;
+  color:#fff;
+  background:#c81e2b;
+  background:-webkit-gradient(linear, 0 0, 0 100%, from(#f04349), to(#c81e2b));
+  background:-moz-linear-gradient(#f04349, #c81e2b);
+  background:-o-linear-gradient(#f04349, #c81e2b);
+  background:linear-gradient(#f04349, #c81e2b);
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+#user_message {
+  position:relative;
+  padding:15px;
+  margin:1em 0 3em;
+  width: 10%;
+  left: 88%;
+  color:#fff;
+  background:#000000;
+  background:-webkit-gradient(linear, 0 0, 0 100%, from(#000000), to(#000000));
+  background:-moz-linear-gradient(#000000, #000000);
+  background:-o-linear-gradient(#000000, #000000);
+  background:linear-gradient(#000000, #000000);
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
 #text{
   position: fixed;
   width: 90%;

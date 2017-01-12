@@ -19,8 +19,8 @@ export class Input extends Component {
     return(
         <div className="Text-field">
           <input type="text" id="text"></input>
-          <input type="submit" id="submit"></input>
-      </div>
+          <input type="button" id="submit"></input>
+          </div>
     )
   }
 }
@@ -29,9 +29,9 @@ export class Output extends Component{
   render(){
     return(
         <div className="Ally-replies">
-          
+        <div id="ally_message"></div>
+        <div id="user_message"></div>
         </div>
-
     )
   }
 }
