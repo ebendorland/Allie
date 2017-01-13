@@ -5,26 +5,12 @@ stemmer = natural.PorterStemmer;
 // var stem = stemmer.stem('stems');
 stemmer.attach();
 
+function tokenizeAndStem(msg) {
 
-
-
-
- var stems = 'stems return'.tokenizeAndStem(true);
-
-
-
- // console.log(stemmer);
-
-// var msg = stems
-
-var stemmer = function tokenizeAndStem(stemmer, msg) {
-
-console.log(stemmer);
-         return (msg.tokenizeAndStem(true));
-         if (msg.length == null){
-           return  console.log("What can I do for you");
-         }
-         else {
-         }
-
+  if (msg && /\S/.test(msg)){
+    return (msg.tokenizeAndStem(true));
+  }
+  else {
+    return (null);
+  }
 }
