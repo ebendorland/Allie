@@ -29,6 +29,27 @@
   bottom: 0%;
 }
 
+#usr_input{
+  position: fixed;
+  width: 90%;
+  height: 30px;
+  top: 89%;
+
+}
+#send_button{
+  position: fixed;
+  width: 9.5%;
+  top: 89%;
+  left: 90%;
+  height: 36px;
+}
+
+#logo{
+  position: fixed;
+  left: 4%;
+  top: 3.6%;
+  text-align: center;
+}
 #ally_message {
   position:relative;
   padding:15px;
@@ -59,25 +80,4 @@
   -webkit-border-radius:10px;
   -moz-border-radius:10px;
   border-radius:10px;
-}
-#text{
-  position: fixed;
-  width: 90%;
-  height: 30px;
-  top: 89%;
-
-}
-#submit{
-  position: fixed;
-  width: 9.5%;
-  top: 89%;
-  left: 90%;
-  height: 36px;
-}
-
-#logo{
-  position: fixed;
-  left: 4%;
-  top: 3.6%;
-  text-align: center;
 }
