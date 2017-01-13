@@ -30,35 +30,37 @@ pyshell.end(function (err) {
 */
 
 
-//1
 var natural = require("natural");
 var stemmer = natural.PorterStemmer;
 
-//2
 stemmer.attach();
 
 var fStream = require("fs");
 var trainerJSON = fStream.readFileSync("trainer.json");
 
-//3
 trainerJSON = JSON.parse(trainerJSON);
 
-//4
 var classifier = new natural.LogisticRegressionClassifier();
 
-for (var i = 0, len = trainerJSON.length; i < len; i++)
+function TrainClassifier()
 {
-  classifier.addDocument(trainerJSON[i].example.tokenizeAndStem(true),
-  trainerJSON[i].type);
-  console.log(trainerJSON[i].example.tokenizeAndStem(true));
+  for (var i = 0, len = trainerJSON.length; i < len; i++)
+  {
+    classifier.addDocument(trainerJSON[i].example.tokenizeAndStem(true),
+    trainerJSON[i].type);
+    if(trainerJSON[i].example.tokenizeAndStem(true))
+      console.log('Classifier Trained Successfully');
+  }
+  classifier.train();
 }
-classifier.train();
 
+TrainClassifier();
 
 /*
 ** User Input Promt ---------------------------
 */
 
+/*
 var fs      = require('fs');
 
 process.stdin.resume();
@@ -87,6 +89,7 @@ process.stdin.on('data', function (text)
    console.log('Process Finished.');
    process.exit();
  }
+ */
 
  /*
 var stem = msg.tokenizeAndStem(true);
