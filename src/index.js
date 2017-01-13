@@ -13,8 +13,9 @@ class AppRouter extends Component{
   {
     return(
       <Router history={browserHistory}>
-        <Route path={"home"} component={Home}/>
-        <Route path={"chat"} component={Chat}/>
+        <Route path="home" component={Home}/>
+
+        <Route path="chat" component={Chat}/>
       </Router>
   );
   }
