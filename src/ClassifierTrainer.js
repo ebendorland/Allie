@@ -36,7 +36,7 @@ var stemmer = natural.PorterStemmer;
 stemmer.attach();
 
 var fStream = require("fs");
-var trainerJSON = fStream.readFileSync("trainer.json");
+var trainerJSON = fStream.readFileSync("trainers/trainer.json");
 
 trainerJSON = JSON.parse(trainerJSON);
 
