@@ -18,8 +18,8 @@ export class Input extends Component {
   {
     return(
         <div className="Text-field">
-          <input type="text" id="text"></input>
-          <input type="button" id="submit"></input>
+          <input type="text" id="usr_input"></input>
+          <input type="button" id="send_button"></input>
           </div>
     )
   }
