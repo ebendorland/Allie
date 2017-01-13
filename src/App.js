@@ -31,7 +31,7 @@ export class Output extends Component{
         <div className="Ally-replies">
 
         </div>
-        
+
     )
   }
 }
