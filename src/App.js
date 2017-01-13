@@ -19,7 +19,7 @@ export class Input extends Component {
     return(
         <div className="Text-field">
           <input type="text" id="usr_input"></input>
-          <input type="button" id="send_button"></input>
+          <input type="submit" id="send_button" onclick="return userSendMessage()"></input>
           </div>
     )
   }
@@ -29,8 +29,7 @@ export class Output extends Component{
   render(){
     return(
         <div className="Ally-replies">
-        <div id="ally_message"></div>
-        <div id="user_message"></div>
+
         </div>
     )
   }
