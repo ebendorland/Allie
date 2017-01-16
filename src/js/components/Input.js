@@ -12,7 +12,6 @@ export default class Input extends Component {
   {
     return(
       <div className="Text-field">
-        <script src="scripts/js/ui.socket.js"></script>
         <input type="text" id="usr_input"></input>
         <input type="submit" id="send_button" onClick={this.userSendMessage}></input>
       </div>
