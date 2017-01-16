@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {Component} from 'react';
 import './index.css';
-import {Router, Route, IndexRoute, Link, hashHistory,browserHistory} from 'react-router';
+import {Router, Route, IndexRoute, Link, hashHistory,browserHistory, Redirect} from 'react-router';
 
 
 import Home from './js/pages/Home';
@@ -16,6 +16,7 @@ class AppRouter extends Component{
       <Router history={browserHistory}>
         <Route path={"home"} component={Home}></Route>
         <Route path={"chat"} component={Chat}></Route>
+        <Redirect from="/" to="home" />
       </Router>
   );
   }
