@@ -6,8 +6,7 @@ import {Router, Route, IndexRoute, Link, hashHistory,browserHistory, Redirect} f
 
 
 import Home from './js/pages/Home';
-import Chat from './js/pages/Messaging' ;
-
+import Chat from './js/pages/Messaging';
 
 class AppRouter extends Component{
   render()
