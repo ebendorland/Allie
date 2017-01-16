@@ -1,13 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Input, Header, Output } from './App';
+import {render} from 'react-dom';
+import {Component} from 'react';
 import './index.css';
+import {Router, Route, IndexRoute, Link, hashHistory,browserHistory} from 'react-router';
 
-ReactDOM.render(
-  <div>
-  <Header />
-  <Input />
-  <Output />
-  </div>,
-  document.getElementById('root'),
-);
+
+import Home from './js/pages/Home';
+import Chat from './js/pages/Messaging' ;
+
+
+class AppRouter extends Component{
+  render()
+  {
+    return(
+      <Router history={browserHistory}>
+        <Route path={"home"} component={Home}></Route>
+        <Route path={"chat"} component={Chat}></Route>
+      </Router>
+  );
+  }
+}
+
+render(<AppRouter />, window.document.getElementById('root'));
