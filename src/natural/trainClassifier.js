@@ -14,14 +14,18 @@ function onFileRead(err, data) {
 }
 
 //method to train the classifier using the BayesClassifier
-var trainClassifier = function(classifier) {
-  fs.readFile('../datasets/classifier.json', 'utf8', onFileRead);
-
-  var i = 0;
-  for (, len = file.length; i < len; i++) {
-    classifier.addDocument((classifierTrainer[i].example),
-        classifierTrainer[i].type);
-    console.log((classifierTrainer[i].example), classifierTrainer[i].type);
+module.export =
+{
+  trainClassifier: function(classifier)
+  {
+    fs.readFile('../datasets/classifier.json', 'utf8', onFileRead);
+    var i = 0;
+    for (, len = file.length; i < len; i++)
+    {
+      classifier.addDocument((classifierTrainer[i].example),
+      classifierTrainer[i].type);
+      console.log((classifierTrainer[i].example), classifierTrainer[i].type);
+    }
   }
 
   classifier.train();

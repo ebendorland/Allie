@@ -32,7 +32,6 @@ io.on("connection", function(socket)
   //socket.emit("server_message", "Hi, how can I help you?");
   socket.on("user_message", function(msg)
   {
-
   var mssg=languageProccessing(msg);
   var totalPrice='R 42 006.52';
 
