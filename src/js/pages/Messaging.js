@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import {Link} from "react-router";
 import Input from '../components/Input';
 import Output from '../components/Output';
+import ChatFrame from '../components/ChatFrame';
 
 
 class Chat extends Component{
@@ -11,8 +12,11 @@ class Chat extends Component{
     return(
       <div className="Chat">
         <Header/>
-        <Output/>
-        <Input/>
+        <div className="wallpaper">
+          <ChatFrame>
+          </ChatFrame>
+
+        </div>
       </div>
     )
   }

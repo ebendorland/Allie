@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from "react-router";
-import './Messaging.css';
+import './Home.css';
 
 export default class Home extends Component {
   render() {
