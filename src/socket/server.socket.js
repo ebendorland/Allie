@@ -16,8 +16,10 @@ io.on("connection", function(socket) {
     when initialising the script.
 */
 module.exports = {
-  listen: function() {
-    http.listen("3001", function() {
+  listen: function()
+  {
+    http.listen("3001", function()
+    {
       console.log("Listening for chats at: localhost:3001");
     });
   }
