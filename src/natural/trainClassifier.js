@@ -1,6 +1,9 @@
+var natural = require("natural");
+var classifier = new natural.LogisticRegressionClassifier();
+
 // Read file from classifier data to train the classifier
 var fs = require('fs');
-var classifierTrainer = null;
+var classifierTrainer = "";
 
 function onFileRead(err, data) {
   if (err) {
@@ -14,20 +17,22 @@ function onFileRead(err, data) {
 }
 
 //method to train the classifier using the BayesClassifier
-module.export =
+module.exports =
 {
-  trainClassifier: function(classifier)
+  trainClassifier: function()
   {
-    fs.readFile('../datasets/classifier.json', 'utf8', onFileRead);
+    fs.readFile('../datasets/trainedClassifier.json', 'utf8', onFileRead);
     var i = 0;
-    for (, len = file.length; i < len; i++)
+    for (i = 0, len = classifierTrainer.length; i < len; i++)
     {
       classifier.addDocument((classifierTrainer[i].example),
       classifierTrainer[i].type);
       console.log((classifierTrainer[i].example), classifierTrainer[i].type);
     }
-  }
 
-  classifier.train();
-  console.log("Classifier trained. " + i + " examples used.");
+    classifier.train();
+    classifier.save("../datasets/classifier.json", function(err, classifier) {
+      console.log("Classifier trained. " + i + " examples used.");
+    });
+  }
 }

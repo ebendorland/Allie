@@ -1,6 +1,6 @@
 var io = require("socket.io");
 var natural = require('natural');
-var trainClassifier = require("trainClassifier.js");
+var trainClassifier = require("../natural/trainClassifier.js");
 var stemmer = natural.PorterStemmer;
 var classifier = new natural.LogisticRegressionClassifier();
 stemmer.attach();
@@ -9,8 +9,10 @@ stemmer.attach();
   Read in the available responses the bot can give.
 */
 var fStream = require("fs");
-var responsesJSON = fStream.readFileSync("../datasets/responses.json");
+var responsesJSON = fStream.readFileSync("src/datasets/responses.json");
+var trainerJSON = fStream.readFileSync("src/datasets/classifier.json");
 responsesJSON = JSON.parse(responsesJSON);
+trainerJSON = JSON.parse(trainerJSON);
 
 function  getClassifiedExample(trainerList, type) {
   for (var i = 0, len = trainerList.length; i < len; i++) {
@@ -48,8 +50,8 @@ function  getSimilarityRatio(arr1, arr2)
 
 module.exports = {
   trainClassifier: function() {
-    trainClassifier.trainClassifier(classifier);
-  }
+    trainClassifier.trainClassifier();
+  },
 
   processMessage: function(msg) {
     var socket = io.connect("https://localhost:3001");
@@ -58,7 +60,7 @@ module.exports = {
 
     for (var i = 0, len = responsesJSON.length; i < len; i++) {
       if (responsesJSON[i].type == classification) {
-        var classified_example = getClassifiedExample(trainerJSON),
+        var classified_example = getClassifiedExample(trainerJSON,
             responsesJSON[i].type);
 
         if (classified_example != null) {
