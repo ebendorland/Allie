@@ -2,12 +2,14 @@
 var app = require("express")();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
+var nlp = require("../natural/server.nlp.js");
 
 //  Define user message event handler
 io.on("connection", function(socket) {
   console.log("New user connected.");
   socket.on("user_message", function(msg) {
     console.log("New message from user: " + msg);
+    nlp.processMessage(msg);
   });
 });
 

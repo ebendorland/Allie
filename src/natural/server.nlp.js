@@ -5,8 +5,6 @@ var stemmer = natural.PorterStemmer;
 var classifier = new natural.LogisticRegressionClassifier();
 stemmer.attach();
 
-trainClassifier.trainClassifier(classifier);
-
 /*
   Read in the available responses the bot can give.
 */
@@ -48,32 +46,37 @@ function  getSimilarityRatio(arr1, arr2)
   return similarity;
 }
 
-function processMessage(msg) {
-  var msg_stem = msg.tokenizeAndStem(true);
-  var classification = classifier.classify(msg_stem);
+module.exports = {
+  trainClassifier: function() {
+    trainClassifier.trainClassifier(classifier);
+  }
 
-  for (var i = 0, len = responsesJSON.length; i < len; i++) {
-    if (responsesJSON[i].type == classification) {
-      var classified_example = getClassifiedExample(trainerJSON),
-          responsesJSON[i].type);
+  processMessage: function(msg) {
+    var socket = io.connect("https://localhost:3001");
+    var msg_stem = msg.tokenizeAndStem(true);
+    var classification = classifier.classify(msg_stem);
 
-      if (classified_example != null) {
-        var similarity = getSimilarityRatio(msg_stem, classified_example);
+    for (var i = 0, len = responsesJSON.length; i < len; i++) {
+      if (responsesJSON[i].type == classification) {
+        var classified_example = getClassifiedExample(trainerJSON),
+            responsesJSON[i].type);
 
-        if (similarity > 0.3) {
-          if (classification == "greeting" || classification == "greeting" +
-              " how are you" || classification == "greeting help me") {
-            var socket = io.connect("https://localhost:3001");
-            socket.emit("server_message", responsesJSON[i].response);
-            break;
+        if (classified_example != null) {
+          var similarity = getSimilarityRatio(msg_stem, classified_example);
+
+          if (similarity > 0.3) {
+            if (classification == "greeting" || classification == "greeting" +
+                " how are you" || classification == "greeting help me") {
+              socket.emit("server_message", responsesJSON[i].response);
+              break;
+            }
           }
         }
-      }
 
-      if (i == len - 1) {
-        console.log("I have no idea what this human is saying...");
-        socket.emit("server_message", "Sorry, I don't quite get what"
-            + " you're talking about. Could you please be more specific?");
+        if (i == len - 1) {
+          socket.emit("server_message", "Sorry, I don't quite get what"
+              + " you're talking about. Could you please be more specific?");
+        }
       }
     }
   }
