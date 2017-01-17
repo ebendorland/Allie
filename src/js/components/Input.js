@@ -12,9 +12,19 @@ export default class Input extends Component {
   render()
   {
     return(
-      <div className="Text-field">
-        <input type="text" id="usr_input"></input>
-        <input type="submit" id="send_button" onClick={this.userSendMessage}></input>
+      <div className="row">
+          <div className="col-xs-1">
+
+          </div>
+          <div className="col-xs-10">
+            <div className="row">
+                  <input className="col-xs-10 Text-field" placeholder="Type message here" id="usr_input" type="text"/>
+                  <input className="col-xs-1 send-button" type="submit" value="Send" id="send_button" onClick={this.userSendMessage}/>
+            </div>
+          </div>
+        <div className="col-xs-1">
+
+        </div>
       </div>
     )
   }
