@@ -1,0 +1,22 @@
+[
+	{
+		"example": "hello hey hi how are you?",
+		"type": "greeting"
+	},
+	{
+		"example": "what is my current balance fund?",
+		"type": "my balance fund"
+	},
+	{
+		"example": "thank",
+		"type": "appreciation"
+	},
+	{
+		"example": "what are your available products?",
+		"type": "available products"
+	},
+	{
+		"example": "what do you offer?",
+		"type": "available products"
+	}
+]
