@@ -24,5 +24,10 @@ module.exports = {
     {
       console.log("Listening for chats at: localhost:3001");
     });
+  },
+
+  serverSendMessage: function(msg) {
+    var socket = io.connect("https://localhost:3001");
+    socket.emit("server_message", msg);
   }
 }

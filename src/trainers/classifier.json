@@ -1,10 +1,10 @@
 [
   {
-    "example": "['hello','hi','hey', 'hay', 'greetings', 'good day','goodday', 'good to see you', nice to see you,good morning', 'good afternoon', 'good evening','howdy', 'hiya']",
+    "example": "hello hi hey hay good morning afternoon evening",
     "type": "greeting hello"
   },
   {
-    "example": "['hay how are you','how are you','how are you Ally']",
+    "example": "['hay how are you','how do you do','how is it going']",
     "type": "greeting how are you"
   },
   {
@@ -286,7 +286,7 @@
     "type": "['Sanlam Investment Management Value Fund','StartUnitBalance']"
   },
 
-  
+
   {
     "example": "[what is my account number for allan gray fund], ['What is my account number']",
     "type": "['Allan Gray Equity Fund','AccountNumber']"

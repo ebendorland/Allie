@@ -36,26 +36,33 @@ var stemmer = natural.PorterStemmer;
 stemmer.attach();
 
 var fStream = require("fs");
-var trainerJSON = fStream.readFileSync("trainers/trainer.json");
+var trainerJSON = fStream.readFileSync("src/trainers/classifier.json");
 
 trainerJSON = JSON.parse(trainerJSON);
 
 var classifier = new natural.LogisticRegressionClassifier();
 
-function TrainClassifier()
-{
-  for (var i = 0, len = trainerJSON.length; i < len; i++)
+module.exports = {
+  TrainClassifier: function()
   {
-    classifier.addDocument(trainerJSON[i].example.tokenizeAndStem(true),
-    trainerJSON[i].type);
-    if(trainerJSON[i].example.tokenizeAndStem(true))
-      console.log('Classifier Trained Successfully');
+    for (var i = 0, len = trainerJSON.length; i < len; i++)
+    {
+      classifier.addDocument(trainerJSON[i].example.tokenizeAndStem(true),
+      trainerJSON[i].type);
+    }
+    classifier.train();
+    var classifierJSON = JSON.stringify(classifier);
+    fStream.writeFile("src/trainers/trainedClassifier.json", classifierJSON,
+      function(err) {
+        if(err) {
+          console.log(err);
+        }
+        else {
+          console.log("Classifier saved in: /src/trainers/trainedClassifier.json");
+        }
+    });
   }
-  classifier.train();
 }
-
-TrainClassifier();
-
 /*
 ** User Input Promt ---------------------------
 */
