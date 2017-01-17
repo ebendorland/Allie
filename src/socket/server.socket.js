@@ -6,7 +6,9 @@ var io = require("socket.io")(http);
 //  Define user message event handler
 io.on("connection", function(socket) {
   console.log("New user connected.");
-  socket.on("user_message", function(msg) {
+  socket.on("user_message", function(msg)
+  {
+    //socket.emit("message",  msg);
     console.log("New message from user: " + msg);
   });
 });
