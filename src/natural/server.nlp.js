@@ -1,4 +1,3 @@
-var server = require("../socket/server.socket.js");
 var natural = require('natural');
 var fStream = require("fs");
 var stemmer = natural.PorterStemmer;
@@ -84,22 +83,24 @@ module.exports = {
           if (similarity > 0.3) {
             if (classification == "greeting hello" || classification == "greeting" +
                 " how are you" || classification == "greeting help me") {
-              server.serverSendMessage(responsesJSON[i].response);
               console.log("New message from server: " + responsesJSON[i].response);
-              break;
+              return (responsesJSON[i].response);
             }
           }
         }
 
         if (i == len - 1) {
-          server.serverSendMessage("server_message", "Sorry, I don't quite " +
-              "get what you're talking about. Could you please be" +
-              " more specific?");
               console.log("server_message", "Sorry, I don't quite " +
+                  "get what you're talking about. Could you please be" +
+                  " more specific?");
+              return ("server_message", "Sorry, I don't quite " +
                   "get what you're talking about. Could you please be" +
                   " more specific?");
         }
       }
     }
+    return ("server_message", "Sorry, I don't quite " +
+        "get what you're talking about. Could you please be" +
+        " more specific?");
   }
 }

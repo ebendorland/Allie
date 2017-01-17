@@ -9,7 +9,9 @@ io.on("connection", function(socket) {
   console.log("New user connected.");
   socket.on("user_message", function(msg) {
     console.log("New message from user: " + msg);
-    nlp.processMessage(msg);
+    var response = nlp.processMessage(msg);
+    socket.emit("server_message", response);
+    console.log("Message sent.")
   });
 });
 
@@ -24,10 +26,5 @@ module.exports = {
     {
       console.log("Listening for chats at: localhost:3001");
     });
-  },
-
-  serverSendMessage: function(msg) {
-    var socket = io.connect("https://localhost:3001");
-    socket.emit("server_message", msg);
   }
-}
+};
