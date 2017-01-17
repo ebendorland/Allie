@@ -60,10 +60,6 @@ function  getSimilarityRatio(arr1, arr2)
 }
 
 module.exports = {
-  trainClassifier: function() {
-    trainClassifier.trainClassifier();
-  },
-
   processMessage: function(msg) {
     var msg_stem = msg.tokenizeAndStem(true);
     var classification = classifier.classify(msg_stem);
