@@ -183,3 +183,68 @@ margin-top:-5px;
   color:white;
   height:150px;
 }
+
+/*New Navigation Bar*/
+
+.navigation_bar{color:blue;}
+
+.invest_now:hover{
+    opacity: 0.8;
+}
+.log_in:hover{
+  opacity:0.8;
+}
+
+
+ul.newnav .firstitem{
+  margin-left:10%;
+  margin-right:3%;
+}
+
+ul.newnav .lastitem{
+  margin-right:10%;
+}
+
+ul.newnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 2px;
+    overflow: hidden;
+    background-color: black;
+}
+
+ul.newnav li {float: left;}
+
+ul.newnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.newnav li a:hover {
+  color:#c53146;
+  cursor:pointer;
+}
+
+ul.newnav li.right {float: right;}
+
+
+
+@media screen and (max-width: 1062px){
+  ul.newnav .lastitem{margin-right:0%;}
+  ul.newnav .firstitem{margin-left:2%;}
+}
+
+@media screen and (max-width: 920px){
+  ul.newnav .firstitem{margin-left:0%;}
+
+  ul.newnav .lastitem{margin-right:0%;}
+    ul.newnav{
+      text-align: center;
+
+    }
+    ul.newnav li.right,
+    ul.newnav li {float: none;}
+}

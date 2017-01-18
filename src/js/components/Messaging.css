@@ -8,7 +8,7 @@
 }
 
 .wallpaper {
-    background-image: url(/static/media/wall-1x.0067f57c.png);
+    background-image: url(./wall-1x.png);
     background-position: center center;
     height: 86.5vh;
     position: relative;
@@ -16,51 +16,25 @@
 }
 
 .Ally-replies {
-    position: absolute;
-
-    top: 33%;
-    border: 5px solid gray;
+    /*border: 5px solid gray;*/
     padding: 5px;
     background: white;
-    width: 75%;
-    height: 50%;
+    width: 80%;
+    height: 280pt;
     overflow-y: scroll;
-    left: 12%;
 }
-/*.Header{
-  font-family: sans-serif;
-  text-align: center;
-  position: fixed;
-  color: white;
-  top: 0%;
-  width: 100%;
-  height: 13%;
-  background-color: black;
 
-}*/
 .Text-field{
-  position: fixed;
-  background-color: ;
-  height: 20%;
-  bottom: 0%;
-  width: 75%;
-  left: 16%;
+  background-color: #dfdfdf;
+  border:1px solid grey;
 }
 
 #usr_input{
-  position: fixed;
-  width: 60%;
   height: 30px;
-  top: 89%;
-
 }
 #send_button {
-    position: fixed;
-    width: 8%;
-    top: 89%;
-    /*left: 78%;*/
-    right:15.5%;
-    height: 36px;
+    height: 30px;
+    border:2px solid grey;
 }
 
 #logo{
@@ -70,24 +44,33 @@
   text-align: center;
 }
 .ally_message {
-  background: #c81e2b none repeat scroll 0 0;
-  border-radius: 12px;
-  color: #212121;
-  display: block;
-  float: left;
-  font-size: 13px;
-  padding: 8px 16px;
-  position: relative;
-}
-.user_message {
-  background: black none repeat scroll 0 0;
+  background:#c53146 none repeat scroll 0 0;
   border-radius: 12px;
   color: white;
   display: block;
-  float: right;
+  float: left;
+  margin-right: 70%;
   font-size: 13px;
   padding: 8px 16px;
   position: relative;
+  padding: 8px 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 5pt;
+}
+.user_message {
+  background: #7f7f7f none repeat scroll 0 0;
+  border-radius: 12px;
+  color: white;
+  display: inline-block;
+  font-size: 13px;
+  margin-left: 10%;
+  float: right;
+  padding: 8px 16px;
+  padding-left: 20px;
+  padding-right: 16px;
+  position: relative;
+  margin-bottom: 5pt;
 }
 
 
@@ -99,7 +82,35 @@
   border-top: 3px solid #c53146;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   background: white;
-  width: 90%;
+  width: 65%;
   height: 85%;
-  /*left: 5%;*/
+}
+
+.row > div{
+  text-align: center;
+}
+
+.send-button{
+  width:12.6%;
+  background-color: #c53146; /* Green */
+ border: none;
+ color: white;
+ padding: 5px 10px 8px 10px;;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 13px;
+ font-weight:400;
+ text-transform: uppercase;
+ /*margin: 4px 2px;*/
+
+ cursor: pointer;
+ -webkit-transition-duration: 0.4s; /* Safari */
+ transition-duration: 0.4s;
+}
+
+.ally-logo img{
+  margin-top:10pt;
+  width:70pt;
+  height:auto;
 }

@@ -2,6 +2,7 @@
 var app = require("express")();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
+var nlp = require("../natural/server.nlp.js");
 
 //  Define user message event handler
 io.on("connection", function(socket) {
@@ -10,6 +11,9 @@ io.on("connection", function(socket) {
   {
     //socket.emit("message",  msg);
     console.log("New message from user: " + msg);
+    var response = nlp.processMessage(msg);
+    socket.emit("server_message", response);
+    console.log("Message sent.")
   });
 });
 
@@ -18,9 +22,11 @@ io.on("connection", function(socket) {
     when initialising the script.
 */
 module.exports = {
-  listen: function() {
-    http.listen("3001", function() {
+  listen: function()
+  {
+    http.listen("3001", function()
+    {
       console.log("Listening for chats at: localhost:3001");
     });
   }
-}
+};

@@ -1,0 +1,14 @@
+[
+  {
+    "response": "Hi! How can I help?",
+    "type": "greeting hello"
+  },
+  {
+    "response": "Hey there! I'm great thanks :) what can I help you with today?",
+    "type": "greeting how are you"
+  },
+  {
+    "response": "Hi there! Sure thing, let me do that for you quickly :)",
+    "type": "greeting help me"
+  }
+]
