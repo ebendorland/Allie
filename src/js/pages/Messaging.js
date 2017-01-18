@@ -5,6 +5,9 @@ import Input from '../components/Input';
 import Output from '../components/Output';
 import ChatFrame from '../components/ChatFrame';
 
+import Message from "../components/Message.js";
+import ReactDOM from "react-dom";
+
 
 class Chat extends Component{
   render()

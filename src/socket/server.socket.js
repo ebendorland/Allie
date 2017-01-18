@@ -8,9 +8,9 @@ var nlp = require("../natural/server.nlp.js");
 io.on("connection", function(socket) {
   console.log("New user connected.");
   socket.on("user_message", function(msg) {
-    console.log("New message from user: " + msg);
-    var response = nlp.processMessage(msg);
-    socket.emit("server_message", response);
+    console.log("New message from user {" + msg.id + "}: " + msg.message);
+    var response = nlp.processMessage(msg.message);
+    io.to(msg.id).emit("server_message", response);
     console.log("Message sent.")
   });
 });

@@ -9,6 +9,9 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import Home from './js/pages/Home';
 import Chat from './js/pages/Messaging';
 
+import Message from "./js/components/Message.js";
+import ReactDOM from "react-dom";
+
 class AppRouter extends Component{
   render()
   {
