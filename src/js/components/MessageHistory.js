@@ -3,12 +3,20 @@ import {render} from 'react-dom';
 import {Component} from 'react';
 import Message from "./Message.js";
 
-export default class MessageHistory extends Component {
+var MessageHistory = React.createClass({
+  getInitialState() {
+    return (
+      {
+        messages: this.props.messages
+      }
+    );
+  },
+
   render() {
     return(
       <div className="message_history" id="message_history">
         {
-          this.props.messages.map(function(message, i) {
+          this.state.messages.map(function(message, i) {
             return(
               <Message key={i} message={message}></Message>
             );
@@ -17,4 +25,6 @@ export default class MessageHistory extends Component {
       </div>
     );
   }
-}
+});
+
+export default MessageHistory;

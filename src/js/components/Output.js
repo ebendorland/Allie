@@ -11,8 +11,8 @@ export default class Output extends Component{
         <div className="col-xs-1">
 
         </div>
-        <div className="Ally-replies col-xs-10" >
-          <MessageHistory />
+        <div className="Ally-replies col-xs-10" id="message_box">
+          <MessageHistory messages={[]}/>
         </div>
         <div className="col-xs-1">
 

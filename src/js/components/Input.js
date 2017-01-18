@@ -6,41 +6,34 @@ import './Messaging.css';
 
 import Message from "./Message.js";
 import ReactDOM from "react-dom";
+import MessageHistory from "./MessageHistory.js";
 
 var io = require("socket.io-client");
+
 var socket = io.connect("http://localhost:3001", {
   "force new connection": true,
   "reconnectionAttempts": "Infinity",
   "timeout": 1000,
   "transports": ["websocket"]
 });
+
 socket.on("server_message", function(msg) {
   let message = {
     message: msg,
     from: "server"
   };
-
-  var elem = <Message message={message} />;
-  ReactDOM.render(elem, document.getElementById("message_list"));
 });
 
 var Input = React.createClass ({
-  getInitialState() {
-    return( {inputValue: ""} );
-  },
-  /*onSend() {
-    // Create socket and connect to socket, then emit user message
-    var socket = io.connect("http://localhost:3001", {
-      "force new connection": true,
-      "reconnectionAttempts": "Infinity",
-      "timeout": 1000,
-      "transports": ["websocket"]
-    });
-    socket.emit("user_message", this.state.inputValue);
 
-    // Clear user input after emitting to socket
-    this.setState( {inputValue: ""} );
-  },*/
+  getInitialState() {
+    return( {inputValue: "", messages: []} );
+  },
+
+  onSend() {
+    // Call onKeyPress to make life simple
+    this.onKeyPress("Enter");
+  },
 
   onKeyPress(event) {
     if (event.key !== "Enter") {
@@ -60,8 +53,9 @@ var Input = React.createClass ({
 
     // Clear user input after emitting to socket
     this.setState( {inputValue: ""} );
-    var elem = <Message message={message} />;
-    ReactDOM.render(elem, document.getElementById("message_list"));
+    this.state.messages.push(message);
+    var elem = <MessageHistory messages={this.state.messages} />;
+    ReactDOM.render(elem, document.getElementById("message_box"));
   },
 
   handleChange(event) {
