@@ -2,6 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {Component} from 'react';
 import { Row, Col} from 'react-bootstrap';
+import MessageHistory from "./MessageHistory.js";
 
 export default class Output extends Component{
   render(){
@@ -11,7 +12,7 @@ export default class Output extends Component{
 
         </div>
         <div className="Ally-replies col-xs-10" >
-          <div id="message_list"></div>
+          <MessageHistory />
         </div>
         <div className="col-xs-1">
 
