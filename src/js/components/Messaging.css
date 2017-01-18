@@ -47,25 +47,30 @@
   background:#c53146 none repeat scroll 0 0;
   border-radius: 12px;
   color: white;
-  /*display: block;*/
-  /*float: left;*/
+  display: block;
+  float: left;
   margin-right: 70%;
   font-size: 13px;
   padding: 8px 16px;
   position: relative;
+  padding: 8px 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 5pt;
 }
 .user_message {
   background: #7f7f7f none repeat scroll 0 0;
   border-radius: 12px;
   color: white;
-  display: block;
+  display: inline-block;
   font-size: 13px;
-  margin-left: 70%;
-  /*float: right;*/
+  margin-left: 10%;
+  float: right;
   padding: 8px 16px;
   padding-left: 20px;
   padding-right: 16px;
   position: relative;
+  margin-bottom: 5pt;
 }
 
 
