@@ -44,22 +44,24 @@
   text-align: center;
 }
 .ally_message {
-  background: #c81e2b none repeat scroll 0 0;
+  background:#c53146 none repeat scroll 0 0;
   border-radius: 12px;
-  color: #212121;
-  display: block;
-  float: left;
+  color: white;
+  /*display: block;*/
+  /*float: left;*/
+  margin-right: 70%;
   font-size: 13px;
   padding: 8px 16px;
   position: relative;
 }
 .user_message {
-  background: black none repeat scroll 0 0;
+  background: #7f7f7f none repeat scroll 0 0;
   border-radius: 12px;
   color: white;
   display: block;
   font-size: 13px;
-  float: right;
+  margin-left: 70%;
+  /*float: right;*/
   padding: 8px 16px;
   padding-left: 20px;
   padding-right: 16px;
@@ -103,6 +105,7 @@
 }
 
 .ally-logo img{
+  margin-top:10pt;
   width:70pt;
   height:auto;
 }
