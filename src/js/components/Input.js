@@ -32,7 +32,10 @@ var Input = React.createClass ({
 
   onSend() {
     // Call onKeyPress to make life simple
-    this.onKeyPress("Enter");
+    let event = {
+      key: "Enter"
+    }
+    this.onKeyPress(event);
   },
 
   onKeyPress(event) {
