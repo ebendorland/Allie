@@ -22,6 +22,9 @@ socket.on("server_message", function(msg) {
     message: msg,
     from: "server"
   };
+  Input.state.messages.push(message);
+  var elem = <MessageHistory messages={Input.state.messages} />;
+  ReactDOM.render(elem, document.getElementById("message_box"));
 });
 
 var Input = React.createClass ({
