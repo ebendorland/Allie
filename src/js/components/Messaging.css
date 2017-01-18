@@ -56,6 +56,7 @@
   padding: 8px 16px;
   padding-left: 20px;
   padding-right: 20px;
+  margin-bottom: 5pt;
 }
 .user_message {
   background: #7f7f7f none repeat scroll 0 0;
@@ -69,6 +70,7 @@
   padding-left: 20px;
   padding-right: 16px;
   position: relative;
+  margin-bottom: 5pt;
 }
 
 
