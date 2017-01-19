@@ -1,12 +1,9 @@
 import React from 'react';
-import {render} from 'react-dom';
 import {Component} from 'react';
 import './Messaging.css';
 import person from './person.png';
 import Output from './Output.js';
 import Input from './Input.js';
-
-import { Row, Col} from 'react-bootstrap';
 
 export default class ChatFrame extends Component {
   render()
@@ -20,7 +17,7 @@ export default class ChatFrame extends Component {
                       <div className="col-xs-3">
                       </div>
                       <div className="col-xs-6 ally-logo">
-                          <img className="" src={person}/>
+                          <img className="" src={person} alt="ally"/>
                       </div>
                       <div className="col-xs-3">
                       </div>

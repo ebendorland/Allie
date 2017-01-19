@@ -1,10 +1,5 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-import {render} from 'react-dom';
-import {Component} from 'react';
 import './Messaging.css';
-
-import Message from "./Message.js";
 import ReactDOM from "react-dom";
 import MessageHistory from "./MessageHistory.js";
 

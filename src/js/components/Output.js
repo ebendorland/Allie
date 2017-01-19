@@ -1,7 +1,5 @@
 import React from 'react';
-import {render} from 'react-dom';
 import {Component} from 'react';
-import { Row, Col} from 'react-bootstrap';
 import MessageHistory from "./MessageHistory.js";
 
 export default class Output extends Component{

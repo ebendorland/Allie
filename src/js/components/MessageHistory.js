@@ -1,6 +1,4 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {Component} from 'react';
 import Message from "./Message.js";
 
 var MessageHistory = React.createClass({
