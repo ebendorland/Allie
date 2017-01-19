@@ -12,6 +12,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "express": "^4.10.2",
+    "json-server": "^0.9.4",
     "load-js": "^1.2.0",
     "natural": "^0.4.0",
     "react": "^15.4.2",
@@ -21,7 +22,9 @@
     "socket.io": "^1.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm run json-server-start & npm run react-start",
+    "json-server-start": "json-server --watch src/jsonserver/db.json --port 3002",
+    "react-start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

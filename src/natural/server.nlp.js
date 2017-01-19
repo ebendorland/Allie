@@ -5,6 +5,7 @@ var app = require("express")();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
 var stemmer = natural.PorterStemmer;
+var trainClassifier = require("./ClassifierTrainer.js");
 stemmer.attach();
 /*
   Read in the available responses the bot can give.
@@ -18,6 +19,11 @@ responsesJSON = JSON.parse(responsesJSON);
 */
 var trainerJSON = fStream.readFileSync("src/trainers/classifier.json");
 trainerJSON = JSON.parse(trainerJSON);
+
+
+trainClassifier.TrainClassifier();
+
+
 /*
   Read in already trained classifier to be used when categorising
   the user's messages.
@@ -113,7 +119,7 @@ module.exports = {
                 console.log("Error");
                 return error;
               }
-              else if(classification.length != 1)
+              else if(classifier.length != 1)
               {
                 console.log(body[0][descr[1]]);
                 io.on("connection", function(socket) {

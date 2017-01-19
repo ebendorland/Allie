@@ -40,7 +40,7 @@ var trainerJSON = fStream.readFileSync("src/trainers/classifier.json");
 
 trainerJSON = JSON.parse(trainerJSON);
 
-var classifier = new natural.LogisticRegressionClassifier();
+var classifier = new natural.BayesClassifier();
 
 module.exports = {
   TrainClassifier: function()
@@ -52,15 +52,7 @@ module.exports = {
     }
     classifier.train();
     var classifierJSON = JSON.stringify(classifier);
-    fStream.writeFile("src/trainers/trainedClassifier.json", classifierJSON,
-      function(err) {
-        if(err) {
-          console.log(err);
-        }
-        else {
-          console.log("Classifier saved in: /src/trainers/trainedClassifier.json");
-        }
-    });
+    fStream.writeFileSync("src/trainers/trainedClassifier.json", classifierJSON);
   }
 }
 /*
