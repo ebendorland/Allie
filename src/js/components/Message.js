@@ -1,10 +1,9 @@
 import React from 'react';
-import {render} from 'react-dom';
 import {Component} from 'react';
 
 export default class Message extends Component {
   generateClass() {
-    if (this.props.message.from == "server") {
+    if (this.props.message.from === "server") {
       return ("ally_message");
     }
     else {
