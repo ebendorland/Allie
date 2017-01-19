@@ -21,7 +21,7 @@ export default class Message extends Component {
       <div>
           <div className={this.props.message.from}></div>
           <div className="surrounding_div">
-            <div clasdsName={this.generateClass()}>
+            <div className={this.generateClass()}>
               <div className="message">{this.props.message.message}</div>
             </div>
           </div>
