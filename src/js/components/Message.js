@@ -17,6 +17,7 @@ export default class Message extends Component {
         <div className={this.generateClass()}>
           <div className="message">{this.props.message.message}</div>
           <div>{timer.chaTime()}</div>
+
         </div>
     );
   }

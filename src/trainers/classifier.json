@@ -1,0 +1,298 @@
+[
+  {
+    "example": "hello hi hey hay good morning afternoon evening",
+    "type": "greeting hello"
+  },
+  {
+    "example": "['hay how are you','how do you do','how is it going']",
+    "type": "greeting how are you"
+  },
+  {
+    "example": "what is my total balance",
+    "type": "portfolio value"
+  },
+  {
+    "example": "what is my total portfolio value",
+    "type": "portfolio value"
+  },
+  {
+    "example": "what is my total investment value",
+    "type": "portfolio value"
+  },
+  {
+    "example": "['total balance','total value', 'total investment']",
+    "type": "portfolio value"
+  },
+  {
+    "example": "balance for Allan Gray fund",
+    "type": "['Allan Gray Equity Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Allan Gray']",
+    "type": "['Allan Gray Equity Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Cadiz Mastermind Fund",
+    "type": "['Cadiz Mastermind Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Cadiz Mastermind Fund']",
+    "type": "['Cadiz Mastermind Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Investec Value Fund",
+    "type": "['Investec Value Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Investec Value Fund']",
+    "type": "['Investec Value Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Old Mutual Top 40 Fund",
+    "type": "['Old Mutual Top 40 Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Old Mutual Top 40 Fund']",
+    "type": "['Old Mutual Top 40 Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Old Mutual Industrial Fund",
+    "type": "['Old Mutual Industrial Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Old Mutual Industrial Fund']",
+    "type": "['Old Mutual Industrial Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Sanlam Management Resources Fund",
+    "type": "['Sanlam Investment Management Resources Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Sanlam Management Resources Fund']",
+    "type": "['Sanlam Investment Management Resources Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Oasis Fund",
+    "type": "['Oasis Crescent Equity Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Oasis Fund']",
+    "type": "['Oasis Crescent Equity Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Sygnia Fund",
+    "type": "['Sygnia Value Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Sygnia Fund']",
+    "type": "['Sygnia Value Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Momentum Multifocus Fund",
+    "type": "['Momentum Multifocus Fund of Funds','EndNetMarketValue']"
+  },
+  {
+    "example": "balance','value','market value', 'Momentum Multifocus Fund ']",
+    "type": "['Momentum Multifocus Fund of Funds','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Grindrod Fund']",
+    "type": "['Grindrod Equity Income Growth Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Grindrod Fund",
+    "type": "['Grindrod Equity Income Growth Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Counterpoint Fund']",
+    "type": "['Counterpoint MET Value Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Counterpoint Fund",
+    "type": "['Counterpoint MET Value Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Coronation Fund']",
+    "type": "['Coronation Top 20 Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "value for Coronation Fund",
+    "type": "['Coronation Top 20 Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','Absa', 'absa', 'Absa Smart Fund']",
+    "type": "['Absa Smart Alpha Equity Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Absa Smart Fund",
+    "type": "['Absa Smart Alpha Equity Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Nedgroup Inv Rainmaker Fund']",
+    "type": "['Nedgroup Inv Rainmaker Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Nedgroup Inv Rainmaker Fund",
+    "type": "['Nedgroup Inv Rainmaker Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "['balance','value','market value', 'Sanlam Management Value Fund']",
+    "type": "['Sanlam Investment Management Value Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "balance for Sanlam Management Value Fund",
+    "type": "['Sanlam Investment Management Value Fund','EndNetMarketValue']"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "example": "['whats my start unit balance for Allan Gray Equity Fund']",
+    "type": "['Allan Gray Equity Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Allan Gray Equity Fund', 'Allan Gray Equity Fund start unit balance' , 'start unit balance allan gray']",
+    "type": "['Allan Gray Equity Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Cadiz Mastermind Fund']",
+    "type": "['Cadiz Mastermind Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Cadiz Mastermind Fund', 'cadiz mastermind Fund start unit balance' , 'start unit balance cadiz mastermind', 'start unit price Cadiz']",
+    "type": "['Cadiz Mastermind Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Investec Value Fund']",
+    "type": "['Investec Value Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Investec Value Fund', 'Investec Value Fund start unit balance' , 'start unit balance Investec Value', 'start unit balance for Investec']",
+    "type": "['Investec Value Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Old Mutual Top 40 Fund']",
+    "type": "['Old Mutual Top 40 Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Old Mutual Top 40 Fund', 'Old Mutual Top 40 Fund start unit balance' , 'start unit balance Old Mutual Top 40', 'start unit price Old Mutual Top']",
+    "type": "['Old Mutual Top 40 Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Old Mutual Industrial Fund']",
+    "type": "['Old Mutual Industrial Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Old Mutual Industrial Fund', 'Old Mutual Industrial Fund start unit balance' , 'start unit balance Old Mutual Industrial']",
+    "type": "['Old Mutual Industrial Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Sanlam Investment Management Resources Fund']",
+    "type": "['Sanlam Investment Management Resources Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Sanlam Investment Management Resources Fund', 'Sanlam Investment Management Resources Fund start unit balance' , 'start unit balance Sanlam Investment Management Resources', 'sanlam resources fund', 'sanlam resource fund', 'sanlam resources', 'sanlam resource']",
+    "type": "['Sanlam Investment Management Resources Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Oasis Crescent Equity Fund']",
+    "type": "['Oasis Crescent Equity Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Oasis Crescent Equity Fund', 'Oasis Crescent Equity Fund start unit balance' , 'start unit balance Oasis Crescent Equity', 'start unit price Oasis Crescent Equity']",
+    "type": "['Oasis Crescent Equity Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Sygnia Value Fund']",
+    "type": "['Sygnia Value Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Sygnia Value Fund', 'Sygnia Value Fund start unit balance' , 'start unit balance Sygnia Value', 'start unit balance Sygnia']",
+    "type": "['Sygnia Value Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Momentum Multifocus Fund of Funds']",
+    "type": "['Grindrod Equity Income Growth Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Momentum Multifocus Fund of Funds', 'Momentum Multifocus Fund of Funds start unit balance' , 'start unit balance Momentum Multifocus Fund', 'start unit balance Momentum Multifocus', 'start unit balance Momentum']",
+    "type": "['Momentum Multifocus Fund of Funds','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Grindrod Equity Income Growth Fund']",
+    "type": "['Sygnia Value Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Grindrod Equity Income Growth Fund', 'Grindrod Equity Income Growth Fund start unit balance' , 'start unit balance Grindrod Equity Income Growth', 'start unit balance Grindrod Equity Income', 'start unit balance Grindrod Equity', 'start unit balance Grindrod']",
+    "type": "['Grindrod Equity Income Growth Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Counterpoint MET Value Fund']",
+    "type": "['Counterpoint MET Value Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Counterpoint MET Value Fund', 'Counterpoint MET Value Fund start unit balance' , 'start unit balance Counterpoint MET Value', 'start unit balance Counterpoint MET', 'start unit balance Counterpoint']",
+    "type": "['Counterpoint MET Value Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Coronation Top 20 Fund']",
+    "type": "['Coronation Top 20 Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Coronation Top 20 Fund', 'Coronation Top 20 Fund start unit balance' , 'start unit balance Coronation Top 20', 'start unit balance Coronation Top', 'start unit balance Coronation']",
+    "type": "['Coronation Top 20 Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Absa Smart Alpha Equity Fund']",
+    "type": "['Absa Smart Alpha Equity Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Absa Smart Alpha Equity Fund', 'Absa Smart Alpha Equity Fund start unit balance' , 'start unit balance Absa Smart Alpha Equity', 'start unit balance Absa Smart Alpha', 'start unit balance Absa Smart', 'start unit balance Absa']",
+    "type": "['Absa Smart Alpha Equity Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Nedgroup Inv Rainmaker Fund']",
+    "type": "['Nedgroup Inv Rainmaker Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Nedgroup Inv Rainmaker Fund', 'Nedgroup Inv Rainmaker Fund start unit balance' , 'start unit balance Nedgroup Inv Rainmaker', 'start unit balance Nedgroup Inv', 'start unit balance Nedgroup']",
+    "type": "['Nedgroup Inv Rainmaker Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['whats my start unit balance for Sanlam Investment Management Value Fund']",
+    "type": "['Sanlam Investment Management Value Fund','StartUnitBalance']"
+  },
+  {
+    "example": "['Start Unit balance Sanlam Investment Management Value Fund', 'Sanlam Investment Management Value Fund start unit balance' , 'start unit balance Sanlam Investment Management Value', 'sanlam value fund', 'sanlam value']",
+    "type": "['Sanlam Investment Management Value Fund','StartUnitBalance']"
+  },
+
+
+  {
+    "example": "[what is my account number for allan gray fund], ['What is my account number']",
+    "type": "['Allan Gray Equity Fund','AccountNumber']"
+  },
+  {
+    "example": "['account number', 'account refrence', 'account', 'refrence', 'allan gray']",
+    "type": "['Allan Gray Equity Fund','AccountNumber']"
+  }
+]
