@@ -1,5 +1,14 @@
+"use strict";
+
 var natural = require('natural');
 var fStream = require("fs");
+
+
+var req = require('./serverCalls');
+var sleep = require('sleep');
+
+
+
 var stemmer = natural.PorterStemmer;
 stemmer.attach();
 
@@ -23,6 +32,7 @@ trainerJSON = JSON.parse(trainerJSON);
 */
 var classifier = fStream.readFileSync("src/trainers/trainedClassifier.json");
 classifier = JSON.parse(classifier);
+
 classifier = natural.LogisticRegressionClassifier.restore(classifier);
 
 function  getClassifiedExample(trainerList, type) {
@@ -37,7 +47,10 @@ function  getClassifiedExample(trainerList, type) {
 function  getSimilarityRatio(arr1, arr2)
 {
   var simCount = 0;
-  var similarity = 0;
+  v// To add to window
+if (!window.Promise) {
+  window.Promise = Promise;
+} var similarity = 0;
   var len1 = arr1.length;
   var len2 = arr2.length;
 
@@ -85,18 +98,134 @@ module.exports = {
           }
         }
 
-        if (i == len - 1) {
-              console.log("server_message", "Sorry, I don't quite " +
-                  "get what you're talking about. Could you please be" +
-                  " more specific?");
-              return ("server_message", "Sorry, I don't quite " +
-                  "get what you're talking about. Could you please be" +
-                  " more specific?");
+
+        if (i == len - 1)
+        {
+            console.log("server_message", "Sorry, I don't quite " + "get what you're talking about. Could you please be" +" more specific?");
+            return ("server_message", "Sorry, I don't quite " + "get what you're talking about. Could you please be" +" more specific?");
         }
+
+
       }
     }
-    return ("server_message", "Sorry, I don't quite " +
-        "get what you're talking about. Could you please be" +
-        " more specific?");
+    //return ("server_message", "Sorry, I don't quite " + "get what you're talking about. Could you please be" + " more specific???");
+    if(httpRequests(msg)!="none")
+    {
+      var answer=httpRequests(msg);
+
+
+      return httpRequests(msg);
+
+    }
+    else
+    {
+      console.log("server_message", "Sorry, I don't quite " + "get what you're talking about. Could you please be" +" more specific?");
+      return ("server_message", "Sorry, I don't quite " + "get what you're talking about. Could you please be" +" more specific?");
+    }
   }
 }
+
+
+var dictionary=function(statement)
+{
+    var searchkeys=statement.split(" ");
+    var key1="";
+    var key2="";
+
+    var fundDescDict = {
+     allan: "Allan Gray Equity Fund",
+     sanlam: "Sanlam Investment Management Resources Fund",
+     investec:"Investec Value Fund",
+     cadiz: "Cadiz Mastermind Fund",
+     oasis:"Oasis Crescent Equity Fund",
+     sygnia:"Sygnia Value Fund",
+     mutual:"Old Mutual Top 40 Fund",
+     "mutual industrial":"Old Mutual Industrial Fund"
+   };
+
+    var keysDict={
+      "balance": "StartUnitBalance",
+      "price":"StartUnitPrice",
+      "ratio":"StartRatio",
+      "market":"StartMarketValue"
+
+    };
+
+    for(var i=0;i<searchkeys.length;i++)
+    {
+
+
+       if((fundDescDict[searchkeys[i].toLowerCase()])!=undefined)
+       {
+
+          key1+=fundDescDict[searchkeys[i].toLowerCase()]+",";
+       }
+       if((keysDict[searchkeys[i].toLowerCase()])!=undefined )
+       {
+         key2+=keysDict[searchkeys[i].toLowerCase()];
+       }
+    }
+    return key1+""+key2;
+
+}
+
+
+
+
+
+
+
+
+
+
+var httpRequests= function(msg) {
+
+          var mssg=dictionary(msg);
+          console.log(mssg);
+          // var options = {
+          //
+          //       url:"http://localhost:3000/funds?fundReportingDescription="+mssg.split(",")[0],
+          //
+          //       headers: {
+          //           method:"GET",
+          //           json:true,
+          //       }
+          // };
+          //
+          //
+          // request.get(options).then(function(body) {
+          //     //var json = JSON.parse(body);
+          //     //console.log("tt: "+(body[0][mssg.split(",")[1]]))
+          //     return((body[0][mssg.split(",")[1]]));
+          // });
+
+
+
+         if(mssg.split(",")[1]!=undefined)
+         {
+           request({
+               url:"http://localhost:3000/funds?fundReportingDescription="+mssg.split(",")[0],
+               method:"GET",
+               json:true,
+
+
+             }, function (error,response,body,data)
+                {
+                     if(error)
+                     {
+                       console.log("Error");
+                       return error;
+                     }
+                     else
+                     {
+                       console.log(body[0][mssg.split(",")[1]]);
+                      return((body[0][mssg.split(",")[1]]));
+                      }
+                  });
+            }
+
+            else {
+              return "none";
+            }
+
+};
