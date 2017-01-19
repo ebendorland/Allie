@@ -31,6 +31,24 @@ trainClassifier.TrainClassifier();
 var classifier = fStream.readFileSync("src/trainers/trainedClassifier.json");
 classifier = JSON.parse(classifier);
 classifier = natural.BayesClassifier.restore(classifier);
+
+/*
+  receive a string entered by user and classify it according to the
+  specified keywords. Return a list of keywords to use to query DB
+*/
+var languageProccessing = function(statement)
+{
+  var input = classifier.classify(statement);
+
+  input = input.replace('[','');
+  input = input.replace(']','');
+  input = (input.split("\'")).join('');
+  input = input.split(",");
+
+  console.log("Processed user message: " + input);
+  return input;
+}
+
 function  getClassifiedExample(trainerList, type) {
   for (var i = 0, len = trainerList.length; i < len; i++) {
     if (trainerList[i].type == type) {
@@ -61,8 +79,13 @@ function  getSimilarityRatio(arr1, arr2)
   }
   return similarity;
 }
+
 module.exports = {
-  processMessage: function(msg) {
+  processMessage: function(message) {
+    var data_to_ret = null;
+
+    console.log("Server received message:", message);
+    var msg = message.message;
     var msg_stem = msg.tokenizeAndStem(true);
     var classification = classifier.classify(msg_stem);
     console.log("Classified as: " + classification);
@@ -83,16 +106,10 @@ module.exports = {
             }
           }
         }
-        if (i == len - 1) {
-              console.log("server_message", "Sorry, I don't quite " +
-                  "get what you're talking about. Could you please be" +
-                  " more specific?");
-              return ("server_message", "Sorry, I don't quite " +
-                  "get what you're talking about. Could you please be" +
-                  " more specific?");
-        }
       }
     }
+
+    // Retrieve data from server
     var mssg = classification;
     mssg = mssg.replace("[","");
     mssg = mssg.replace("]","");
@@ -102,35 +119,61 @@ module.exports = {
     mssg = mssg.replace("'","");
     //console.log(mssg);
     var descr = mssg.split(",");
-    console.log(descr[0]);
-    console.log(descr[1]);
-    //.classification = classification.replace("[","");
-    //classification = classification.replace("]","");
-    if(descr)
+    console.log("Log descr[0]:", descr[0]);
+    console.log("Log descr[1]:", descr[1]);
+    if(descr[0] && descr[1])
     {
-    request({
-        url:"http://localhost:3000/funds?fundReportingDescription="+descr[0],
-        method:"GET",
-        json:true,
-      }, function (error,response,body,data)
-         {
-              if(error)
-              {
-                console.log("Error");
-                return error;
-              }
-              else if(classifier.length != 1)
-              {
-                console.log(body[0][descr[1]]);
-                io.on("connection", function(socket) {
-                  socket.emit("server_message", body[0][descr[1]]);
-                });
-                return "hey";
-               }
-               else{
-                 return "Hello to you too";
-               }
-           });
-     }
+      console.log("descr[0] && descr[1]: ", descr);
+      var sync = true;
+      request({
+          url:"http://localhost:3002/funds?fundReportingDescription="+descr[0],
+          method:"GET",
+          json:true,
+          async:false,
+        },
+        function (error,response,body,data)
+        {
+          console.log("User id in httprequest:", message.id);
+          if(error)
+          {
+            console.log("Error");
+            data_to_ret = "Error: " + error;
+            console.log("This is in data_to_ret:", data_to_ret);
+            sync = false;
+          }
+          else if(classifier.length != 1)
+          {
+            console.log("This is the result from the server:", body[0][descr[1]]);
+            data_to_ret = body[0][descr[1]];
+            console.log("This is in data_to_ret:", data_to_ret);
+            sync = false;
+          }
+          else
+          {
+            sync = false;
+          }
+          //No idea what the below code is
+          /*else
+          {
+            data_to_ret = "Hello to you too";
+          }*/
+        });
+        while(sync)
+        {
+          require("deasync").sleep(100);
+        }
+      }
+
+      console.log("This is the value to be returned:", data_to_ret);
+      if(data_to_ret)
+      {
+        console.log("This is the value to be returned:", data_to_ret);
+        return (data_to_ret);
+      }
+      else
+      {
+        return ("Sorry, I don't quite get what you mean. Could you please" +
+            " be more specific?");
+      }
   }
 }

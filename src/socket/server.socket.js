@@ -7,10 +7,18 @@ var nlp = require("../natural/server.nlp.js");
 //  Define user message event handler
 io.on("connection", function(socket) {
   console.log("New user connected.");
+
   socket.on("user_message", function(msg) {
     console.log("New message from user {" + msg.id + "}: " + msg.message);
-    var response = nlp.processMessage(msg.message);
-    io.to(msg.id).emit("server_message", response);
+    var response = nlp.processMessage(msg);
+    if (response)
+      io.to(msg.id).emit("server_message", response);
+    console.log("Message sent.")
+  });
+
+  socket.on("server:server", function(msg) {
+    console.log("Message from server to user {" + msg.id + "}: " + msg.message);
+    io.to(msg.id).emit("server_message", msg.message);
     console.log("Message sent.")
   });
 });
