@@ -17,20 +17,22 @@ var socket = io.connect("http://localhost:3001", {
   "transports": ["websocket"]
 });
 
-socket.on("server_message", function(msg) {
-  let message = {
-    message: msg,
-    from: "server"
-  };
-  Input.state.messages.push(message);
-  var elem = <MessageHistory messages={Input.state.messages} />;
-  ReactDOM.render(elem, document.getElementById("message_box"));
-});
-
 var Input = React.createClass ({
 
   getInitialState() {
     return( {inputValue: "", messages: []} );
+  },
+
+  componentDidMount() {
+    socket.on("server_message", (msg) => {
+      let message = {
+        message: msg,
+        from: "server"
+      };
+      this.state.messages.push(message);
+      var elem = <MessageHistory messages={this.state.messages} />;
+      ReactDOM.render(elem, document.getElementById("message_box"));
+    })
   },
 
   onSend() {
