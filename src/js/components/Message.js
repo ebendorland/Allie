@@ -12,13 +12,19 @@ export default class Message extends Component {
     }
   }
 
-  render() {
+render() {
     return(
-        <div className={this.generateClass()}>
-          <div className="message">{this.props.message.message}</div>
-          <div>{timer.chaTime()}</div>
-
-        </div>
+      <div>
+          <div className={this.props.message.from}></div>
+          <div className="surrounding_div">
+            <div className={this.generateClass()}>
+              <div className="message">{this.props.message.message}</div>
+                <div className="chaTime">{timer.chaTime()}</div>
+            </div>
+          </div>
+      </div>
     );
   }
+
+
 }
