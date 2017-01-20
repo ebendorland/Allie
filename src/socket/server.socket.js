@@ -7,19 +7,19 @@ var nlp = require("../natural/server.nlp.js");
 //  Define user message event handler
 io.on("connection", function(socket) {
   console.log("New user connected.");
+  console.log("");
+  console.log("");
 
   socket.on("user_message", function(msg) {
     console.log("New message from user {" + msg.id + "}: " + msg.message);
+    console.log("");
+    console.log("");
     var response = nlp.processMessage(msg);
     if (response)
       io.to(msg.id).emit("server_message", response);
     console.log("Message sent.")
-  });
-
-  socket.on("server:server", function(msg) {
-    console.log("Message from server to user {" + msg.id + "}: " + msg.message);
-    io.to(msg.id).emit("server_message", msg.message);
-    console.log("Message sent.")
+    console.log("");
+    console.log("");
   });
 });
 
@@ -33,6 +33,8 @@ module.exports = {
     http.listen("3001", function()
     {
       console.log("Listening for chats at: localhost:3001");
+      console.log("");
+      console.log("");
     });
   }
 };
