@@ -1,14 +1,26 @@
 [
   {
-    "example": "['hello','hi','hey', 'hay', 'greetings', 'good day','goodday', 'good to see you', nice to see you,good morning', 'good afternoon', 'good evening','howdy', 'hiya']",
-    "type": "greeting hello"
-  },
+   "example": "['hello','hi','hey', 'hay', 'greetings', 'good day', 'goodday', 'Whats up', 'good to see you', 'good morning', 'good afternoon', 'good evening', 'howdy', 'hiya', 'Hey man', 'Howzit', 'Heita', 'Aweh', 'Sawubona', 'Molo', 'Unjani', 'Thobela', 'Dumela', 'Hoe gaan dit', 'Sharp Fede', 'Bonjour', 'I ni sogoma', 'As-Salaam-Alaikum', 'Jambo','Lumela',' Moni','Olá','Hallo','Sànnu','Ibaulachi ','Bawo','Muli shani','Mhoro']",
+   "type": "greeting hello"
+   },
   {
-    "example": "['hay how are you','how are you','how are you Ally']",
-    "type": "greeting how are you"
+   "example": "['how are you','How’s it going','How are you doing','What’s up','What’s new','What’s going on','How’s everything','How are things','How’s life','How’s your day going','How have you been','Sup','Whazzup','What’s cracking?','Hello, hoe gaan dit?','unjani?','Molo, kunjani?','Lotjhani, Unjani?','Dumela, O kae?','Ndaa, vho vuwa hani?','Avuxeni, Ku njhani?', 'O tsogile jang? Le kae', 'Comment allez vous']",
+   "type": "greeting how you doing"
   },
+   {
+     "example": "['morning','good morning']",
+     "type": "greeting time morning"
+   },
+   {
+     "example": "['afternoon','good afternoon']",
+     "type": "greeting time afternoon"
+   },
+   {
+     "example": "['evening', 'good evening']",
+     "type": "greeting time evening"
+   },
   {
-    "example": "balance for Allan Gray fund",
+    "example": "what is my balance for Allan Gray fund",
     "type": "['Allan Gray Equity Fund','EndNetMarketValue']"
   },
   {
@@ -17,10 +29,6 @@
   },
   {
     "example": "balance for Cadiz Mastermind Fund",
-    "type": "['Cadiz Mastermind Fund','EndNetMarketValue']"
-  },
-  {
-    "example": "['balance','value','market value', 'Cadiz Mastermind Fund']",
     "type": "['Cadiz Mastermind Fund','EndNetMarketValue']"
   },
   {
@@ -131,12 +139,74 @@
 
 
 
+  {
+    "example": "end net market value for Allan Gray fund",
+    "type": "['Allan Gray Equity Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Cadiz Mastermind Fund",
+    "type": "['Cadiz Mastermind Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Investec Value Fund",
+    "type": "['Investec Value Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Old Mutual Top 40 Fund",
+    "type": "['Old Mutual Top 40 Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Old Mutual Industrial Fund",
+    "type": "['Old Mutual Industrial Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Sanlam Management Resources Fund",
+    "type": "['Sanlam Investment Management Resources Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Oasis Fund",
+    "type": "['Oasis Crescent Equity Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Sygnia Fund",
+    "type": "['Sygnia Value Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Momentum Multifocus Fund",
+    "type": "['Momentum Multifocus Fund of Funds','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Grindrod Fund",
+    "type": "['Grindrod Equity Income Growth Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Counterpoint Fund",
+    "type": "['Counterpoint MET Value Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Coronation Fund",
+    "type": "['Coronation Top 20 Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Absa Smart Fund",
+    "type": "['Absa Smart Alpha Equity Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Nedgroup Inv Rainmaker Fund",
+    "type": "['Nedgroup Inv Rainmaker Fund','EndNetMarketValue']"
+  },
+  {
+    "example": "end net market value for for Sanlam Management Value Fund",
+    "type": "['Sanlam Investment Management Value Fund','EndNetMarketValue']"
+  },
 
 
 
 
-
-
+  {
+    "example": "['end market value'] Sanlam Investment Management Value Fund",
+    "type": "'Sanlam Investment Management Value Fund','EndMarketValue'"
+  },
 
 
 
@@ -542,7 +612,7 @@
   },
   {
       "example": "total start market value Nedgroup Inv Rainmaker Fund",
-      "type": "'','TotalStartMarketValue'"
+      "type": "'Nedgroup Inv Rainmaker Fund','TotalStartMarketValue'"
   },
   {
       "example": "total start market value Sanlam Investment Management Value Fund",
@@ -554,25 +624,133 @@
 
 
 
-  {
-      "example": "start unallotted market value",
-      "type": "'Allan Gray Equity Fund','StartUnallottedMarketValue'"
-  },
+
+
+
+    {
+        "example": "Incl unallotted total start market value Incl unallotted",
+        "type": "'Allan Gray Equity Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Cadiz Mastermind Fund",
+        "type": "'Cadiz Mastermind Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Investec Value Fund",
+        "type": "'Investec Value Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Old Mutual Top 40 Fund",
+        "type": "'Old Mutual Top 40 Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Old Mutual Industrial Fund",
+        "type": "'Old Mutual Industrial Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Sanlam Investment Management Resources Fund",
+        "type": "'Sanlam Investment Management Resources Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Oasis Crescent Equity Fund",
+        "type": "'Oasis Crescent Equity Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Sygnia Value Fund",
+        "type": "'Sygnia Value Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Momentum Multifocus Fund of Funds",
+        "type": "'Momentum Multifocus Fund of Funds','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Grindrod Equity Income Growth Fund",
+        "type": "'Grindrod Equity Income Growth Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Counterpoint MET Value Fund",
+        "type": "'Counterpoint MET Value Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Coronation Top 20 Fund",
+        "type": "'Coronation Top 20 Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Absa Smart Alpha Equity Fund",
+        "type": "'Absa Smart Alpha Equity Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Nedgroup Inv Rainmaker Fund",
+        "type": "'Nedgroup Inv Rainmaker Fund','TotalStartMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total start market value Incl unallotted Sanlam Investment Management Value Fund",
+        "type": "'Sanlam Investment Management Value Fund','TotalStartMarketValueInclUnallotted'"
+    },
 
 
 
 
-
-
-
-  {
-      "example": "Incl unallotted total start market value Incl unallotted",
-      "type": "'Allan Gray Equity Fund','TotalStartMarketValueInclUnallotted'"
-  },
-
-
-
-
+    {
+        "example": "total end market value Incl unallotted Allan Gray Equity Fund",
+        "type": "'Allan Gray Equity Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Cadiz Mastermind Fund",
+        "type": "'Cadiz Mastermind Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Investec Value Fund",
+        "type": "'Investec Value Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Old Mutual Top 40 Fund",
+        "type": "'Old Mutual Top 40 Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Old Mutual Industrial Fund",
+        "type": "'Old Mutual Industrial Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Sanlam Investment Management Resources Fund",
+        "type": "'Sanlam Investment Management Resources Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Oasis Crescent Equity Fund",
+        "type": "'Oasis Crescent Equity Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Sygnia Value Fund",
+        "type": "'Sygnia Value Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Momentum Multifocus Fund of Funds",
+        "type": "'Momentum Multifocus Fund of Funds','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Grindrod Equity Income Growth Fund",
+        "type": "'Grindrod Equity Income Growth Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Counterpoint MET Value Fund",
+        "type": "'Counterpoint MET Value Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Coronation Top 20 Fund",
+        "type": "'Coronation Top 20 Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Absa Smart Alpha Equity Fund",
+        "type": "'Absa Smart Alpha Equity Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Nedgroup Inv Rainmaker Fund",
+        "type": "'Nedgroup Inv Rainmaker Fund','TotalEndMarketValueInclUnallotted'"
+    },
+    {
+        "example": "total end market value Incl unallotted Sanlam Investment Management Value Fund",
+        "type": "'Sanlam Investment Management Value Fund','TotalEndMarketValueInclUnallotted'"
+    },
 
 
 
@@ -754,7 +932,7 @@
     "type": "'Counterpoint MET Value Fund','EndMarketValue'"
   },
   {
-    "example": "end en market value Coronation Top 20 Fund",
+    "example": "end market value Coronation Top 20 Fund",
     "type": "'Coronation Top 20 Fund','EndMarketValue'"
   },
   {
@@ -908,27 +1086,135 @@
 
 
   {
-      "example": "start unallotted Market unallote unallot value",
+      "example": "start unallotted Market value Allan Gray Equity Fund",
+      "type": "'Allan Gray Equity Fund','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Cadiz Mastermind Fund",
+      "type": "'Cadiz Mastermind Fund','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Investec Value Fund",
+      "type": "'Investec Value Fund','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Old Mutual Top 40 Fund",
+      "type": "'Old Mutual Top 40 Fund','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Old Mutual Industrial Fund",
+      "type": "'Old Mutual Industrial Fund','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Sanlam Investment Management Resources Fund",
+      "type": "'Sanlam Investment Management Resources Fund','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Oasis Crescent Equity Fund",
+      "type": "'Oasis Crescent Equity Fund','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Sygnia Value Fund",
+      "type": "'Sygnia Value Fund','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Momentum Multifocus Fund of Funds",
+      "type": "'Momentum Multifocus Fund of Funds','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Grindrod Equity Income Growth Fund",
+      "type": "'Grindrod Equity Income Growth Fund','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Counterpoint MET Value Fund",
       "type": "'Counterpoint MET Value Fund','StartUnallottedMarketValue'"
   },
+  {
+      "example": "start unallotted Market value Coronation Top 20 Fund",
+      "type": "'Coronation Top 20 Fund','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Absa Smart Alpha Equity Fund",
+      "type": "'Absa Smart Alpha Equity Fund','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Nedgroup Inv Rainmaker Fund",
+      "type": "'Nedgroup Inv Rainmaker Fund','StartUnallottedMarketValue'"
+  },
+  {
+      "example": "start unallotted Market value Sanlam Investment Management Value Fund",
+      "type": "'Sanlam Investment Management Value Fund','StartUnallottedMarketValue'"
+  },
 
 
 
   {
-      "example": "unallotte unallott end unallotted Market value",
+      "example": "end unallotted Market value Allan Gray Equity Fund",
+      "type": "'Allan Gray Equity Fund','EndUnallottedMarketValue'"
+  },
+  {
+      "example": "end unallotted Market value Cadiz Mastermind Fund",
+      "type": "'Cadiz Mastermind Fund','EndUnallottedMarketValue'"
+  },
+  {
+      "example": "end unallotted Market value Investec Value Fund",
+      "type": "'Investec Value Fund','EndUnallottedMarketValue'"
+  },
+  {
+      "example": "end unallotted Market value Old Mutual Top 40 Fund",
+      "type": "'Old Mutual Top 40 Fund','EndUnallottedMarketValue'"
+  },
+  {
+      "example": "end unallotted Market value Old Mutual Industrial Fund",
+      "type": "'Old Mutual Industrial Fund','EndUnallottedMarketValue'"
+  },
+  {
+      "example": "end unallotted Market value Sanlam Investment Management Resources Fund",
+      "type": "'Sanlam Investment Management Resources Fund','EndUnallottedMarketValue'"
+  },
+  {
+      "example": "end unallotted Market value Oasis Crescent Equity Fund",
+      "type": "'Oasis Crescent Equity Fund','EndUnallottedMarketValue'"
+  },
+  {
+      "example": "end unallotted Market value Sygnia Value Fund",
+      "type": "'Sygnia Value Fund','EndUnallottedMarketValue'"
+  },
+  {
+      "example": "end unallotted Market value Momentum Multifocus Fund of Funds",
+      "type": "'Momentum Multifocus Fund of Funds','EndUnallottedMarketValue'"
+  },
+  {
+      "example": "end unallotted Market value Grindrod Equity Income Growth Fund",
+      "type": "'Grindrod Equity Income Growth Fund','EndUnallottedMarketValue'"
+  },
+  {
+      "example": "end unallotted Market value Counterpoint MET Value Fund",
       "type": "'Counterpoint MET Value Fund','EndUnallottedMarketValue'"
   },
-
-
-
-
-
-
-
   {
-      "example": "total end market value Incl unallotted",
-      "type": "'Allan Gray Equity Fund','TotalEndMarketValueInclUnallotted'"
+      "example": "end unallotted Market value Coronation Top 20 Fund",
+      "type": "'Coronation Top 20 Fund','EndUnallottedMarketValue'"
   },
+  {
+      "example": "end unallotted Market value Absa Smart Alpha Equity Fund",
+      "type": "'Absa Smart Alpha Equity Fund','EndUnallottedMarketValue'"
+  },
+  {
+      "example": "end unallotted Market value Nedgroup Inv Rainmaker Fund",
+      "type": "'Nedgroup Inv Rainmaker Fund','EndUnallottedMarketValue'"
+  },
+  {
+      "example": "end unallotted Market value Sanlam Investment Management Value Fund",
+      "type": "'Sanlam Investment Management Value Fund','EndUnallottedMarketValue'"
+  },
+
+
+
+
+
+
+
 
 
 
@@ -955,7 +1241,63 @@
 
   {
     "example": "start net market value Allan Gray Equity Fund",
-    "type": "['Allan Gray Equity Fund','StartNetMarketValue']"
+    "type": "'Allan Gray Equity Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Cadiz Mastermind Fund",
+    "type": "'Cadiz Mastermind Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Investec Value Fund",
+    "type": "'Investec Value Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Old Mutual Top 40 Fund",
+    "type": "'Old Mutual Top 40 Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Old Mutual Industrial Fund",
+    "type": "'Old Mutual Industrial Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Sanlam Investment Management Resources Fund",
+    "type": "'Sanlam Investment Management Resources Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Oasis Crescent Equity Fund",
+    "type": "'Oasis Crescent Equity Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Sygnia Value Fund",
+    "type": "'Sygnia Value Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Momentum Multifocus Fund of Funds",
+    "type": "'Momentum Multifocus Fund of Funds','StartNetMarketValue'"
+  },
+  {
+    "example": "startnet  market value Grindrod Equity Income Growth Fund",
+    "type": "'Grindrod Equity Income Growth Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Counterpoint MET Value Fund",
+    "type": "'Counterpoint MET Value Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Coronation Top 20 Fund",
+    "type": "'Coronation Top 20 Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Absa Smart Alpha Equity Fund",
+    "type": "'Absa Smart Alpha Equity Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Nedgroup Inv Rainmaker Fund",
+    "type": "'Nedgroup Inv Rainmaker Fund','StartNetMarketValue'"
+  },
+  {
+    "example": "start net market value Sanlam Investment Management Value Fund",
+    "type": "'Sanlam Investment Management Value Fund','StartNetMarketValue'"
   },
 
 
@@ -1090,7 +1432,7 @@
       "type": "'Nedgroup Inv Rainmaker Fund','EndMarketValue'"
     },
     {
-      "example": "end market value Sanlam Investment Management Value Fund",
+      "example": "['end market value'] Sanlam Investment Management Value Fund",
       "type": "'Sanlam Investment Management Value Fund','EndMarketValue'"
     },
 
