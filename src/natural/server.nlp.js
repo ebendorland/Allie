@@ -304,7 +304,7 @@ module.exports = {
       console.log("");
     }
     //Check if there's data but no response
-    else if (data_response && !final_response)
+  /*  else if (data_response && !final_response)
     {
       console.log("There is no response to add the data to... now compiling",
           "a simple response.");
@@ -316,7 +316,7 @@ module.exports = {
       console.log("\tFinal Response:\t", final_response);
       console.log("");
       console.log("");
-    }
+    }*/
     // Check that there is a basic, value-less, response to use
     else if (final_response)
     {
@@ -335,8 +335,7 @@ module.exports = {
           "Compiling a simple response for clarification.");
       console.log("\tData response:\t", data_response);
       console.log("\tMessage response:\t", final_response);
-      final_response = "Sorry, I don't quite get what you mean. " +
-          "Could please be a bit more specific?";
+      final_response = "unknown";
       console.log("\tFinal Response:\t", final_response);
       console.log("");
       console.log("");
