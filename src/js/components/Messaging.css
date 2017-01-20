@@ -84,10 +84,15 @@
   position: relative;
   margin-bottom: 5pt;
 }
+.server{
+  /*background: url("http://image.flaticon.com/icons/png/128/118/118781.png");*/
+  content: url("./person.png");
+
 
 .server{
   /*background: url("http://image.flaticon.com/icons/png/128/118/118781.png");*/
   content: url("./person.png");
+
 
   width:5%;
   margin-right: 1%;
@@ -115,6 +120,7 @@
   float: right;
   display:inline-block;
 }
+
 /*.surrounding_div{
   overflow:hidden;
 }*/
@@ -156,6 +162,11 @@
  transition-duration: 0.4s;
 }
 
+.chaTime {
+  font-size: 10px;
+  text-align: center;
+
+}
 .ally-logo img{
   margin-top:10pt;
   width:70pt;

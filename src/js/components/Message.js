@@ -1,5 +1,6 @@
 import React from 'react';
 import {Component} from 'react';
+import timer from './Time.js'
 
 export default class Message extends Component {
 
@@ -14,18 +15,21 @@ export default class Message extends Component {
   }
 
 
-
-
   render() {
+
     return(
       <div>
           <div className={this.props.message.from}></div>
           <div className="surrounding_div">
             <div className={this.generateClass()}>
               <div className="message">{this.props.message.message}</div>
+                <div className="chaTime">{timer.chaTime()}</div>
+
             </div>
           </div>
       </div>
     );
   }
+
+
 }
