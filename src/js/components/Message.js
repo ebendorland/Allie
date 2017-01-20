@@ -1,9 +1,12 @@
 import React from 'react';
 import {Component} from 'react';
+import timer from './Time.js'
 
 export default class Message extends Component {
+
   generateClass() {
     if (this.props.message.from === "server") {
+
       return ("ally_message");
     }
     else {
@@ -11,11 +14,22 @@ export default class Message extends Component {
     }
   }
 
+
   render() {
+
     return(
-        <div className={this.generateClass()}>
-          <div className="message">{this.props.message.message}</div>
-        </div>
+      <div>
+          <div className={this.props.message.from}></div>
+          <div className="surrounding_div">
+            <div className={this.generateClass()}>
+              <div className="message">{this.props.message.message}</div>
+                <div className="chaTime">{timer.chaTime()}</div>
+
+            </div>
+          </div>
+      </div>
     );
   }
+
+
 }
