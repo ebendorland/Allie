@@ -168,3 +168,7 @@
   width:70pt;
   height:auto;
 }
+
+ul li {
+    text-decoration: none;
+}

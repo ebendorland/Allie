@@ -28,7 +28,7 @@ var Input = React.createClass ({
       if (message.message === "unknown")
       {
         let extra_message = {
-          message: "Sorry, I don't understand what you mean. try choosing from these options?",
+          message: "Sorry, I am not sure what you need, please choose one of the options below?",
           from: "server"
         };
         this.state.messages.push(extra_message);
