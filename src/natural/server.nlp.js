@@ -84,30 +84,17 @@ module.exports = {
   processMessage: function(message) {
     var data_to_ret = null;
 
-    console.log("Server received message:", message);
+    console.log("Start of processing user input.\n Message:", message);
+    console.log("");
+    console.log("");
+
+    Console.log("Classifying user message...\n");
     var msg = message.message;
     var msg_stem = msg.tokenizeAndStem(true);
     var classification = classifier.classify(msg_stem);
-    console.log("Classified as: " + classification);
-    for (var i = 0, len = responsesJSON.length; i < len; i++) {
-      console.log("Checking response number: " + i);
-      if (responsesJSON[i].type == classification) {
-        var classified_example = getClassifiedExample(trainerJSON,
-            responsesJSON[i].type);
-        if (classified_example != null) {
-          console.log("Found response at response[" + i + "]: " + classified_example);
-          var similarity = getSimilarityRatio(msg_stem, classified_example);
-          console.log("User message has similarity ratio of: " + similarity);
-          if (similarity > 0.3) {
-            if (classification == "greeting hello" || classification == "greeting" +
-                " how are you" || classification == "greeting help me") {
-              console.log("New message from server: " + responsesJSON[i].response);
-              return (responsesJSON[i].response);
-            }
-          }
-        }
-      }
-    }
+    console.log("User message classified as:", classification);
+    console.log("");
+    console.log("");
 
     // Retrieve data from server
     var mssg = classification;
@@ -117,13 +104,14 @@ module.exports = {
     mssg = mssg.replace("'","");
     mssg = mssg.replace("'","");
     mssg = mssg.replace("'","");
-    //console.log(mssg);
     var descr = mssg.split(",");
+
     console.log("Log descr[0]:", descr[0]);
     console.log("Log descr[1]:", descr[1]);
+
     if(descr[0] && descr[1])
     {
-      console.log("descr[0] && descr[1]: ", descr);
+      console.log("Requesting data from JSON server using descriptor: ", descr);
       var sync = true;
       request({
           url:"http://localhost:3002/funds?fundReportingDescription="+descr[0],
