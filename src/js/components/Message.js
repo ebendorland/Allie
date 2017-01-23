@@ -1,6 +1,5 @@
 import React from 'react';
 import {Component} from 'react';
-import timer from './Time.js'
 
 export default class Message extends Component {
 
