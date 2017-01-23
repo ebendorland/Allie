@@ -6,6 +6,13 @@ var trainClassifier = require("./ClassifierTrainer.js");
 stemmer.attach();
 
 /*
+  Read in responses to be used when searching for valid responses to return
+  to the user.
+*/
+var responsesJSON = fStream.readFileSync("src/datasets/responses.json");
+responsesJSON = JSON.parse(responsesJSON);
+
+/*
   Read in trainers to be used when determining classifications
 */
 var fund_name_trainer = fStream.readFileSync("src/trainers/fund_name_trainer.json");
@@ -183,7 +190,7 @@ module.exports = {
         "Equity Fund? In that case here you go! ";
       fund_name_classification = "Allan Gray Equity Fund";
     }
-    else if(fund_name_classification && fund_data_classification)
+    if(fund_name_classification && fund_data_classification)
     {
       console.log("Fund classifiers are OK.");
       console.log("");
@@ -235,8 +242,8 @@ module.exports = {
     if (data_response)
     {
       final_response += getResponse(fund_data_classification);
-      final_response.replace("{account}", fund_name_classification);
-      final_response.replace("{value}", data_response);
+      final_response = final_response.replace(/\{account\}/g, fund_name_classification);
+      final_response = final_response.replace(/\{value\}/g, data_response);
     }
     else
     {

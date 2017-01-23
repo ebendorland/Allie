@@ -10,5 +10,9 @@
   {
     "response": "Hi there! Sure thing, let me do that for you quickly :)",
     "type": "greeting help me"
+  },
+  {
+    "response": "Your account number is {value} :)",
+    "type": "AccountNumber"
   }
 ]
