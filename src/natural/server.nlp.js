@@ -7,30 +7,112 @@ var io = require("socket.io")(http);
 var stemmer = natural.PorterStemmer;
 var trainClassifier = require("./ClassifierTrainer.js");
 stemmer.attach();
-/*
-  Read in the available responses the bot can give.
-*/
-var responsesJSON = fStream.readFileSync("src/datasets/responses.json");
-responsesJSON = JSON.parse(responsesJSON);
-/*
- trainerJSON is used to test the user input against the database to
- ensure that what the user said is indeed related to what the
- classifier categorised the user's message as.
-*/
-var trainerJSON = fStream.readFileSync("src/trainers/classifier.json");
-trainerJSON = JSON.parse(trainerJSON);
-
-
-trainClassifier.TrainClassifier();
-
 
 /*
-  Read in already trained classifier to be used when categorising
-  the user's messages.
+  Read in trainers to be used when determining classifications
 */
-var classifier = fStream.readFileSync("src/trainers/trainedClassifier.json");
-classifier = JSON.parse(classifier);
-classifier = natural.BayesClassifier.restore(classifier);
+var fund_name_trainer = fStream.readFileSync("src/trainers/fund_name_trainer.json");
+fund_name_trainer = JSON.parse(fund_name_trainer);
+var fund_data_trainer = fStream.readFileSync("src/trainers/fund_data_trainer.json");
+fund_data_trainer = JSON.parse(fund_data_trainer);
+
+/*
+  Check if an array contains a specific string.
+*/
+function arrayContains(arr, str)
+{
+  for (var i = 0; i < arr.length; i++)
+  {
+    if (arr[i] == str)
+    {
+      return (true);
+    }
+  }
+  return (false);
+}
+
+/*
+  Get the similarity ratio between two arrays. (I.e: how similar the two arrays
+  are to one another)
+*/
+function  getSimilarityCount(arr1, arr2)
+{
+  var simCount = 0;
+  var len1 = arr1.length;
+  var len2 = arr2.length;
+
+  for (var i = 0; i < len1; i++)
+  {
+    for (var j = 0; j < len2; j++)
+    {
+      if (natural.JaroWinklerDistance(arr1[i], arr2[j]) > 0.95)
+      {
+        simCount++;
+        break;
+      }
+    }
+  }
+
+  return (simCount);
+}
+
+/*
+  Return the name of the fund name that the msg_stem refers to.
+*/
+function getFundName(msg_stem)
+{
+  var best_index = -1;
+  var best_similarity = 0;
+
+  for (var i = 0; i < fund_name_trainer.length; i++)
+  {
+    var similarity = getSimilarityCount(fund_name_trainer[i].example.tokenizeAndStem(true), msg_stem);
+
+    if (similarity > best_similarity)
+    {
+      best_similarity = similarity;
+      best_index = i;
+    }
+  }
+
+  if (best_index == -1)
+  {
+    return (null);
+  }
+  else
+  {
+    return (fund_name_trainer[best_index].type);
+  }
+}
+
+/*
+  Return the data identifier that the user is asking for.
+*/
+function getFundData(msg_stem)
+{
+  var best_index = -1;
+  var best_similarity = 0;
+
+  for (var i = 0; i < fund_data_trainer.length; i++)
+  {
+    var similarity = getSimilarityCount(fund_data_trainer[i].example.tokenizeAndStem(true), msg_stem);
+
+    if (similarity > best_similarity)
+    {
+      best_similarity = similarity;
+      best_index = i;
+    }
+  }
+
+  if (best_index == -1)
+  {
+    return (null);
+  }
+  else
+  {
+    return (fund_data_trainer[best_index].type);
+  }
+}
 
 /*
   receive a string entered by user and classify it according to the
@@ -57,28 +139,6 @@ function  getClassifiedExample(trainerList, type) {
   }
   return (null);
 }
-function  getSimilarityRatio(arr1, arr2)
-{
-  var simCount = 0;
-  var similarity = 0;
-  var len1 = arr1.length;
-  var len2 = arr2.length;
-  for (var i = 0; i < len1; i++) {
-    for (var j = 0; j < len2; j++) {
-      if (natural.JaroWinklerDistance(arr1[i], arr2[j]) > 0.8)  {
-        simCount++;
-        break;
-      }
-    }
-  }
-  if (len1 < len2) {
-    similarity = simCount / len1;
-  }
-  else {
-    similarity = simCount / len2;
-  }
-  return similarity;
-}
 
 module.exports = {
   processMessage: function(message) {
@@ -93,13 +153,6 @@ module.exports = {
     console.log("");
     console.log("");
 
-    var data_response = null;
-    console.log("N.B - Variable to be used in function return",
-        "is named: \"data_response\"");
-    console.log("data_response:", data_response);
-    console.log("");
-    console.log("");
-
     console.log("Tokenizing and stemming message:", message.message);
     console.log("...");
     var msg = message.message;
@@ -108,30 +161,20 @@ module.exports = {
     console.log("");
     console.log("");
 
-    var classification = classifier.classify(msg_stem);
-    console.log("Message classified as:" + classification);
+    var fund_name_classification = getFundName(msg_stem);
+    console.log("Message refers to account:" + fund_name_classification);
+    var fund_data_classification = getFundData(msg_stem);
+    console.log("Message refers to data:" + fund_data_classification);
 
-    // Retrieve data from server
-    console.log("Preparing classification for use in JSON server request",
-        "descriptor.");
-    console.log("...");
-    var mssg = classification;
-    mssg = mssg.replace("[","");
-    mssg = mssg.replace("]","");
-    mssg = mssg.replace("'","");
-    mssg = mssg.replace("'","");
-    mssg = mssg.replace("'","");
-    mssg = mssg.replace("'","");
-    var descr = mssg.split(",");
-    console.log("JSON server request descriptor created.");
-    console.log("Descriptor:", descr);
-    console.log("");
-    console.log("");
-
-    // If descriptor is valid, query JSON server for relevant data
-    if(descr[0] && descr[1])
+    /*
+      If an account name and data identifier is found, query JSON server for
+      relevant data.
+    */
+    // Store data retrived from JSON server here
+    var data_response = null;
+    if(fund_name_classification && fund_data_classification)
     {
-      console.log("Descriptor is OK.");
+      console.log("Fund classifiers are OK.");
       console.log("");
       console.log("");
 
@@ -142,7 +185,7 @@ module.exports = {
 
       var sync = true;
       request({
-          url:"http://localhost:3002/funds?fundReportingDescription="+descr[0],
+          url:"http://localhost:3002/funds?fundReportingDescription="+fund_name_classification,
           method:"GET",
           json:true,
           async:false,
@@ -159,17 +202,12 @@ module.exports = {
           }
           else
           {
-            console.log("Data received:", body[0][descr[1]]);
-            data_response = body[0][descr[1]];
+            console.log("Data received:", body[0][fund_data_classification]);
+            data_response = body[0][fund_data_classification];
             sync = false;
           }
           console.log("");
           console.log("");
-          //No idea what the below code is
-          /*else
-          {
-            data_response = "Hello to you too";
-          }*/
       });
       while(sync)
       {
@@ -182,7 +220,7 @@ module.exports = {
     console.log("");
 
 
-    // Var to store the response to the user
+    /*// Var to store the response to the user
     var final_response = null;
 
     // Loop through responses and find corresponding response
@@ -350,8 +388,8 @@ module.exports = {
     console.log("||| End of \"socket.on('user_message')\" in",
         "\"/src/socket/server.socket.js\" |||");
     console.log("");
-    console.log("");
+    console.log("");*/
 
-    return (final_response);
+    return (data_response);
   }
 }
