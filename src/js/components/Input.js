@@ -2,6 +2,7 @@ import React from 'react';
 import './Messaging.css';
 import ReactDOM from "react-dom";
 import MessageHistory from "./MessageHistory.js";
+import timer from './Time.js';
 
 var io = require("socket.io-client");
 
@@ -22,7 +23,8 @@ var Input = React.createClass ({
     socket.on("server_message", (msg) => {
       let message = {
         message: msg,
-        from: "server"
+        from: "server",
+        time: timer.chaTime()
       };
       this.state.messages.push(message);
       var elem = <MessageHistory messages={this.state.messages} />;
@@ -50,7 +52,8 @@ var Input = React.createClass ({
     let message = {
       message: msg,
       from: "user",
-      id: socket.id
+      id: socket.id,
+      time: timer.chaTime()
     };
     socket.emit("user_message", message);
 
