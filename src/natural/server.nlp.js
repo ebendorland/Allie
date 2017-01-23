@@ -88,33 +88,33 @@ module.exports = {
     console.log("");
 
     console.log("@@@ Parameter received @@@");
-    console.log("\tParameter name:\tmessage");
-    console.log("\t\tParameter values:\t", message);
+    console.log("Parameter name:message");
+    console.log("Parameter values:", message);
     console.log("");
     console.log("");
 
     var data_response = null;
     console.log("N.B - Variable to be used in function return",
-        "is named: \t\"data_response\"");
-    console.log("\tdata_response:\t", data_response);
+        "is named: \"data_response\"");
+    console.log("data_response:", data_response);
     console.log("");
     console.log("");
 
-    console.log("Tokenizing and stemming message:\t", message.message);
-    console.log("\t\t...");
+    console.log("Tokenizing and stemming message:", message.message);
+    console.log("...");
     var msg = message.message;
     var msg_stem = msg.tokenizeAndStem(true);
-    console.log("Message tokenized and stemmed to:\t", msg_stem);
+    console.log("Message tokenized and stemmed to:", msg_stem);
     console.log("");
     console.log("");
 
     var classification = classifier.classify(msg_stem);
-    console.log("Message classified as:\t" + classification);
+    console.log("Message classified as:" + classification);
 
     // Retrieve data from server
     console.log("Preparing classification for use in JSON server request",
         "descriptor.");
-    console.log("\t\t...");
+    console.log("...");
     var mssg = classification;
     mssg = mssg.replace("[","");
     mssg = mssg.replace("]","");
@@ -124,7 +124,7 @@ module.exports = {
     mssg = mssg.replace("'","");
     var descr = mssg.split(",");
     console.log("JSON server request descriptor created.");
-    console.log("Descriptor:\t", descr);
+    console.log("Descriptor:", descr);
     console.log("");
     console.log("");
 
@@ -152,14 +152,14 @@ module.exports = {
           console.log("Response received from JSON server request.");
           if(error)
           {
-            console.log("\tError received:\t", error);
+            console.log("Error received:", error);
             data_response = "Sorry, something is going wrong with the system" +
                 " on my end. Just give me a moment to sort this out please.";
             sync = false;
           }
           else
           {
-            console.log("\tData received:\t", body[0][descr[1]]);
+            console.log("Data received:", body[0][descr[1]]);
             data_response = body[0][descr[1]];
             sync = false;
           }
@@ -177,7 +177,7 @@ module.exports = {
       }
     }
     console.log("___ Returned call of \"JSON.request()\" to",
-        "\"/src/natural/server.nlp.js\" with response:\t", data_response, "___");
+        "\"/src/natural/server.nlp.js\" with response:", data_response, "___");
     console.log("");
     console.log("");
 
@@ -192,19 +192,19 @@ module.exports = {
     console.log("");
     for (var i = 0, len = responsesJSON.length; i < len; i++)
     {
-      console.log("\t\tChecking response number {" + i + "} with type:\t",
+      console.log("Checking response number {" + i + "} with type:",
           responsesJSON[i].type);
       console.log("");
 
       // If a response is found with a type matching the user message's classification
       if (responsesJSON[i].type == classification)
       {
-        console.log("\t\tResponse found at {" + i + "} with type:\t",
+        console.log("Response found at {" + i + "} with type:",
             responsesJSON[i].type);
         console.log("");
 
-        console.log("\t\tGetting example used to train classifier for",
-            "message type of:\t", responsesJSON[i].type);
+        console.log("Getting example used to train classifier for",
+            "message type of:", responsesJSON[i].type);
 
         console.log("___ Calling \"getClassifiedExample()\" from",
             "\"/src/natural/server.nlp.js\" ___");
@@ -213,23 +213,23 @@ module.exports = {
         var classified_example = getClassifiedExample(trainerJSON,
             responsesJSON[i].type);
         console.log("___ Returned call of \"getClassifiedExample()\" to",
-            "\"/src/natural/server.nlp.js\" with response:\t", classified_example, "___");
+            "\"/src/natural/server.nlp.js\" with response:", classified_example, "___");
         console.log("");
         console.log("");
         console.log("..");
-        console.log("\t\tTraining example:\t", classified_example);
+        console.log("Training example:", classified_example);
 
         // Check that such example does indeed exist
         if (classified_example != null)
         {
-          console.log("\t\tTraining example exists for type:\t",
+          console.log("Training example exists for type:",
               responsesJSON[i].type);
           console.log("");
 
-          console.log("\t\tCalculating similarity ratio between user",
+          console.log("Calculating similarity ratio between user",
               "input and training example.");
-          console.log("\t\tMessage:\t", msg_stem);
-          console.log("\t\tTraining example:\t", classified_example);
+          console.log("Message:", msg_stem);
+          console.log("Training example:", classified_example);
           console.log("");
           console.log("");
 
@@ -239,23 +239,23 @@ module.exports = {
           console.log("");
           var similarity = getSimilarityRatio(msg_stem, classified_example);
           console.log("___ Returned call of \"getSimilarityRatio()\" to",
-              "\"/src/natural/server.nlp.js\" with response:\t", similarity, "___");
+              "\"/src/natural/server.nlp.js\" with response:", similarity, "___");
           console.log("");
           console.log("");
 
-          console.log("\t\tUser message and training example have",
+          console.log("User message and training example have",
               "similarity ratio of: ", similarity);
           console.log("");
 
           // If user message and example are similar enough, copy the response
           if (similarity > 0.3)
           {
-            console.log("\t\tSimilarity ratio is high enough for response",
+            console.log("Similarity ratio is high enough for response",
                 "to be used.");
             console.log("");
 
             final_response = responsesJSON[i].response;
-            console.log("\t\tUsing response: ", final_response);
+            console.log("Using response: ", final_response);
             console.log("");
           }
         }
@@ -267,8 +267,8 @@ module.exports = {
     console.log("");
 
     console.log("These are the values to use when compiling the response.");
-    console.log("\tJSON Data:\t", data_response);
-    console.log("\tMessage Response:\t", final_response);
+    console.log("JSON Data:", data_response);
+    console.log("Message Response:", final_response);
     console.log("");
     console.log("");
 
@@ -277,12 +277,12 @@ module.exports = {
     {
       console.log("Data response exists... now compiling final response",
           "with data:");
-      console.log("\tData response:\t", data_response);
-      console.log("\tMessage response:\t", final_response);
+      console.log("Data response:", data_response);
+      console.log("Message response:", final_response);
       console.log("...");
       final_response.replace("{value}", data_response);
       console.log("Final response compiled...");
-      console.log("\tFinal Response:\t", final_response);
+      console.log("Final Response:", final_response);
       console.log("");
       console.log("");
     }
@@ -292,14 +292,14 @@ module.exports = {
     {
       console.log("Data response does not exists... now compiling final ",
           "response with data:");
-      console.log("\tData response:\t", data_response);
-      console.log("\tMessage response:\t", final_response);
+      console.log("Data response:", data_response);
+      console.log("Message response:", final_response);
       console.log("...");
       final_response = "Sorry, I was unable to find the exact " +
           "info you're looking for. I think that's some sensitive info" +
           " that I'm not allowed to access. Try calling the CSC maybe?";
       console.log("Final response compiled...");
-      console.log("\tFinal Response:\t", final_response);
+      console.log("Final Response:", final_response);
       console.log("");
       console.log("");
     }
@@ -308,12 +308,12 @@ module.exports = {
     {
       console.log("There is no response to add the data to... now compiling",
           "a simple response.");
-      console.log("\tData response:\t", data_response);
-      console.log("\tMessage response:\t", final_response);
+      console.log("Data response:", data_response);
+      console.log("Message response:", final_response);
       final_response = "Here you go: " + data_response +
           "\n\nI believe that's what you're looking for?";
       console.log("Final response compiled...");
-      console.log("\tFinal Response:\t", final_response);
+      console.log("Final Response:", final_response);
       console.log("");
       console.log("");
     }
@@ -322,9 +322,9 @@ module.exports = {
     {
       console.log("There is no extra data to be added to the final",
           "response.");
-      console.log("\tData response:\t", data_response);
-      console.log("\tMessage response:\t", final_response);
-      console.log("\tFinal Response:\t", final_response);
+      console.log("Data response:", data_response);
+      console.log("Message response:", final_response);
+      console.log("Final Response:", final_response);
       console.log("");
       console.log("");
     }
@@ -333,17 +333,17 @@ module.exports = {
     {
       console.log("Unable to compile a complete response...",
           "Compiling a simple response for clarification.");
-      console.log("\tData response:\t", data_response);
-      console.log("\tMessage response:\t", final_response);
+      console.log("Data response:", data_response);
+      console.log("Message response:", final_response);
       final_response = "Sorry, I don't quite get what you mean. " +
           "Could please be a bit more specific?";
-      console.log("\tFinal Response:\t", final_response);
+      console.log("Final Response:", final_response);
       console.log("");
       console.log("");
     }
 
     // Return final response to server emit
-    console.log("Returning final response:\t", final_response);
+    console.log("Returning final response:", final_response);
     console.log("");
     console.log("");
 
