@@ -168,3 +168,12 @@
   width:70pt;
   height:auto;
 }
+
+#extra-info {
+  visibility: hidden;
+}
+
+#deepInfo {
+    visibility: hidden;
+
+}
