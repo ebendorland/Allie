@@ -45,6 +45,11 @@ var Input = React.createClass ({
       return;
     }
 
+    if (!(/\S/.test(this.state.inputValue)))
+    {
+      return;
+    }
+
     // Store user input in variable
     var msg = this.state.inputValue;
 

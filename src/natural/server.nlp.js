@@ -13,12 +13,14 @@ var responsesJSON = fStream.readFileSync("src/datasets/responses.json");
 responsesJSON = JSON.parse(responsesJSON);
 
 /*
-  Read in trainers to be used when determining classifications
+  Read in trainers to be used when determining classifications and greetings
 */
 var fund_name_trainer = fStream.readFileSync("src/trainers/fund_name_trainer.json");
 fund_name_trainer = JSON.parse(fund_name_trainer);
 var fund_data_trainer = fStream.readFileSync("src/trainers/fund_data_trainer.json");
 fund_data_trainer = JSON.parse(fund_data_trainer);
+var message_type_trainer = fStream.readFileSync("src/trainers/greeting_trainer.json");
+message_type_trainer = JSON.parse(message_type_trainer);
 
 /*
   Check if an array contains a specific string.
@@ -119,6 +121,35 @@ function getFundData(msg_stem)
 }
 
 /*
+  Get the type of greeting the user is using
+*/
+function getGreetingType(msg_stem)
+{
+  var best_index = -1;
+  var best_similarity = 0;
+
+  for (var i = 0; i < message_type_trainer.length; i++)
+  {
+    var similarity = getSimilarityCount(message_type_trainer[i].example.tokenizeAndStem(true), msg_stem);
+
+    if (similarity > best_similarity)
+    {
+      best_similarity = similarity;
+      best_index = i;
+    }
+  }
+
+  if (best_index == -1)
+  {
+    return (null);
+  }
+  else
+  {
+    return (message_type_trainer[best_index].type);
+  }
+}
+
+/*
   Returns the correct response to use based on the parameter given
 */
 function getResponse(type)
@@ -136,6 +167,49 @@ function getResponse(type)
     + " is currently sitting at {value}. Please let me know if there's " +
     "anything you'd like me to assist with :)";
   return (generic_response);
+}
+
+/*
+  Return a greeting based on the type of greeting user gave
+*/
+function getGreeting(type)
+{
+  for (var i = 0; i < responsesJSON.length; i++)
+  {
+    if (responsesJSON[i].type == type)
+    {
+      return (responsesJSON[i].response);
+    }
+  }
+}
+
+function politeRequest(msg_stem)
+{
+  var requests = "can i please have my give me you get tell";
+  requests = requests.tokenizeAndStem(true);
+
+  var sim_count = getSimilarityCount(msg_stem, requests);
+
+  if (sim_count >= 3)
+  {
+    return (true);
+  }
+  else
+  {
+    return (false);
+  }
+}
+
+/*
+  Returns a response based on the type of request made.
+*/
+function handleRequest(msg_stem)
+{
+  if (politeRequest(msg_stem))
+  {
+    return (" Sure thing, let me get that for you.");
+  }
+  return ("");
 }
 
 /*
@@ -167,10 +241,20 @@ module.exports = {
     console.log("");
     console.log("");
 
+    var message_type_classification = getGreetingType(msg_stem);
+    console.log("Message has a greeting type:", message_type_classification);
     var fund_name_classification = getFundName(msg_stem);
     console.log("Message refers to account:" + fund_name_classification);
     var fund_data_classification = getFundData(msg_stem);
     console.log("Message refers to data:" + fund_data_classification);
+
+    /*
+      If user message contains a greeting, add a greeting to the final_response
+    */
+    if (message_type_classification)
+    {
+      final_response = getGreeting(message_type_classification);
+    }
 
     /*
       If an account name and data identifier is found, query JSON server for
@@ -192,6 +276,10 @@ module.exports = {
     }
     if(fund_name_classification && fund_data_classification)
     {
+      /*
+        If request says please, then add "sure thing".
+      */
+      final_response += handleRequest(msg_stem);
       console.log("Fund classifiers are OK.");
       console.log("");
       console.log("");
@@ -237,6 +325,16 @@ module.exports = {
         " for. Could you please also mention what you're looking for in your " +
         fund_name_classification + "?";
     }
+    // If a user hasn't asked for anything but made sense
+    else if (!fund_name_classification && !fund_data_classification && message_type_classification)
+    {
+      final_response += " What would you like me to assist you with?";
+    }
+    // If a user hasn't asked for anything and made no sense
+    else if (!fund_name_classification && !fund_data_classification && !message_type_classification)
+    {
+      final_response = "unknown";
+    }
 
     // Search for a response if a response was provided from the JSON server
     if (data_response)
@@ -245,10 +343,12 @@ module.exports = {
       final_response = final_response.replace(/\{account\}/g, fund_name_classification);
       final_response = final_response.replace(/\{value\}/g, data_response);
     }
-    else
+    // Fail gracefully if no data is returned
+    else if (!data_response && fund_name_classification && fund_data_classification)
     {
-      final_response += "Sorry, I didn't quite get what you're asking for." +
-        " Could you please tell me more or less what you need? :)";
+      final_response += "I don't think that's something I can provide." +
+        " Try contacting one of our consultants at 0860 000 654 for further"
+        + " assistance";
     }
 
     console.log("___ Returned call of \"JSON.request()\" to",
