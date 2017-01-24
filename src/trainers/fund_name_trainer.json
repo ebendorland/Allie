@@ -1,0 +1,62 @@
+[
+  {
+    "example": "allan gray",
+    "type": "Allan Gray Equity Fund"
+  },
+  {
+    "example": "cadiz mastermind",
+    "type": "Cadiz Mastermind Fund"
+  },
+  {
+    "example": "investec value",
+    "type": "Investec Value Fund"
+  },
+  {
+    "example": "old mutual 40",
+    "type": "Old Mutual Top 40 Fund"
+  },
+  {
+    "example": "old mutual industrial",
+    "type": "Old Mutual Industrial Fund"
+  },
+  {
+    "example": "sanlam investment management resources",
+    "type": "Sanlam Investment Management Fund"
+  },
+  {
+    "example": "oasis crescent",
+    "type": "Oasis Crescent Equity Fund"
+  },
+  {
+    "example": "sygnia",
+    "type": "Sygnia Value Fund"
+  },
+  {
+    "example": "momentum multifocus",
+    "type": "Momentum Multifocis Fund of Funds"
+  },
+  {
+    "example": "grindrod income growth",
+    "type": "Grindrod Equity Income Growth Fund"
+  },
+  {
+    "example": "counterpoint met",
+    "type": "Counterpoint MET Value Fund"
+  },
+  {
+    "example": "coronation 20",
+    "type": "Coronation Top 20 Fund"
+  },
+  {
+    "example": "absa smart alpha",
+    "type": "Absa Smart Alpha Equity Fund"
+  },
+  {
+    "example": "nedgroup inv rainmaker",
+    "type": "Nedgroup Inv Rainmaker Fund"
+  },
+  {
+    "example": "sanlam investment management value",
+    "type": "Sanlam Investment Management Value Fund"
+  }
+]

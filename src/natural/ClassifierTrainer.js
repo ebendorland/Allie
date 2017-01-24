@@ -1,58 +1,50 @@
-/*
-
-var PythonShell = require('python-shell');
-
-PythonShell.run('deletFile.py', function (err) {
-  if (err) throw err;
-  console.log('finished');
-});
-
-*/
-
-
-/*
-var PythonShell = require('python-shell');
-var pyshell = new PythonShell('spellChecker.py');
-
-// sends a message to the Python script via stdin
-//pyshell.send('hello');
-
-pyshell.on('message', function (message) {
-  // received a message sent from the Python script (a simple "print" statement)
-  console.log(message);
-});
-
-// end the input stream and allow the process to exit
-pyshell.end(function (err) {
-  if (err) throw err;
-  console.log('finished');
-})
-*/
-
-
 var natural = require("natural");
 var stemmer = natural.PorterStemmer;
 
 stemmer.attach();
 
 var fStream = require("fs");
-var trainerJSON = fStream.readFileSync("src/trainers/classifier.json");
 
-trainerJSON = JSON.parse(trainerJSON);
+/*
+  Prepare the fund name classifier.
+*/
+var fund_name_trainer = fStream.readFileSync("src/trainers/fund_name_trainer.json");
+fund_name_trainer = JSON.parse(fund_name_trainer);
+var fund_name_classifier = new natural.BayesClassifier();
 
-var classifier = new natural.BayesClassifier();
+/*
+  Prepare the fund data classifier.
+*/
+var fund_data_trainer = fStream.readFileSync("src/trainers/fund_data_trainer.json");
+fund_data_trainer = JSON.parse(fund_data_trainer);
+var fund_data_classifier = new natural.BayesClassifier();
 
 module.exports = {
   TrainClassifier: function()
   {
-    for (var i = 0, len = trainerJSON.length; i < len; i++)
+    /*
+      Train and serialize fund name classifier.
+    */
+    for (var i = 0, len = fund_name_trainer.length; i < len; i++)
     {
-      classifier.addDocument(trainerJSON[i].example.tokenizeAndStem(true),
-      trainerJSON[i].type);
+      fund_name_classifier.addDocument(fund_name_trainer[i].example.tokenizeAndStem(true),
+      fund_name_trainer[i].type);
     }
-    classifier.train();
-    var classifierJSON = JSON.stringify(classifier);
-    fStream.writeFileSync("src/trainers/trainedClassifier.json", classifierJSON);
+    fund_name_classifier.train();
+    var fund_name_classifierJSON = JSON.stringify(fund_name_classifier);
+    fStream.writeFileSync("src/natural/classifiers/fund_name_classifier.json", fund_name_classifierJSON);
+
+    /*
+      Train and serialize fund data classifier.
+    */
+    for (var i = 0, len = fund_data_trainer.length; i < len; i++)
+    {
+      fund_data_classifier.addDocument(fund_data_trainer[i].example.tokenizeAndStem(true),
+      fund_data_trainer[i].type);
+    }
+    fund_data_classifier.train();
+    var fund_data_classifierJSON = JSON.stringify(fund_data_classifier);
+    fStream.writeFileSync("src/natural/classifiers/fund_data_classifier.json", fund_data_classifierJSON);
   }
 }
 /*
