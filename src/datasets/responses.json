@@ -12,7 +12,11 @@
     "type": "hello how are you"
   },
   {
+<<<<<<< HEAD
     "response": "The Start Unit Balance for your {account} is R{value} :)",
+=======
+    "response": "The Start Unit Balance for you {account} is R{value} :)",
+>>>>>>> 1bcb9f524a4d8a973005556c116c87da3fe3ab2c
     "type": "StartUnitBalance"
   },
   {
