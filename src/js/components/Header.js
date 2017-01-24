@@ -16,7 +16,7 @@ render()
 
         <div className="App-header">
           <ul className="newnav">
-              <Link to="/"><li className="firstitem"><img src="https://www.allangray.co.za/static/images/AG-Logo.png" class="App-logo" alt="logo" /></li></Link>
+              <Link to="/"><li className="firstitem"><img src="https://www.allangray.co.za/static/images/AG-Logo.png" className="App-logo" alt="logo" /></li></Link>
               <li><a >WHAT WE OFFER</a></li>
               <li><a>NEWS & INSIGHTS</a></li>
               <li><a>ABOUT US</a></li>
