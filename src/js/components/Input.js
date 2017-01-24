@@ -27,10 +27,22 @@ var Input = React.createClass ({
         from: "server",
         time: timer.chaTime()
       };
+
+      if (message.message === "unknown")
+      {
+        let extra_message = {
+          message: "Sorry, but I'm not sure what you're asking for. " +
+            "Please choose one of the options below for more info :)",
+          from: "server",
+          time: timer.chaTime()
+        };
+        this.state.messages.push(extra_message);
+        message.message = <Options />;
+      }
       this.state.messages.push(message);
       var elem = <MessageHistory messages={this.state.messages} />;
       ReactDOM.render(elem, document.getElementById("message_box"));
-    })
+    });
   },
 
   onSend() {
