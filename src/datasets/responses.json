@@ -12,7 +12,79 @@
     "type": "hello how are you"
   },
   {
-    "response": "Your account number is {value} :)",
+    "response": "The Start Unit Balance for your {account} is R{value} :)",
+    "type": "StartUnitBalance"
+  },
+  {
+    "response": "The Start Unit Price for your {account} is R{value} :)",
+    "type": "StartUnitPrice"
+  },
+  {
+    "response": "The Start Market Value for your {account} is R{value} :)",
+    "type": "StartMarketValue"
+  },
+  {
+    "response": "The Start Ratio for your {account} is {value} :)",
+    "type": "StartRatio"
+  },
+  {
+    "response": "The Total start Market Value for your {account} is R{value} :)",
+    "type": "TotalStartMarketValue"
+  },
+  {
+    "response": "The Start Unallotted Market Value for your {account} is R{value} :)",
+    "type": "StartUnallottedMarketValue"
+  },
+  {
+    "response": "The Total Start Market Value Incl Unallotted for your {account} is R{value} :)",
+    "type": "TotalStartMarketValueInclUnallotted"
+  },
+  {
+    "response": "The End Unit Balance for your {account} is R{value} :)",
+    "type": "EndUnitBalance"
+  },
+  {
+    "response": "The End Unit Price for your {account} is R{value} :)",
+    "type": "EndUnitPrice"
+  },
+  {
+    "response": "The End Market Value for your {account} is R{value} :)",
+    "type": "EndMarketValue"
+  },
+  {
+    "response": "The End Ratio for your {account} is {value} :)",
+    "type": "EndRatio"
+  },
+  {
+    "response": "The Total End Market Value for your {account} is R{value} :)",
+    "type": "TotalEndMarketValue"
+  },
+  {
+    "response": "The End Unallotted Market Value for your {account} is R{value} :)",
+    "type": "EndUnallottedMarketValue"
+  },
+  {
+    "response": "The Total End Market Value Incl Unallotted for your {account} is R{value} :)",
+    "type": "TotalEndMarketValueInclUnallotted"
+  },
+  {
+    "response": "The Currency Symbol for your {account} is [ {value} ] :)",
+    "type": "currencySymbol"
+  },
+  {
+    "response": "Your {account} Currency Name is [ {value} ] :)",
+    "type": "currencyName"
+  },
+  {
+    "response": "Your Account Number is {value} :)",
     "type": "AccountNumber"
+  },
+  {
+    "response": "The Start Net Market Value for your {account} is R{value} :)",
+    "type": "StartNetMarketValue"
+  },
+  {
+    "response": "The End Net Market Value for your {account} is Currently at R{value} :)",
+    "type": "EndNetMarketValue"
   }
 ]

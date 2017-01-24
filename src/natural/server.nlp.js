@@ -325,10 +325,15 @@ module.exports = {
         " for. Could you please also mention what you're looking for in your " +
         fund_name_classification + "?";
     }
-    // If a user hasn't asked for anything
-    else if (!fund_name_classification && !fund_data_classification)
+    // If a user hasn't asked for anything but made sense
+    else if (!fund_name_classification && !fund_data_classification && message_type_classification)
     {
       final_response += " What would you like me to assist you with?";
+    }
+    // If a user hasn't asked for anything and made no sense
+    else if (!fund_name_classification && !fund_data_classification && !message_type_classification)
+    {
+      final_response = "unknown";
     }
 
     // Search for a response if a response was provided from the JSON server
@@ -338,11 +343,12 @@ module.exports = {
       final_response = final_response.replace(/\{account\}/g, fund_name_classification);
       final_response = final_response.replace(/\{value\}/g, data_response);
     }
-    // Fail gracefully if no data is given
+    // Fail gracefully if no data is returned
     else if (!data_response && fund_name_classification && fund_data_classification)
     {
-      final_response += "Sorry, I didn't quite get what you're asking for." +
-        " Could you please tell me more or less what you need? :)";
+      final_response += "I don't think that's something I can provide." +
+        " Try contacting one of our consultants at 0860 000 654 for further"
+        + " assistance";
     }
 
     console.log("___ Returned call of \"JSON.request()\" to",
