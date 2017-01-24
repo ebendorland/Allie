@@ -50,7 +50,7 @@
   display: inline-block;
   float: left;
   margin-right: 70%;
-  font-size: 13px;
+  font-size: 15px;
   padding: 8px 16px;
   position: relative;
   padding: 8px 16px;
@@ -75,7 +75,7 @@
   border-radius: 12px;
   color: white;
   display: inline-block;
-  font-size: 13px;
+  font-size: 15px;
   margin-left: 10%;
   float: right;
   padding: 8px 16px;
@@ -160,11 +160,36 @@
 
 .chaTime {
   font-size: 10px;
-  text-align: center;
+  text-align: right;
 
 }
 .ally-logo img{
   margin-top:10pt;
   width:70pt;
   height:auto;
+}
+
+/*Option list styles*/
+li {
+    list-style-type: none;
+}
+
+.list-options li {
+    text-decoration: none;
+    margin bottom:40px;
+
+}
+
+.list-options a{
+  font-size:15px;
+  color: #c53146;;
+  border-radius: 5px;
+  padding:5px 10px 5px 10px;
+  background-color: white;
+  transition: font-weight 0.2s ease;
+}
+
+.list-options a:hover{
+  font-weight:bold;
+  text-decoration: none;
 }
