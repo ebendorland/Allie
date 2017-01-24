@@ -168,3 +168,42 @@
   width:70pt;
   height:auto;
 }
+
+/*Option list styles*/
+ul li {
+    list-style-type: none;
+}
+
+.list-options li {
+    text-decoration: none;
+    margin bottom:40px;
+
+}
+
+.list-options a{
+  font-size:15px;
+  color: #c53146;;
+  border-radius: 5px;
+  padding:5px 10px 5px 10px;
+  background-color: white;
+  transition: font-size 0.2s ease;
+}
+
+.list-options a:hover{
+  font-weight:bold;
+  font-size: 18px;
+}
+
+.list-options input{
+  font-size:15px;
+  color: #c53146;;
+  border-radius: 5px;
+  padding:5px 10px 5px 10px;
+  background-color: white;
+  transition: font-size 0.2s ease;
+}
+
+.list-options input:hover{
+  font-weight:bold;
+  font-size: 18px;
+}

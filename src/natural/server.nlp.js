@@ -247,8 +247,7 @@ module.exports = {
     }
     else
     {
-      final_response += "Sorry, I didn't quite get what you're asking for." +
-        " Could you please tell me more or less what you need? :)";
+      final_response = "unknown";
     }
 
     console.log("___ Returned call of \"JSON.request()\" to",

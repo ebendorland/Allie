@@ -3,6 +3,7 @@ import './Messaging.css';
 import ReactDOM from "react-dom";
 import MessageHistory from "./MessageHistory.js";
 import timer from './Time.js';
+import Options from "./Options.js";
 
 var io = require("socket.io-client");
 
@@ -26,6 +27,16 @@ var Input = React.createClass ({
         from: "server",
         time: timer.chaTime()
       };
+
+      if (message.message === "unknown")
+      {
+        let extra_message = {
+          message: "Sorry, I am not sure what you need, please choose one of the options below?",
+          from: "server"
+        };
+        this.state.messages.push(extra_message);
+        message.message = <Options />;
+      }
       this.state.messages.push(message);
       var elem = <MessageHistory messages={this.state.messages} />;
       ReactDOM.render(elem, document.getElementById("message_box"));
