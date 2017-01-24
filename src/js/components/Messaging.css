@@ -170,7 +170,7 @@
 }
 
 /*Option list styles*/
-ul li {
+li {
     list-style-type: none;
 }
 
@@ -186,24 +186,10 @@ ul li {
   border-radius: 5px;
   padding:5px 10px 5px 10px;
   background-color: white;
-  transition: font-size 0.2s ease;
+  transition: font-weight 0.2s ease;
 }
 
 .list-options a:hover{
   font-weight:bold;
-  font-size: 18px;
-}
-
-.list-options input{
-  font-size:15px;
-  color: #c53146;;
-  border-radius: 5px;
-  padding:5px 10px 5px 10px;
-  background-color: white;
-  transition: font-size 0.2s ease;
-}
-
-.list-options input:hover{
-  font-weight:bold;
-  font-size: 18px;
+  text-decoration: none;
 }
