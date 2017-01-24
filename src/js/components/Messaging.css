@@ -170,10 +170,10 @@
 }
 
 #extra-info {
-  visibility: hidden;
+  display: none;
 }
 
 #deepInfo {
-    visibility: hidden;
+    display: none;
 
 }
