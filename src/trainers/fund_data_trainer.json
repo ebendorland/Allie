@@ -1,5 +1,9 @@
 [
   {
+    "example": "balance",
+    "type": "EndNetMarketValue"
+  },
+  {
     "example": "start unit balance",
     "type": "StartUnitBalance"
   },

@@ -1,15 +1,15 @@
 [
   {
-    "response": "Hi! How can I help?",
-    "type": "greeting hello"
+    "response": "Hi!",
+    "type": "hello"
   },
   {
-    "response": "Hey there! I'm great thanks :) what can I help you with today?",
-    "type": "greeting how are you"
+    "response": "I'm great thank you :)",
+    "type": "how are you"
   },
   {
-    "response": "Hi there! Sure thing, let me do that for you quickly :)",
-    "type": "greeting help me"
+    "response": "Hey there! I'm great thanks :)",
+    "type": "hello how are you"
   },
   {
     "response": "Your account number is {value} :)",
