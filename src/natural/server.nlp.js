@@ -22,6 +22,43 @@ fund_data_trainer = JSON.parse(fund_data_trainer);
 var message_type_trainer = fStream.readFileSync("src/trainers/greeting_trainer.json");
 message_type_trainer = JSON.parse(message_type_trainer);
 
+
+/*
+** Gets Current Date
+*/
+function getDateTime() {
+
+    var date = new Date();
+
+    var hour = date.getHours();
+    hour = (hour < 10 ? "0" : "") + hour;
+
+    var min  = date.getMinutes();
+    min = (min < 10 ? "0" : "") + min;
+
+    var sec  = date.getSeconds();
+    sec = (sec < 10 ? "0" : "") + sec;
+
+    var year = date.getFullYear();
+
+    var month = date.getMonth() + 1;
+    month = (month < 10 ? "0" : "") + month;
+
+    var day  = date.getDate();
+    day = (day < 10 ? "0" : "") + day;
+
+    return year + ":" + month + ":" + day + ":" + hour + ":" + min + ":" + sec;
+
+}
+
+
+/*
+** Loggin Ally's Performance
+*/
+
+
+
+
 /*
   Check if an array contains a specific string.
 */
@@ -87,6 +124,20 @@ function getFundName(msg_stem)
   }
   else
   {
+
+
+    /*
+    ** Loggin Ally's Performance
+    */
+    var NLP_To_File = 'NLP [Extracted Fund Name]: ' + fund_name_trainer[best_index].type + '\n';
+    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
+    {
+      if (err) throw err;
+    });
+
+
+
+
     return (fund_name_trainer[best_index].type);
   }
 }
@@ -116,6 +167,18 @@ function getFundData(msg_stem)
   }
   else
   {
+
+
+    /*
+    ** Loggin Ally's Performance
+    */
+    var NLP_To_File = 'NLP [Extracted Fund Data]: ' + fund_data_trainer[best_index].type + '\n';
+    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
+    {
+      if (err) throw err;
+    });
+
+
     return (fund_data_trainer[best_index].type);
   }
 }
@@ -145,6 +208,17 @@ function getGreetingType(msg_stem)
   }
   else
   {
+
+    /*
+    ** Loggin Ally's Performance
+    */
+    var NLP_To_File = 'NLP [Extract Greeting Type]: ' + message_type_trainer[best_index].type + '\n';
+    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
+    {
+      if (err) throw err;
+    });
+
+
     return (message_type_trainer[best_index].type);
   }
 }
@@ -163,9 +237,39 @@ function getResponse(type)
   }
 
   var type_split = type.split(/(?=[A-Z])/);
+
+
+  /*
+  ** Loggin Ally's Performance
+  */
+  var NLP_To_File = 'NLP [Type]: ' + type + '\n';
+  fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
+  {
+    if (err) throw err;
+  });
+
+  var NLP_To_File = 'NLP [Type Splitted]: ' + type_split + '\n';
+  fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
+  {
+    if (err) throw err;
+  });
+
+
   var generic_response = "The " + type_split.join(" ") + " for your {account} "
     + " is currently sitting at {value}. Please let me know if there's " +
     "anything you'd like me to assist with :)";
+
+    /*
+    ** Loggin Ally's Performance
+    */
+    var NLP_To_File = 'NLP [Generic Response]: ' + generic_response + '\n';
+    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
+    {
+      if (err) throw err;
+    });
+
+
+
   return (generic_response);
 }
 
@@ -178,6 +282,17 @@ function getGreeting(type)
   {
     if (responsesJSON[i].type == type)
     {
+
+      /*
+      ** Loggin Ally's Performance
+      */
+      var NLP_To_File = 'NLP [Returned Greeting]: ' + responsesJSON[i].response + '\n';
+      fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
+      {
+        if (err) throw err;
+      });
+
+
       return (responsesJSON[i].response);
     }
   }
@@ -187,6 +302,14 @@ function politeRequest(msg_stem)
 {
   var requests = "can i please have my give me you get tell";
   requests = requests.tokenizeAndStem(true);
+
+  var NLP_To_File = 'NLP [Request]: ' + requests+ '\n';
+  fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
+  {
+    if (err) throw err;
+  });
+
+
 
   var sim_count = getSimilarityCount(msg_stem, requests);
 
@@ -207,6 +330,16 @@ function handleRequest(msg_stem)
 {
   if (politeRequest(msg_stem))
   {
+
+    /*
+    ** Loggin Ally's Performance
+    */
+    var NLP_To_File = 'NLP [Handle Request]: True\n';
+    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
+    {
+      if (err) throw err;
+    });
+
     return (" Sure thing, let me get that for you.");
   }
   return ("");
@@ -221,32 +354,49 @@ module.exports = {
 
     // Where the final response to the user will be stored
     var final_response = "";
-
-    console.log("||| Start of \"processMessage()\" in",
-        "\"/src/natural/server.nlp.js\" |||");
-    console.log("");
-    console.log("");
-
-    console.log("@@@ Parameter received @@@");
-    console.log("Parameter name:message");
-    console.log("Parameter values:", message);
-    console.log("");
-    console.log("");
-
-    console.log("Tokenizing and stemming message:", message.message);
-    console.log("...");
     var msg = message.message;
+
+    var CurrentTime = getDateTime();
+    var NLP_To_File = 'User Message Sent: ' + CurrentTime + '\n\n';
+
+    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
+    {
+      if (err) throw err;
+    });
+    var CurrentTime = getDateTime();
+    var NLP_To_File = 'User Message Sent: ' + CurrentTime + '\n\n';
+
+    fStream.appendFile('src/logger/log',NLP_To_File , function (err)
+    {
+      if (err) throw err;
+    });
+
+/*
+** Loggin Ally's Performance
+*/
+
+
+    var UserToFile = 'User: ' + msg + '\n';
+    fStream.appendFile('src/logger/log',UserToFile , function (err)
+    {
+      if (err) throw err;
+    });
+
+    fStream.appendFile('src/logger/extInfo',UserToFile , function (err)
+    {
+      if (err) throw err;
+    });
+
+
+
+
+
+
     var msg_stem = msg.tokenizeAndStem(true);
-    console.log("Message tokenized and stemmed to:", msg_stem);
-    console.log("");
-    console.log("");
 
     var message_type_classification = getGreetingType(msg_stem);
-    console.log("Message has a greeting type:", message_type_classification);
     var fund_name_classification = getFundName(msg_stem);
-    console.log("Message refers to account:" + fund_name_classification);
     var fund_data_classification = getFundData(msg_stem);
-    console.log("Message refers to data:" + fund_data_classification);
 
     /*
       If user message contains a greeting, add a greeting to the final_response
@@ -280,14 +430,7 @@ module.exports = {
         If request says please, then add "sure thing".
       */
       final_response += handleRequest(msg_stem);
-      console.log("Fund classifiers are OK.");
-      console.log("");
-      console.log("");
 
-      console.log("___ Calling \"JSON.request()\" from",
-          "\"/src/natural/server.nlp.js\" ___");
-      console.log("");
-      console.log("");
 
       var sync = true;
       request({
@@ -298,20 +441,15 @@ module.exports = {
         },
         function (error,response,body,data)
         {
-          console.log("Response received from JSON server request.");
           if(error)
           {
-            console.log("Error received:", error);
             sync = false;
           }
           else
           {
-            console.log("Data received:", body[0][fund_data_classification]);
             data_response = body[0][fund_data_classification];
             sync = false;
           }
-          console.log("");
-          console.log("");
       });
       while(sync)
       {
@@ -351,15 +489,43 @@ module.exports = {
         + " assistance";
     }
 
-    console.log("___ Returned call of \"JSON.request()\" to",
-        "\"/src/natural/server.nlp.js\" with response:", data_response, "___");
-    console.log("");
-    console.log("");
 
-    console.log("||| End of \"socket.on('user_message')\" in",
-        "\"/src/socket/server.socket.js\" |||");
-    console.log("");
-    console.log("");
+    /*
+    ** Loggin Ally's Performance
+    */
+
+
+    var AllyToFile = 'ALLY: ' + final_response + '\n\n';
+    fStream.appendFile('src/logger/log',AllyToFile , function (err)
+    {
+      if (err) throw err;
+    });
+
+    var CurrentTime = getDateTime();
+    var NLP_To_File = 'User Message Recieved: ' + CurrentTime + '\n\n\n\n\n';
+    fStream.appendFile('src/logger/log',NLP_To_File , function (err)
+    {
+      if (err) throw err;
+    })
+
+
+
+
+    fStream.appendFile('src/logger/extInfo',AllyToFile , function (err)
+    {
+      if (err) throw err;
+    });
+
+
+
+    var CurrentTime = getDateTime();
+    var NLP_To_File = 'User Message Recieved: ' + CurrentTime + '\n\n\n\n\n';
+    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
+    {
+      if (err) throw err;
+    });
+
+
 
     return (final_response);
   }
