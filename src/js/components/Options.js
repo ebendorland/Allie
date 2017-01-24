@@ -28,20 +28,35 @@ var Options = React.createClass ({
               <h4>Get Fund Info For:</h4>
 
               <ul>
-
                   <li onClick={this.giveMeClick}>Allan Gray Equity Fund</li>
-
               </ul>
-
               <div id="deepInfo">
               <h5>Give Me:</h5>
               <ul>
-              <li>
-                StartUnitBalance
-              </li>
+              <li>StartUnitBalance</li>
+              <li>StartUnitPrice</li> 
+              <li>StartMarketValue</li> 
+              <li>StartRatio</li> 
+              <li>TotalStartMarketValue</li> 
+              <li>StartUnallottedMarketValue</li> 
+              <li>TotalStartMarketValueInclUnallotted</li> 
+              <li>EndUnitBalance</li> 
+              <li>EndUnitPrice </li>
+              <li> EndMarketValue</li>
+              <li> EndRatio</li>
+              <li> TotalEndMarketValue</li>
+              <li> EndUnallottedMarketValue</li>
+              <li>TotalEndMarketValueInclUnallotted</li>
+              <li>currencySymbol</li>
+              <li>currencyName</li>
+              <li>AccountNumber</li>
+              <li>StartNetMarketValue</li>
+              <li>EndNetMarketValue</li>
               </ul>
               </div>
 
+              
+            
             </div>
       </div>
     )
