@@ -176,6 +176,7 @@
 /*Option list styles*/
 li {
     list-style-type: none;
+    padding: 0px;
 }
 
 .list-options {
@@ -196,13 +197,18 @@ li {
 .list-options a:hover {
   font-weight: bold;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .list-options a {
   color: #c53146;
+  display: block;
+  padding: 10px;
+  margin: 0px;
 }
 
 .list-options li:hover {
   font-weight: bold;
   text-decoration: none;
+  cursor: pointer;
 }
