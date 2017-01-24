@@ -5,7 +5,7 @@
    },
   {
    "example": "['how are you','How’s it going','How are you doing','What’s up','What’s new','What’s going on','How’s everything','How are things','How’s life','How’s your day going','How have you been','Sup','Whazzup','What’s cracking?','Hello, hoe gaan dit?','unjani?','Molo, kunjani?','Lotjhani, Unjani?','Dumela, O kae?','Ndaa, vho vuwa hani?','Avuxeni, Ku njhani?', 'O tsogile jang? Le kae', 'Comment allez vous']",
-   "type": "greeting how you doing"
+   "type": "greeting how are you"
   },
    {
      "example": "['morning','good morning']",
