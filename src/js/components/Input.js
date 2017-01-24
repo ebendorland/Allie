@@ -3,6 +3,7 @@ import './Messaging.css';
 import ReactDOM from "react-dom";
 import MessageHistory from "./MessageHistory.js";
 import timer from './Time.js';
+import Options from "./Options.js";
 
 var io = require("socket.io-client");
 
