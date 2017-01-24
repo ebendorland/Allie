@@ -5,12 +5,11 @@
 module.exports = {
   chaTime: function(){
   var d = new Date();
-<<<<<<< HEAD
+
   // var numDay = d.getDate();
   // var numMonth = ('0' + (d.getMonth() + 1)).slice(-2);
   // var numYear = d.getFullYear();
-=======
->>>>>>> lorna-k
+
   var numHours = ('0' + (d.getHours())).slice(-2);
   var numMins = ('0' + (d.getMinutes())).slice(-2);
 

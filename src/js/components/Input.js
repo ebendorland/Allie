@@ -32,6 +32,7 @@ var Input = React.createClass ({
       {
         let extra_message = {
           message: "I am not sure what you need, please choose one of the options below for more info",
+
           from: "server"
         };
         this.state.messages.push(extra_message);
