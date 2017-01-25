@@ -26,7 +26,7 @@ export default class ChatFrame extends Component {
                       <div className="col-xs-2">
                       </div>
                       <div className="col-xs-8 header-text">
-                          <h1>Ask Ally Something.</h1>
+                          <h1>Ask Allie Something.</h1>
                       </div>
                       <div className="col-xs-2">
                       </div>

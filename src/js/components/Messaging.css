@@ -26,7 +26,7 @@
     background: white;
     width: 80%;
     overflow-y: scroll;
-    height: 45vh;
+    height: 50vh;
 }
 
 .Text-field {
@@ -53,7 +53,7 @@ button{
   .wallpaper{
     background-image: url(./wall-1x.png);
     background-position: center center;
-    height: 130vh;
+    height: 100vh;
     position: relative;
     margin-top: -10.3%;
   }
@@ -62,12 +62,12 @@ button{
     font-size: 3vh;
     font-size: 5vw;
   }
-  /*.ally-logo img{
-    margin-top:1vh;
-    width:10vw;
-    height:auto;
-  }*/
-
+  .Ally-replies {
+      height: 20vh;
+  }
+  .ChatBox{
+    width: 96%;
+  }
 
 }
 
@@ -81,20 +81,41 @@ button{
     position: relative;
     margin-top: 0.3%;
   }
+  .header-text h1{
+    font-size: 3vh;
+    font-size: 5vw;
+  }
+  .ally-logo img{
+    margin-top:1vh;
+    width:6vw;
+    height:auto;
+  }
+  .Ally-replies {
+      height: 30px;
+  }
 
-  .ChatBox{
-    position: fixed;
-    top: 0%;
-    left:5%;
-    text-align: center;
-    bottom:2%;
-    background: #FFFFFF;
-    margin: 40px auto;
-    border-top: 3px solid #c53146;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
-    background: white;
-    width: 80%;
-    padding-bottom: 1px;
+}
+
+@media screen and (max-width: 869px){
+  .wallpaper{
+    background-image: url(./wall-1x.png);
+    background-position: center center;
+    height: 94.2vh;
+    position: relative;
+    margin-top: 0.3%;
+  }
+
+  .header-text h1{
+    font-size: 4vw;
+  }
+
+  .ally-logo img{
+    margin-top:1vh;
+    width:7vw;
+    height:auto;
+  }
+  .Ally-replies {
+      height: 40vh;
   }
 
 }
@@ -211,6 +232,7 @@ button{
   background: white;
   width: 60%;
   padding-bottom: 5px;
+  height:73vh;
 }
 
 .row > div{

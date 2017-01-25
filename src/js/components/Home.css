@@ -299,14 +299,6 @@ ul.newnav li.right {float: right;}
     padding: 10px;
     color: white;
     }
-    .wallpaper{
-      background-image: url(./wall-1x.png);
-      background-position: center center;
-      height: 250vh;
-      position: relative;
-      margin-top: 0px;
-    }
-
 
     .caret{}
 

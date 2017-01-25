@@ -9,8 +9,10 @@ class Chat extends Component{
       <div className="Chat">
         <Header/>
         <div className="wallpaper">
+          <br />
+          <center>
           <ChatFrame>
-          </ChatFrame>
+          </ChatFrame></center>
 
         </div>
       </div>
