@@ -1,0 +1,14 @@
+[
+  {
+    "example": "ahoy hi hello hey there good morning day evening",
+    "type": "hello"
+  },
+  {
+    "example": "how are you",
+    "type": "how are you"
+  },
+  {
+    "example": "good morning day evening hi hello hey there how are you",
+    "type": "hello how are you"
+  }
+]
