@@ -51,6 +51,13 @@ io.on("connection", function(socket) {
     console.log("");
     console.log("");
   });
+
+  socket.on("client-to-self", function(msg) {
+    console.log(">> << Message from client-to-self received\n");
+    console.log("Message:\t", msg);
+    io.to(msg.id).emit("client-to-self", msg);
+    console.log(">> Message forwarded to client id:", msg.id);
+  });
 });
 
 /*

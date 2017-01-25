@@ -209,11 +209,3 @@ li {
   text-decoration: none;
   cursor: pointer;
 }
-
-#extra-info {
-  display: none;
-}
-
-#deep-info {
-  display: none;
-}

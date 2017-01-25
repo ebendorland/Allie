@@ -4,8 +4,10 @@ import ReactDOM from "react-dom";
 import MessageHistory from "./MessageHistory.js";
 import timer from './Time.js';
 import Options from "./Options.js";
+import FundList from "./FundList.js";
+import DataList from "./DataList.js";
 
-var io = require("socket.io-client");
+export var io = require("socket.io-client");
 
 export var socket = io.connect("http://localhost:3001", {
   "force new connection": true,
@@ -39,6 +41,28 @@ var Input = React.createClass ({
         this.state.messages.push(extra_message);
         message.message = <Options />;
       }
+      this.state.messages.push(message);
+      var elem = <MessageHistory messages={this.state.messages} />;
+      ReactDOM.render(elem, document.getElementById("message_box"));
+    });
+
+    socket.on("client-to-self", (msg) => {
+      var list_to_show = null;
+      if (msg.message === "fund_list")
+      {
+        list_to_show = <FundList />;
+      }
+      else if (msg.message === "data_list")
+      {
+        list_to_show = <DataList account={msg.account_choice} />;
+      }
+
+      let message = {
+        message: list_to_show,
+        from: "server",
+        time: timer.chaTime()
+      }
+
       this.state.messages.push(message);
       var elem = <MessageHistory messages={this.state.messages} />;
       ReactDOM.render(elem, document.getElementById("message_box"));
