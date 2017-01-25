@@ -454,3 +454,41 @@ User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minut
 
 
 
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 53 || Second: 48 || MiliSecond: 769]
+
+From User: sdv
+NLP_[Stemmed Message]: sdv
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: NO FUND NAMES FOUND IN USER STRING
+NLP_[Extracted Fund Data]: NO FUND DATA FOUND IN USER MESSAGE
+NLP_[ALLY UNDERSTOOD REQUEST]: false
+From ALLY: unknown
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 53 || Second: 48 || MiliSecond: 782]
+
+
+
+
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 53 || Second: 57 || MiliSecond: 654]
+
+From User: sanlam investment management resources total start market value incl unallotted
+NLP_[Stemmed Message]: sanlam,invest,manag,resourc,total,start,market,valu,incl,unallot
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: Sanlam Investment Management Resources Fund
+NLP_[Extracted Fund Data]: TotalStartMarketValueInclUnallotted
+NLP_[ALLY UNDERSTOOD REQUEST]: true
+NLP_[Polite Request List]: can,i,pleas,have,my,give,me,you,get,tell
+NLP_[Polite Request]: false
+NLP_[Ally Was Polite]: False
+NLP_[URL]: http://localhost:3002/funds?fundReportingDescription=Sanlam Investment Management Resources Fund
+NLP_[Data Response]: 39160.871377
+NLP_[Final Response After PregEx]: The Total Start Market Value Incl Unallotted for your Sanlam Investment Management Resources Fund is R39160.871377 :)
+NLP_[Final Response Before PregEx]: The Total Start Market Value Incl Unallotted for your {account} is R{value} :)
+NLP_[Program Failed]: False
+From ALLY: The Total Start Market Value Incl Unallotted for your Sanlam Investment Management Resources Fund is R39160.871377 :)
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 53 || Second: 57 || MiliSecond: 796]
+
+
+
+
