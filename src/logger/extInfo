@@ -401,3 +401,56 @@ User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minut
 
 
 
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 50 || Second: 09 || MiliSecond: 632]
+
+From User: jgd
+NLP_[Stemmed Message]: jgd
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: NO FUND NAMES FOUND IN USER STRING
+NLP_[Extracted Fund Data]: NO FUND DATA FOUND IN USER MESSAGE
+NLP_[ALLY UNDERSTOOD REQUEST]: false
+From ALLY: unknown
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 50 || Second: 09 || MiliSecond: 643]
+
+
+
+
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 50 || Second: 13 || MiliSecond: 622]
+
+From User: cadiz mastermind start unallotted market value
+NLP_[Stemmed Message]: cadiz,mastermind,start,unallot,market,valu
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: Cadiz Mastermind Fund
+NLP_[Extracted Fund Data]: StartUnallottedMarketValue
+NLP_[ALLY UNDERSTOOD REQUEST]: true
+NLP_[Polite Request]: false
+NLP_[Polite Request List]: can,i,pleas,have,my,give,me,you,get,tell
+NLP_[Ally Was Polite]: False
+NLP_[URL]: http://localhost:3002/funds?fundReportingDescription=Cadiz Mastermind Fund
+NLP_[Data Response]: 0.000000
+NLP_[Final Response Before PregEx]: The Start Unallotted Market Value for your {account} is R{value} :)
+NLP_[Program Failed]: False
+NLP_[Final Response After PregEx]: The Start Unallotted Market Value for your Cadiz Mastermind Fund is R0.000000 :)
+From ALLY: The Start Unallotted Market Value for your Cadiz Mastermind Fund is R0.000000 :)
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 50 || Second: 13 || MiliSecond: 754]
+
+
+
+
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 50 || Second: 20 || MiliSecond: 916]
+
+From User: thanks
+NLP_[Stemmed Message]: thank
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: NO FUND NAMES FOUND IN USER STRING
+NLP_[Extracted Fund Data]: NO FUND DATA FOUND IN USER MESSAGE
+NLP_[ALLY UNDERSTOOD REQUEST]: false
+From ALLY: unknown
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 50 || Second: 20 || MiliSecond: 922]
+
+
+
+
