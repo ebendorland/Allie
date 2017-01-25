@@ -363,3 +363,41 @@ User Message Recieved: 2017:01:25:11:42:32
 
 
 
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 47 || Second: 23 || MiliSecond: 754]
+
+From User: iugsc
+NLP_[Stemmed Message]: iugsc
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: NO FUND NAMES FOUND IN USER STRING
+NLP_[Extracted Fund Data]: NO FUND DATA FOUND IN USER MESSAGE
+NLP_[ALLY UNDERSTOOD REQUEST]: false
+From ALLY: unknown
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 47 || Second: 23 || MiliSecond: 770]
+
+
+
+
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 47 || Second: 29 || MiliSecond: 590]
+
+From User: old mutual industrial total end market value
+NLP_[Stemmed Message]: old,mutual,industri,total,end,market,valu
+NLP_[Extracted Fund Name(s)]: Old Mutual Industrial Fund
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Data]: TotalEndMarketValue
+NLP_[ALLY UNDERSTOOD REQUEST]: true
+NLP_[Polite Request List]: can,i,pleas,have,my,give,me,you,get,tell
+NLP_[Polite Request]: false
+NLP_[Ally Was Polite]: False
+NLP_[URL]: http://localhost:3002/funds?fundReportingDescription=Old Mutual Industrial Fund
+NLP_[Data Response]: 42006.518875
+NLP_[Final Response Before PregEx]: The Total End Market Value for your {account} is R{value} :)
+NLP_[Final Response After PregEx]: The Total End Market Value for your Old Mutual Industrial Fund is R42006.518875 :)
+NLP_[Program Failed]: False
+From ALLY: The Total End Market Value for your Old Mutual Industrial Fund is R42006.518875 :)
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 11 || Minute: 47 || Second: 29 || MiliSecond: 732]
+
+
+
+
