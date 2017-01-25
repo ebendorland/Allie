@@ -7,10 +7,7 @@ var Options = React.createClass ({
 
   getInitialState() {
     return ({
-      options_choices: {
-        account: "",
-        data: ""
-      }
+      account: ""
     });
   },
 
@@ -19,24 +16,36 @@ var Options = React.createClass ({
   },
 
   showDataChoices(account_name) {
-   document.getElementById("deep-info").style.display = "inline-block";
-   document.getElementById("extra-info").style.display = "none";
-   this.state.options_choices.account = account_name;
+    document.getElementById("deep-info").style.display = "inline-block";
+    document.getElementById("extra-info").style.display = "none";
+    this.setState({
+      account: account_name
+    });
   },
 
   sendDataRequest(data_choice) {
-   document.getElementById("deep-info").style.display = "none";
-   this.state.options_choices.data = data_choice;
+    document.getElementById("deep-info").style.display = "none";
 
-   // Compile message var to send then emit to server
-   let message = {
-     message: this.state.options_choices.account + " " +
-      this.state.options_choices.data,
-     from: "user",
-     id: socket.id,
-     time: timer.chaTime()
-   };
-   socket.emit("user_message", message);
+    // Compile message var to send then emit to server
+    let message = {
+      message: this.state.account + " " + data_choice,
+      from: "user",
+      id: socket.id,
+      time: timer.chaTime()
+    };
+
+    socket.emit("user_message",
+      {
+        message: this.state.account + " " + data_choice,
+        from: "user",
+        id: socket.id,
+        time: timer.chaTime()
+      }
+    );
+
+    this.setState({
+      account: ""
+    });
   },
 
   render() {
