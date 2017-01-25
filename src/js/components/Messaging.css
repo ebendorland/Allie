@@ -189,6 +189,12 @@ li {
   color: #c53146;;
   border-radius: 5px;
   padding:5px 10px 5px 10px;
+  background-color: white;
+  transition: font-weight 0.2s ease;
+  color: #c53146;
+  display: block;
+  padding: 10px;
+  margin: 0px;
 }
 
 .list-options a:hover {
@@ -197,23 +203,8 @@ li {
   cursor: pointer;
 }
 
-.list-options a {
-  color: #c53146;
-  display: block;
-  padding: 10px;
-  margin: 0px;
-}
-
 .list-options li:hover {
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
 }
-=======
-.list-options a:hover{
-  font-weight:bold;
-  text-decoration: none;
-}
-
-/*microphone icon*/
->>>>>>> c37b3d18ff2a5ed4a2c5f2040ef720692ad32117
