@@ -1314,3 +1314,125 @@ User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 16 || Minut
 
 
 
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minute: 19 || Second: 24 || MiliSecond: 333]
+
+From User: av
+NLP_[Stemmed Message]: av
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: NO FUND NAMES FOUND IN USER STRING
+NLP_[Extracted Fund Data]: NO FUND DATA FOUND IN USER MESSAGE
+NLP_[ALLY UNDERSTOOD REQUEST]: false
+From ALLY: unknown
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minute: 19 || Second: 24 || MiliSecond: 349]
+
+
+
+
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minute: 19 || Second: 37 || MiliSecond: 630]
+
+From User: Old Mutual Industrial Fund start unallotted market value
+NLP_[Stemmed Message]: old,mutual,industri,fund,start,unallot,market,valu
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: Old Mutual Industrial Fund
+NLP_[Extracted Fund Data]: StartUnallottedMarketValue
+NLP_[ALLY UNDERSTOOD REQUEST]: true
+NLP_[Polite Request List]: can,i,pleas,have,my,give,me,you,get,tell
+NLP_[Polite Request]: false
+NLP_[Ally Was Polite]: False
+NLP_[URL]: http://localhost:3002/funds?fundReportingDescription=Old Mutual Industrial Fund
+NLP_[Data Response]: 0.000000
+NLP_[Final Response After PregEx]: The Start Unallotted Market Value for your Old Mutual Industrial Fund is R0.000000 :)
+NLP_[Program Failed]: False
+From ALLY: The Start Unallotted Market Value for your Old Mutual Industrial Fund is R0.000000 :)
+
+NLP_[Final Response Before PregEx]: The Start Unallotted Market Value for your {account} is R{value} :)
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minute: 19 || Second: 37 || MiliSecond: 777]
+
+
+
+
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minute: 20 || Second: 04 || MiliSecond: 277]
+
+From User: Old Mutual Industrial Fund start net market value
+NLP_[Stemmed Message]: old,mutual,industri,fund,start,net,market,valu
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: Old Mutual Industrial Fund
+NLP_[Extracted Fund Data]: StartNetMarketValue
+NLP_[ALLY UNDERSTOOD REQUEST]: true
+NLP_[Polite Request List]: can,i,pleas,have,my,give,me,you,get,tell
+NLP_[Polite Request]: false
+NLP_[Ally Was Polite]: False
+NLP_[URL]: http://localhost:3002/funds?fundReportingDescription=Old Mutual Industrial Fund
+NLP_[Data Response]: 39160.871377
+NLP_[Final Response Before PregEx]: The Start Net Market Value for your {account} is R{value} :)
+NLP_[Final Response After PregEx]: The Start Net Market Value for your Old Mutual Industrial Fund is R39160.871377 :)
+NLP_[Program Failed]: False
+From ALLY: The Start Net Market Value for your Old Mutual Industrial Fund is R39160.871377 :)
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minute: 20 || Second: 04 || MiliSecond: 415]
+
+
+
+
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minute: 20 || Second: 33 || MiliSecond: 995]
+
+From User: Please give me my start net market for industrial
+NLP_[Stemmed Message]: pleas,give,me,my,start,net,market,for,industri
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: Old Mutual Industrial Fund
+NLP_[Extracted Fund Data]: StartNetMarketValue
+NLP_[Polite Request List]: can,i,pleas,have,my,give,me,you,get,tell
+NLP_[ALLY UNDERSTOOD REQUEST]: true
+NLP_[Ally Was Polite]: True
+NLP_[URL]: http://localhost:3002/funds?fundReportingDescription=Old Mutual Industrial Fund
+NLP_[Polite Request]: true
+NLP_[Data Response]: 39160.871377
+NLP_[Final Response Before PregEx]:  Sure thing, let me get that for you.The Start Net Market Value for your {account} is R{value} :)
+NLP_[Final Response After PregEx]:  Sure thing, let me get that for you.The Start Net Market Value for your Old Mutual Industrial Fund is R39160.871377 :)
+NLP_[Program Failed]: False
+From ALLY:  Sure thing, let me get that for you.The Start Net Market Value for your Old Mutual Industrial Fund is R39160.871377 :)
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minute: 20 || Second: 34 || MiliSecond: 113]
+
+
+
+
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minute: 22 || Second: 32 || MiliSecond: 507]
+
+From User: sva
+NLP_[Stemmed Message]: sva
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: NO FUND NAMES FOUND IN USER STRING
+NLP_[Extracted Fund Data]: NO FUND DATA FOUND IN USER MESSAGE
+NLP_[ALLY UNDERSTOOD REQUEST]: false
+From ALLY: unknown
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minute: 22 || Second: 32 || MiliSecond: 511]
+
+
+
+
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minute: 22 || Second: 43 || MiliSecond: 781]
+
+From User: Old Mutual Top 40 Fund start unallotted market value
+NLP_[Stemmed Message]: old,mutual,top,40,fund,start,unallot,market,valu
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: Old Mutual Top 40 Fund
+NLP_[Extracted Fund Data]: StartUnallottedMarketValue
+NLP_[ALLY UNDERSTOOD REQUEST]: true
+NLP_[Polite Request List]: can,i,pleas,have,my,give,me,you,get,tell
+NLP_[Polite Request]: false
+NLP_[Ally Was Polite]: False
+NLP_[URL]: http://localhost:3002/funds?fundReportingDescription=Old Mutual Top 40 Fund
+NLP_[Data Response]: 0.000000
+NLP_[Final Response Before PregEx]: The Start Unallotted Market Value for your {account} is R{value} :)
+NLP_[Final Response After PregEx]: The Start Unallotted Market Value for your Old Mutual Top 40 Fund is R0.000000 :)
+NLP_[Program Failed]: False
+From ALLY: The Start Unallotted Market Value for your Old Mutual Top 40 Fund is R0.000000 :)
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minute: 22 || Second: 43 || MiliSecond: 893]
+
+
+
+

@@ -7,6 +7,14 @@ var DataList = React.createClass ({
 
   sendDataRequest(data_choice)
   {
+    let message = {
+      id: socket.id,
+      message: "send_request",
+      account_choice: this.props.account,
+      data: data_choice
+    };
+    socket.emit("client-to-self", message);
+
     socket.emit("user_message",
       {
         message: this.props.account + " " + data_choice,
