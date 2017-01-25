@@ -18,7 +18,7 @@
     bottom: 0;
 }
 .header-text h1{
-  font-size: 1.8vw;
+  font-size: 30px;
 }
 .Ally-replies {
     /*border: 5px solid gray;*/
@@ -26,7 +26,7 @@
     background: white;
     width: 80%;
     overflow-y: scroll;
-    height: 50vh;
+    height: 45vh;
 }
 
 .Text-field {
@@ -72,7 +72,22 @@ button{
 }
 
 
-@media screen and (max-width: 412px){
+@media screen and (max-width: 425px){
+  .ChatBox {
+  position: fixed;
+  top: 7%;
+  left: 5%;
+  text-align: center;
+  bottom: 2%;
+  background: #FFFFFF;
+  margin: 40px auto;
+  border-top: 3px solid #c53146;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  background: white;
+  width: 90%;
+  /* padding-bottom: 5px; */
+  height: 85vh;
+}
 
   .wallpaper{
     background-image: url(./wall-1x.png);
@@ -91,12 +106,49 @@ button{
     height:auto;
   }
   .Ally-replies {
-      height: 30px;
-  }
-
+    height: 68vh;
 }
 
+}
+@media screen and (max-width: 767px){
+  .Ally-replies {
+      height: 64vh;
+  }
+  .Text-field {
+    background-color: #dfdfdf;
+    border: 1px solid grey;
+    width: 66vw;
+    float: left;
+    }
+
+    .mic-button img {
+    width: 7vw;
+    height: 3vh;
+    }
+    .ally-logo img {
+    margin-top: 1vh;
+    width: 9vw;
+    height: auto;
+    }
+}
+
+
 @media screen and (max-width: 869px){
+  .ChatBox {
+  position: fixed;
+  top: 7%;
+  left: 5%;
+  text-align: center;
+  bottom: 2%;
+  background: #FFFFFF;
+  margin: 40px auto;
+  border-top: 3px solid #c53146;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  background: white;
+  width: 90%;
+  /* padding-bottom: 5px; */
+  height: 85vh;
+}
   .wallpaper{
     background-image: url(./wall-1x.png);
     background-position: center center;
@@ -115,9 +167,19 @@ button{
     height:auto;
   }
   .Ally-replies {
-      height: 40vh;
-  }
+    height: 60vh;
+}
 
+}
+
+@media screen and (max-width: 869px){
+  .Ally-replies {
+  padding: 5px;
+  background: white;
+  width: 80%;
+  overflow-y: scroll;
+  height: 52vh;
+  }
 }
 
 

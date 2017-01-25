@@ -20,30 +20,28 @@ body{
 
 
 .App-header {
+
   background-color: black;
-line-height: 1;
+  line-height: 1;
   padding: 20px;
   color: white;
 
+}
+
+.main-header{
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
 }
 
 .navigation_bar{
   padding: 7px 0;
   height:25px;
   background-color:#212121;
-
   font-size: 12px;
   padding-right:150px;
   margin: auto;
-
-}
-
-.navigation_bar_two{
-  height:40px;
-  background-color:black;
-  margin-left: 150px;
-  font-size:15px;
-  /*  margin: auto;*/
 
 }
 
@@ -200,8 +198,6 @@ ul.dropdown-menu{
       /*<img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-256.png"/>*/
 
 /*New Navigation Bar*/
-
-.navigation_bar{color:blue;}
 
 .invest_now:hover{
     opacity: 0.8;
