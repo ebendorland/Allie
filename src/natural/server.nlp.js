@@ -3,8 +3,8 @@ var fStream = require("fs");
 var request = require('request');
 var stemmer = natural.PorterStemmer;
 var trainClassifier = require("./ClassifierTrainer.js");
+var isc = require("../spellChecker/ISC/index.js");
 stemmer.attach();
-
 
 /*
   Read in responses to be used when searching for valid responses to return
@@ -22,6 +22,10 @@ var fund_data_trainer = fStream.readFileSync("src/trainers/fund_data_trainer.jso
 fund_data_trainer = JSON.parse(fund_data_trainer);
 var message_type_trainer = fStream.readFileSync("src/trainers/greeting_trainer.json");
 message_type_trainer = JSON.parse(message_type_trainer);
+
+
+
+
 
 
 /*
@@ -46,6 +50,17 @@ function logger_extInfo(messageToLog)
   });
 }
 
+
+/*
+** Correcting Misspelled Words
+** ISC: [I]n[S]ane [C]hecker  :)
+*/
+function ISC(U_Message)
+{
+  var returnWords = isc.sendToAlly(U_Message);
+  returnWords = returnWords.join(" ");
+  return(returnWords);
+}
 
 /*
 ** Gets Current Date
@@ -74,6 +89,13 @@ function getDateTime() {
     var access_to_all = new Date();
     var mil = access_to_all.getMilliseconds();
 
+
+
+
+
+
+
+
     return " [Year: "+year + " || " + "Month: "+month + " || " + "Day: "+day + " || " + "Hour: "+hour + " || " + "Minute: "+min + " || " + "Second: " + sec + " || " + "MiliSecond: "+mil + "]"
 
 }
@@ -95,7 +117,7 @@ function arrayContains(arr, str)
 }
 
 /*
-  Get the similarity COUNT between two arrays. (I.e: how similar the two arrays
+  Get the similarity ratio between two arrays. (I.e: how similar the two arrays
   are to one another)
 */
 function  getSimilarityCount(arr1, arr2)
@@ -116,34 +138,6 @@ function  getSimilarityCount(arr1, arr2)
     }
   }
   return (simCount);
-}
-
-/*
-  Get the similarity RATIO between two arrays. (I.e: how similar the two arrays
-  are to one another)
-*/
-function  getSimilarityRatio(arr1, arr2)
-{
-  var simCount = 0;
-  var similarity = 0;
-  var len1 = arr1.length;
-  var len2 = arr2.length;
-
-  for (var i = 0; i < len1; i++)
-  {
-    for (var j = 0; j < len2; j++)
-    {
-      if (natural.JaroWinklerDistance(arr1[i], arr2[j]) > 0.95)
-      {
-        simCount++;
-        break;
-      }
-    }
-  }
-
-  similarity = simCount / len1;
-
-  return (similarity);
 }
 
 /*
@@ -222,9 +216,9 @@ function getGreetingType(msg_stem)
 
   for (var i = 0; i < message_type_trainer.length; i++)
   {
-    var similarity = getSimilarityRatio(message_type_trainer[i].example.tokenizeAndStem(true), msg_stem);
+    var similarity = getSimilarityCount(message_type_trainer[i].example.tokenizeAndStem(true), msg_stem);
 
-    if (similarity > best_similarity && similarity >= 0.6)
+    if (similarity > best_similarity)
     {
       best_similarity = similarity;
       best_index = i;
@@ -363,7 +357,12 @@ module.exports = {
     logger_log(UserToFile);
     logger_extInfo(UserToFile);
 
-    var msg_stem = msg.tokenizeAndStem(true);
+
+    var AC_message = ISC(msg);
+    var NLP_To_File = 'NLP_[Auto Corrected User Message]: ' + AC_message + '\n';
+    logger_extInfo(NLP_To_File);
+
+    var msg_stem = AC_message.tokenizeAndStem(true);
     NLP_To_File = "NLP_[Stemmed Message]: " + msg_stem + "\n";
     logger_extInfo(NLP_To_File);
 
