@@ -8,28 +8,32 @@
 }
 
 .wallpaper {
-    background-image: url(./wall-1x.png);
+    background-image: url(/static/media/wall-1x.0067f57c.png);
     background-position: center center;
-    height: 86.5vh;
+    height: 91.7vh;
     position: relative;
-    margin-top: -3.3%;
+    margin-top: 1.7%;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
-
+.header-text h1{
+  font-size: 1.8vw;
+}
 .Ally-replies {
     /*border: 5px solid gray;*/
     padding: 5px;
     background: white;
     width: 80%;
-    height: 280pt;
     overflow-y: scroll;
+    max-height: 400px;;
 }
 
-.Text-field{
-  background-color: #dfdfdf;
-  border:1px solid grey;
-  width:48vw;
-  height:6vh;
-  float:left;
+.Text-field {
+    background-color: #dfdfdf;
+    border: 1px solid grey;
+    width: 43vw;
+    float: left;
 }
 button{
   border:none;
@@ -52,6 +56,45 @@ button{
     height: 130vh;
     position: relative;
     margin-top: -10.3%;
+  }
+
+  .header-text h1{
+    font-size: 3vh;
+    font-size: 5vw;
+  }
+  /*.ally-logo img{
+    margin-top:1vh;
+    width:10vw;
+    height:auto;
+  }*/
+
+
+}
+
+
+@media screen and (max-width: 412px){
+
+  .wallpaper{
+    background-image: url(./wall-1x.png);
+    background-position: center center;
+    height: 91.4vh;
+    position: relative;
+    margin-top: 0.3%;
+  }
+
+  .ChatBox{
+    position: fixed;
+    top: 0%;
+    left:5%;
+    text-align: center;
+    bottom:2%;
+    background: #FFFFFF;
+    margin: 40px auto;
+    border-top: 3px solid #c53146;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+    background: white;
+    width: 80%;
+    padding-bottom: 1px;
   }
 
 }
@@ -156,14 +199,17 @@ button{
 
 
 .ChatBox{
-  position: relative;
-  top: 8%;
+  position: fixed;
+  top: 15%;
+  left:20%;
+  text-align: center;
+  bottom:2%;
   background: #FFFFFF;
-  margin: 50px auto;
+  margin: 40px auto;
   border-top: 3px solid #c53146;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   background: white;
-  width: 65%;
+  width: 60%;
   padding-bottom: 5px;
 }
 
@@ -171,23 +217,9 @@ button{
   text-align: center;
 }
 
-.send-button{
-  width:12.6%;
-  background-color: #c53146; /* Green */
- border: none;
- color: white;
- padding: 5px 10px 8px 10px;;
- text-align: center;
- text-decoration: none;
- display: inline-block;
- font-size: 13px;
- font-weight:400;
- text-transform: uppercase;
- /*margin: 4px 2px;*/
-
- cursor: pointer;
- -webkit-transition-duration: 0.4s; /* Safari */
- transition-duration: 0.4s;
+.input-box{
+  margin-top: 1vh;
+  margin-bottom: 2px;
 }
 
 .chaTime {
@@ -196,8 +228,8 @@ button{
 
 }
 .ally-logo img{
-  margin-top:10pt;
-  width:70pt;
+  margin-top:1vh;
+  width:5vw;
   height:auto;
 }
 

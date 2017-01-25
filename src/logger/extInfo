@@ -58,3 +58,33 @@ User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 09 || Minut
 
 
 
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 10 || Minute: 51 || Second: 18 || MiliSecond: 457]
+
+From User: dfgzdfg
+NLP_[Stemmed Message]: dfgzdfg
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: NO FUND NAMES FOUND IN USER STRING
+NLP_[Extracted Fund Data]: NO FUND DATA FOUND IN USER MESSAGE
+NLP_[ALLY UNDERSTOOD REQUEST]: false
+From ALLY: unknown
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 10 || Minute: 51 || Second: 18 || MiliSecond: 491]
+
+
+
+
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 12 || Minute: 02 || Second: 40 || MiliSecond: 166]
+
+From User: rgdfgfgarg
+NLP_[Stemmed Message]: rgdfgfgarg
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: NO FUND NAMES FOUND IN USER STRING
+NLP_[Extracted Fund Data]: NO FUND DATA FOUND IN USER MESSAGE
+NLP_[ALLY UNDERSTOOD REQUEST]: false
+From ALLY: unknown
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 12 || Minute: 02 || Second: 40 || MiliSecond: 189]
+
+
+
+
