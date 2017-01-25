@@ -183,15 +183,12 @@ li {
     text-decoration: none;
     margin-bottom: 10px;
     width: 100px;
-}
-
-.list-options {
-  font-size: 15px;
-  color: #c53146;
-  border-radius: 5px;
-  padding: 5px 10px 5px 10px;
-  background-color: white;
-  transition: font-weight 0.2s ease;
+    font-size: 13px;
+    color: #c53146;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    background-color: white;
+    transition: font-weight 0.2s ease;
 }
 
 .list-options a:hover {
@@ -211,4 +208,12 @@ li {
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
+}
+
+#extra-info {
+  display: none;
+}
+
+#deep-info {
+  display: none;
 }

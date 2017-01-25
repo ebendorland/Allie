@@ -7,7 +7,7 @@ import Options from "./Options.js";
 
 var io = require("socket.io-client");
 
-var socket = io.connect("http://localhost:3001", {
+export var socket = io.connect("http://localhost:3001", {
   "force new connection": true,
   "reconnectionAttempts": "Infinity",
   "timeout": 1000,

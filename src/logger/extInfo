@@ -1,94 +1,91 @@
-User Message Sent: 2017:01:24:16:12:37
+User Message Sent: 2017:01:25:10:30:11
 
-User: dzf
+User: dsg
 ALLY: unknown
 
-User Message Recieved: 2017:01:24:16:12:37
+User Message Recieved: 2017:01:25:10:30:11
 
 
 
 
-User Message Sent: 2017:01:24:16:13:18
+User Message Sent: 2017:01:25:10:30:21
 
-User: balance cadiz
-NLP [Extracted Fund Name]: Cadiz Mastermind Fund
-NLP [Extracted Fund Data]: EndNetMarketValue
+NLP [Extracted Fund Name]: Old Mutual Industrial Fund
+User: old mutual industrial start unit balance
+NLP [Extracted Fund Data]: StartUnitBalance
 NLP [Request]: can,i,pleas,have,my,give,me,you,get,tell
-ALLY: The End Net Market Value for your Cadiz Mastermind Fund is Currently at R43506.628875 :)
+ALLY: The Start Unit Balance for your Old Mutual Industrial Fund is R1760.730000 :)
 
-User Message Recieved: 2017:01:24:16:13:19
-
-
+User Message Recieved: 2017:01:25:10:30:21
 
 
-User Message Sent: 2017:01:24:16:15:34
 
-User: kjgf
+
+User Message Sent: 2017:01:25:10:31:11
+
+User: kudg
 ALLY: unknown
 
-User Message Recieved: 2017:01:24:16:15:34
+User Message Recieved: 2017:01:25:10:31:11
 
 
 
 
-User Message Sent: 2017:01:24:16:15:56
+User Message Sent: 2017:01:25:10:31:31
 
-User: kgf
+User: sygnia value start unit price
+NLP [Extracted Fund Name]: Investec Value Fund
+NLP [Extracted Fund Data]: StartUnitPrice
+NLP [Request]: can,i,pleas,have,my,give,me,you,get,tell
+ALLY: The Start Unit Price for your Investec Value Fund is R34084.240000 :)
+
+User Message Recieved: 2017:01:25:10:31:31
+
+
+
+
+User Message Sent: 2017:01:25:10:32:43
+
+User: jhgsdf
 ALLY: unknown
 
-User Message Recieved: 2017:01:24:16:15:56
+User Message Recieved: 2017:01:25:10:32:43
 
 
 
 
-User Message Sent: 2017:01:24:16:17:02
+User Message Sent: 2017:01:25:10:32:51
 
-User: sfgb
+User: sygnia value start unit price
+NLP [Extracted Fund Name]: Sygnia Value Fund
+NLP [Extracted Fund Data]: StartUnitPrice
+NLP [Request]: can,i,pleas,have,my,give,me,you,get,tell
+ALLY: The Start Unit Price for your Sygnia Value Fund is R3936.470000 :)
+
+User Message Recieved: 2017:01:25:10:32:51
+
+
+
+
+User Message Sent: 2017:01:25:10:38:00
+
+User: wazzzzzup
 ALLY: unknown
 
-User Message Recieved: 2017:01:24:16:17:02
+User Message Recieved: 2017:01:25:10:38:00
 
 
 
 
-User Message Sent: 2017:01:24:16:36:26
+User Message Sent: 2017:01:25:10:38:46
 
-User: afv
-ALLY: unknown
+User: absa smart alpha start unallotted market value
+NLP [Extracted Fund Name]: Absa Smart Alpha Equity Fund
+NLP [Extracted Fund Data]: StartUnallottedMarketValue
+NLP [Request]: can,i,pleas,have,my,give,me,you,get,tell
+ALLY: The Start Unallotted Market Value for your Absa Smart Alpha Equity Fund is R0.000000 :)
 
-User Message Recieved: 2017:01:24:16:36:26
-
-
-
-
-User Message Sent: 2017:01:24:16:39:54
-
-User: df
-ALLY: unknown
-
-User Message Recieved: 2017:01:24:16:39:54
-
-
-
-
-User Message Sent: 2017:01:24:16:42:58
-
-User: you dtf?
-NLP [Extract Greeting Type]: how are you
-NLP [Returned Greeting]: I'm great thank you :)
-ALLY: I'm great thank you :) What would you like me to assist you with?
-
-User Message Recieved: 2017:01:24:16:42:58
-
-
-
-
-User Message Sent: 2017:01:25:09:31:39
-
-User: sgn
-ALLY: unknown
-
-User Message Recieved: 2017:01:25:09:31:39
+User Message Recieved: 2017:01:25:10:38:46
 
 
 
