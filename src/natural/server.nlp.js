@@ -3,6 +3,7 @@ var fStream = require("fs");
 var request = require('request');
 var stemmer = natural.PorterStemmer;
 var trainClassifier = require("./ClassifierTrainer.js");
+var isc = require("../spellChecker/ISC/index.js");
 stemmer.attach();
 
 
@@ -22,6 +23,10 @@ var fund_data_trainer = fStream.readFileSync("src/trainers/fund_data_trainer.jso
 fund_data_trainer = JSON.parse(fund_data_trainer);
 var message_type_trainer = fStream.readFileSync("src/trainers/greeting_trainer.json");
 message_type_trainer = JSON.parse(message_type_trainer);
+
+
+
+
 
 
 /*
@@ -46,6 +51,17 @@ function logger_extInfo(messageToLog)
   });
 }
 
+
+/*
+** Correcting Misspelled Words
+** ISC: [I]n[S]ane [C]hecker  :)
+*/
+function ISC(U_Message)
+{
+  var returnWords = isc.sendToAlly(U_Message);
+  returnWords = returnWords.join(" ");
+  return(returnWords);
+}
 
 /*
 ** Gets Current Date
@@ -73,6 +89,13 @@ function getDateTime() {
 
     var access_to_all = new Date();
     var mil = access_to_all.getMilliseconds();
+
+
+
+
+
+
+
 
     return " [Year: "+year + " || " + "Month: "+month + " || " + "Day: "+day + " || " + "Hour: "+hour + " || " + "Minute: "+min + " || " + "Second: " + sec + " || " + "MiliSecond: "+mil + "]"
 
@@ -363,7 +386,12 @@ module.exports = {
     logger_log(UserToFile);
     logger_extInfo(UserToFile);
 
-    var msg_stem = msg.tokenizeAndStem(true);
+
+    var AC_message = ISC(msg);
+    var NLP_To_File = 'NLP_[Auto Corrected User Message]: ' + AC_message + '\n';
+    logger_extInfo(NLP_To_File);
+
+    var msg_stem = AC_message.tokenizeAndStem(true);
     NLP_To_File = "NLP_[Stemmed Message]: " + msg_stem + "\n";
     logger_extInfo(NLP_To_File);
 
