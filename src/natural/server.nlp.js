@@ -3,7 +3,7 @@ var fStream = require("fs");
 var request = require('request');
 var stemmer = natural.PorterStemmer;
 var trainClassifier = require("./ClassifierTrainer.js");
-var isc = require("../spellChecker/ISC/index.js");
+var isc = require("../spellChecker/ISCC/index.js");
 stemmer.attach();
 
 
@@ -23,9 +23,6 @@ var fund_data_trainer = fStream.readFileSync("src/trainers/fund_data_trainer.jso
 fund_data_trainer = JSON.parse(fund_data_trainer);
 var message_type_trainer = fStream.readFileSync("src/trainers/greeting_trainer.json");
 message_type_trainer = JSON.parse(message_type_trainer);
-
-
-
 
 
 
@@ -60,6 +57,7 @@ function ISC(U_Message)
 {
   var returnWords = isc.sendToAlly(U_Message);
   returnWords = returnWords.join(" ");
+  console.log("Return: ", returnWords);
   return(returnWords);
 }
 
