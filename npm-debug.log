@@ -1,32 +1,34 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'start' ]
+1 verbose cli [ '/home/vagrant/.nvm/versions/node/v5.7.1/bin/node',
+1 verbose cli   '/home/vagrant/.nvm/versions/node/v5.7.1/bin/npm',
+1 verbose cli   'start' ]
 2 info using npm@4.0.5
-3 info using node@v7.4.0
+3 info using node@v5.7.1
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle Ally@0.1.0~prestart: Ally@0.1.0
 6 silly lifecycle Ally@0.1.0~prestart: no script for prestart, continuing
 7 info lifecycle Ally@0.1.0~start: Ally@0.1.0
 8 verbose lifecycle Ally@0.1.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle Ally@0.1.0~start: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/phjacobs/workspace/phjacobs/node_modules/.bin:/home/phjacobs/bin:/home/phjacobs/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
-10 verbose lifecycle Ally@0.1.0~start: CWD: /home/phjacobs/workspace/phjacobs
+9 verbose lifecycle Ally@0.1.0~start: PATH: /home/vagrant/.nvm/versions/node/v5.7.1/lib/node_modules/npm/bin/node-gyp-bin:/home/vagrant/Desktop/Ally/node_modules/.bin:/opt/oracle/instantclient:/home/vagrant/.nvm/versions/node/v5.7.1/bin:/usr/local/rbenv/shims:/usr/local/rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+10 verbose lifecycle Ally@0.1.0~start: CWD: /home/vagrant/Desktop/Ally
 11 silly lifecycle Ally@0.1.0~start: Args: [ '-c', 'npm run json-server-start & npm run react-start' ]
 12 silly lifecycle Ally@0.1.0~start: Returned: code: 1  signal: null
 13 info lifecycle Ally@0.1.0~start: Failed to exec start script
 14 verbose stack Error: Ally@0.1.0 start: `npm run json-server-start & npm run react-start`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (/usr/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
-14 verbose stack     at emitTwo (events.js:106:13)
-14 verbose stack     at EventEmitter.emit (events.js:191:7)
-14 verbose stack     at ChildProcess.<anonymous> (/usr/lib/node_modules/npm/lib/utils/spawn.js:40:14)
-14 verbose stack     at emitTwo (events.js:106:13)
-14 verbose stack     at ChildProcess.emit (events.js:191:7)
-14 verbose stack     at maybeClose (internal/child_process.js:885:16)
-14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+14 verbose stack     at EventEmitter.<anonymous> (/home/vagrant/.nvm/versions/node/v5.7.1/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
+14 verbose stack     at emitTwo (events.js:100:13)
+14 verbose stack     at EventEmitter.emit (events.js:185:7)
+14 verbose stack     at ChildProcess.<anonymous> (/home/vagrant/.nvm/versions/node/v5.7.1/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:100:13)
+14 verbose stack     at ChildProcess.emit (events.js:185:7)
+14 verbose stack     at maybeClose (internal/child_process.js:827:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 15 verbose pkgid Ally@0.1.0
-16 verbose cwd /home/phjacobs/workspace/phjacobs
-17 error Linux 4.3.0-kali1-amd64
-18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
-19 error node v7.4.0
+16 verbose cwd /home/vagrant/Desktop/Ally
+17 error Linux 4.4.0-34-generic
+18 error argv "/home/vagrant/.nvm/versions/node/v5.7.1/bin/node" "/home/vagrant/.nvm/versions/node/v5.7.1/bin/npm" "start"
+19 error node v5.7.1
 20 error npm  v4.0.5
 21 error code ELIFECYCLE
 22 error Ally@0.1.0 start: `npm run json-server-start & npm run react-start`

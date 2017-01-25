@@ -1,6 +1,30 @@
 [
   {
-    "example": "ahoy hi hello hey there good morning day evening",
+    "example": "ahoy",
+    "type": "hello"
+  },
+  {
+    "example": "hi",
+    "type": "hello"
+  },
+  {
+    "example": "hello",
+    "type": "hello"
+  },
+  {
+    "example": "hey",
+    "type": "hello"
+  },
+  {
+    "example": "good morning",
+    "type": "hello"
+  },
+  {
+    "example": "good day",
+    "type": "hello"
+  },
+  {
+    "example": "good evening",
     "type": "hello"
   },
   {

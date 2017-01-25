@@ -95,7 +95,7 @@ function arrayContains(arr, str)
 }
 
 /*
-  Get the similarity ratio between two arrays. (I.e: how similar the two arrays
+  Get the similarity COUNT between two arrays. (I.e: how similar the two arrays
   are to one another)
 */
 function  getSimilarityCount(arr1, arr2)
@@ -116,6 +116,34 @@ function  getSimilarityCount(arr1, arr2)
     }
   }
   return (simCount);
+}
+
+/*
+  Get the similarity RATIO between two arrays. (I.e: how similar the two arrays
+  are to one another)
+*/
+function  getSimilarityRatio(arr1, arr2)
+{
+  var simCount = 0;
+  var similarity = 0;
+  var len1 = arr1.length;
+  var len2 = arr2.length;
+
+  for (var i = 0; i < len1; i++)
+  {
+    for (var j = 0; j < len2; j++)
+    {
+      if (natural.JaroWinklerDistance(arr1[i], arr2[j]) > 0.95)
+      {
+        simCount++;
+        break;
+      }
+    }
+  }
+
+  similarity = simCount / len1;
+
+  return (similarity);
 }
 
 /*
@@ -194,9 +222,9 @@ function getGreetingType(msg_stem)
 
   for (var i = 0; i < message_type_trainer.length; i++)
   {
-    var similarity = getSimilarityCount(message_type_trainer[i].example.tokenizeAndStem(true), msg_stem);
+    var similarity = getSimilarityRatio(message_type_trainer[i].example.tokenizeAndStem(true), msg_stem);
 
-    if (similarity > best_similarity)
+    if (similarity > best_similarity && similarity >= 0.6)
     {
       best_similarity = similarity;
       best_index = i;
