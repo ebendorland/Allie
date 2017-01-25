@@ -1,6 +1,6 @@
 /*CSS FOR MESSAGING PAGE*/
 .AllyBot_Logo{
-  text-align: center;
+  text-align: center;;
 }
 
 .AllyBot_Logo img{
@@ -32,6 +32,7 @@
 #usr_input{
   height: 30px;
 }
+
 #send_button {
     height: 30px;
     border:2px solid grey;
@@ -43,6 +44,7 @@
   top: 3.6%;
   text-align: center;
 }
+
 .ally_message {
   background:#c53146 none repeat scroll 0 0;
   border-radius: 12px;
@@ -84,6 +86,7 @@
   position: relative;
   margin-bottom: 5pt;
 }
+
 .server{
 
   /*background: url("http://image.flaticon.com/icons/png/128/118/118781.png");*/
@@ -99,6 +102,7 @@
   float: left;
   display:inline-block;
 }
+
 .surrounding_div{
   overflow:auto;
 }
@@ -132,7 +136,7 @@
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   background: white;
   width: 65%;
-  height: 85%;
+  padding-bottom: 5px;
 }
 
 .row > div{
@@ -169,11 +173,47 @@
   height:auto;
 }
 
+/*Option list styles*/
+li {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.list-options {
+    text-decoration: none;
+    margin-bottom: 10px;
+    width: 100px;
+    font-size: 13px;
+    color: #c53146;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    background-color: white;
+    transition: font-weight 0.2s ease;
+}
+
+.list-options a:hover {
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.list-options a {
+  color: #c53146;
+  display: block;
+  padding: 10px;
+  margin: 0px;
+}
+
+.list-options li:hover {
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 #extra-info {
   display: none;
 }
 
-#deepInfo {
-    display: none;
-
+#deep-info {
+  display: none;
 }
