@@ -258,75 +258,61 @@ ul.newnav li.right {float: right;}
 
 /*Hamburger Menu Bar*/
   @media screen and (max-width: 858px){
-      ul.newnav{
-        display:none;
+    ul.newnav{
+      display:none;
 
-      }
-      .log_in{
-        width:100%;
-      }
-      .invest_now{
-        width:100%;
-      }
-
-  .dropdown-menu
-  {
-    overflow: hidden;
-  }
-
-  .dropdown-toggle
-  {display: block;
-  }
-
-  a{
-    color:black;
-  }
-   a:hover{
-     color:#c53146;
-    cursor:pointer;
-  }
-
-  .caret{
-    display:none;
-  }
-
-
-    /*.hamburger_icon img
-    {
-      height:4%;
-      position:absolute;
-      top: 1.5%;
-      right:2px;
-      margin-right: 1px;
-      display:block;
-    }*/
-
-    /*.App-header-hamburger
-    {
-      display:block;
-
-    }*/
-
-    /*.App-header-hamburger ul{
-      list-style-type: none;
+    }
+    .log_in{
+      width:100%;
+    }
+    .invest_now{
+      width:100%;
     }
 
-    .App-header-hamburger ul li a {
-      color:white;
+    .dropdown-menu
+    {
+      overflow: hidden;
+    }
+
+    .dropdown-toggle
+    {display: block;
+    }
+
+    a{
+      color:black;
+    }
+     a:hover{
+       color:#c53146;
       cursor:pointer;
-    }*/
+    }
+    .navigation_bar {
+    padding: 7px 0;
+    height: 10px;
+    background-color: #212121;
+    font-size: 12px;
+    padding-right: 150px;
+    margin: auto;
+    }
+    .App-header {
+    background-color: black;
+    line-height: 1;
+    padding: 10px;
+    color: white;
+    }
+    .wallpaper{
+      background-image: url(./wall-1x.png);
+      background-position: center center;
+      height: 250vh;
+      position: relative;
+      margin-top: 0px;
+    }
+
+
+    .caret{}
 
     .App-header-hamburger ul li a:hover {
       color:#c53146;
       cursor:pointer;
     }
 
-
-  /*ul.newnav .lastitem{margin-right:0%;}
-    ul.newnav{
-      text-align: center;
-
-    }
-    ul.newnav li.right,
-    ul.newnav li {float: none;}*/
 }

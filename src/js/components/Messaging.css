@@ -27,7 +27,35 @@
 .Text-field{
   background-color: #dfdfdf;
   border:1px solid grey;
+  width:48vw;
+  height:6vh;
+  float:left;
 }
+button{
+  border:none;
+  background-color: inherit;
+}
+.mic-button{
+  clear:right;
+}
+
+.mic-button img{
+  width:4vw;
+  height: 3vh;
+}
+
+@media screen and (max-width: 322px){
+
+  .wallpaper{
+    background-image: url(./wall-1x.png);
+    background-position: center center;
+    height: 130vh;
+    position: relative;
+    margin-top: -10.3%;
+  }
+
+}
+
 
 #usr_input{
   height: 30px;

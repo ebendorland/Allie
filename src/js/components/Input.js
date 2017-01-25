@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import MessageHistory from "./MessageHistory.js";
 import timer from './Time.js';
 import Options from "./Options.js";
+import mic from './microphone-black-shape.svg';
 
 var io = require("socket.io-client");
 
@@ -92,16 +93,15 @@ var Input = React.createClass ({
       <div className="row">
         <div className="col-xs-1"></div>
         <div className="col-xs-10">
-          <div className="row">
-                <input className="col-xs-10 Text-field"
+          <div className="input-box">
+                <input className=" Text-field"
                     placeholder="Type message..." id="usr_input"
                     type="text" value={this.state.inputValue}
                     onChange={this.handleChange} onKeyPress={this.onKeyPress}/>
-                <input className="col-xs-1 send-button" type="submit"
-                    value="Send" id="send_button" onClick={this.onSend}/>
+                <button className="mic-button" onClick={this.onSend}><img src={mic}/></button>
           </div>
         </div>
-        <div className="col-xs-1"></div>
+
       </div>
     )
   }
