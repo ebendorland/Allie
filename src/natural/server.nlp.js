@@ -5,6 +5,7 @@ var stemmer = natural.PorterStemmer;
 var trainClassifier = require("./ClassifierTrainer.js");
 stemmer.attach();
 
+
 /*
   Read in responses to be used when searching for valid responses to return
   to the user.
@@ -21,6 +22,29 @@ var fund_data_trainer = fStream.readFileSync("src/trainers/fund_data_trainer.jso
 fund_data_trainer = JSON.parse(fund_data_trainer);
 var message_type_trainer = fStream.readFileSync("src/trainers/greeting_trainer.json");
 message_type_trainer = JSON.parse(message_type_trainer);
+
+
+/*
+** Creates log in src/logger/log
+*/
+function logger_log(messageToLog)
+{
+  fStream.appendFile('src/logger/log', messageToLog, function(err)
+  {
+    if(err) throw err;
+  });
+}
+
+/*
+** Creates log in src/logger/extInfo
+*/
+function logger_extInfo(messageToLog)
+{
+  fStream.appendFile('src/logger/extInfo', messageToLog, function(err)
+  {
+    if(err) throw err;
+  });
+}
 
 
 /*
@@ -47,16 +71,12 @@ function getDateTime() {
     var day  = date.getDate();
     day = (day < 10 ? "0" : "") + day;
 
-    return year + ":" + month + ":" + day + ":" + hour + ":" + min + ":" + sec;
+    var access_to_all = new Date();
+    var mil = access_to_all.getMilliseconds();
+
+    return " [Year: "+year + " || " + "Month: "+month + " || " + "Day: "+day + " || " + "Hour: "+hour + " || " + "Minute: "+min + " || " + "Second: " + sec + " || " + "MiliSecond: "+mil + "]"
 
 }
-
-
-/*
-** Loggin Ally's Performance
-*/
-
-
 
 
 /*
@@ -95,7 +115,6 @@ function  getSimilarityCount(arr1, arr2)
       }
     }
   }
-
   return (simCount);
 }
 
@@ -117,33 +136,23 @@ function getFundName(msg_stem)
       best_index = i;
     }
   }
-
   if (best_index == -1)
   {
+  var NLP_To_File = 'NLP_[Extracted Fund Name(s)]: NO FUND NAMES FOUND IN USER STRING\n';
+    logger_extInfo(NLP_To_File);
     return (null);
   }
   else
   {
-
-
-    /*
-    ** Loggin Ally's Performance
-    */
-    var NLP_To_File = 'NLP [Extracted Fund Name]: ' + fund_name_trainer[best_index].type + '\n';
-    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
-    {
-      if (err) throw err;
-    });
-
-
-
+    var NLP_To_File = 'NLP_[Extracted Fund Name(s)]: ' + fund_name_trainer[best_index].type + '\n';
+    logger_extInfo(NLP_To_File);
 
     return (fund_name_trainer[best_index].type);
   }
 }
 
 /*
-  Return the data identifier that the user is asking for.
+** Return the data identifier that the user is asking for.
 */
 function getFundData(msg_stem)
 {
@@ -160,24 +169,16 @@ function getFundData(msg_stem)
       best_index = i;
     }
   }
-
   if (best_index == -1)
   {
+    var NLP_To_File = 'NLP_[Extracted Fund Data]: NO FUND DATA FOUND IN USER MESSAGE\n';
+    logger_extInfo(NLP_To_File);
     return (null);
   }
   else
   {
-
-
-    /*
-    ** Loggin Ally's Performance
-    */
-    var NLP_To_File = 'NLP [Extracted Fund Data]: ' + fund_data_trainer[best_index].type + '\n';
-    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
-    {
-      if (err) throw err;
-    });
-
+    var NLP_To_File = 'NLP_[Extracted Fund Data]: ' + fund_data_trainer[best_index].type + '\n';
+    logger_extInfo(NLP_To_File);
 
     return (fund_data_trainer[best_index].type);
   }
@@ -204,27 +205,21 @@ function getGreetingType(msg_stem)
 
   if (best_index == -1)
   {
+    var NLP_To_File = 'NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE\n';
+    logger_extInfo(NLP_To_File);
     return (null);
   }
   else
   {
-
-    /*
-    ** Loggin Ally's Performance
-    */
-    var NLP_To_File = 'NLP [Extract Greeting Type]: ' + message_type_trainer[best_index].type + '\n';
-    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
-    {
-      if (err) throw err;
-    });
-
+    var NLP_To_File = 'NLP_[Extract Greeting Type]: ' + message_type_trainer[best_index].type + '\n';
+    logger_extInfo(NLP_To_File);
 
     return (message_type_trainer[best_index].type);
   }
 }
 
 /*
-  Returns the correct response to use based on the parameter given
+** Returns the correct response to use based on the parameter given
 */
 function getResponse(type)
 {
@@ -233,44 +228,27 @@ function getResponse(type)
     if (responsesJSON[i].type == type)
     {
       return (responsesJSON[i].response);
-    }
+      var NLP_To_File = 'NLP_[Respone]: ' + responsesJSON[i].response + '\n';
+      logger_extInfo(NLP_To_File);
+      }
   }
-
   var type_split = type.split(/(?=[A-Z])/);
 
 
-  /*
-  ** Loggin Ally's Performance
-  */
-  var NLP_To_File = 'NLP [Type]: ' + type + '\n';
-  fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
-  {
-    if (err) throw err;
-  });
+  var NLP_To_File = 'NLP_[Type]: ' + type + '\n';
+  logger_extInfo(NLP_To_File);
 
-  var NLP_To_File = 'NLP [Type Splitted]: ' + type_split + '\n';
-  fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
-  {
-    if (err) throw err;
-  });
-
+  var NLP_To_File = 'NLP_[Type Splitted]: ' + type_split + '\n';
+  logger_extInfo(NLP_To_File);
 
   var generic_response = "The " + type_split.join(" ") + " for your {account} "
     + " is currently sitting at {value}. Please let me know if there's " +
     "anything you'd like me to assist with :)";
 
-    /*
-    ** Loggin Ally's Performance
-    */
-    var NLP_To_File = 'NLP [Generic Response]: ' + generic_response + '\n';
-    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
-    {
-      if (err) throw err;
-    });
+    var NLP_To_File = 'NLP_[Generic Response]: ' + generic_response + '\n';
+    logger_extInfo(NLP_To_File);
 
-
-
-  return (generic_response);
+    return (generic_response);
 }
 
 /*
@@ -283,15 +261,8 @@ function getGreeting(type)
     if (responsesJSON[i].type == type)
     {
 
-      /*
-      ** Loggin Ally's Performance
-      */
-      var NLP_To_File = 'NLP [Returned Greeting]: ' + responsesJSON[i].response + '\n';
-      fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
-      {
-        if (err) throw err;
-      });
-
+      var NLP_To_File = 'NLP_[Returned Greeting]: ' + responsesJSON[i].response + '\n';
+      logger_extInfo(NLP_To_File);
 
       return (responsesJSON[i].response);
     }
@@ -303,22 +274,22 @@ function politeRequest(msg_stem)
   var requests = "can i please have my give me you get tell";
   requests = requests.tokenizeAndStem(true);
 
-  var NLP_To_File = 'NLP [Request]: ' + requests+ '\n';
-  fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
-  {
-    if (err) throw err;
-  });
-
+  var NLP_To_File = 'NLP_[Polite Request List]: ' + requests+ '\n';
+  logger_extInfo(NLP_To_File);
 
 
   var sim_count = getSimilarityCount(msg_stem, requests);
 
   if (sim_count >= 3)
   {
+    var NLP_To_File = "NLP_[Polite Request]: " + true + "\n";
+    logger_extInfo(NLP_To_File);
     return (true);
   }
   else
   {
+    var NLP_To_File = "NLP_[Polite Request]: " + false + "\n";
+    logger_extInfo(NLP_To_File);
     return (false);
   }
 }
@@ -330,18 +301,13 @@ function handleRequest(msg_stem)
 {
   if (politeRequest(msg_stem))
   {
-
-    /*
-    ** Loggin Ally's Performance
-    */
-    var NLP_To_File = 'NLP [Handle Request]: True\n';
-    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
-    {
-      if (err) throw err;
-    });
+    var NLP_To_File = 'NLP_[Ally Was Polite]: True\n';
+    logger_extInfo(NLP_To_File);
 
     return (" Sure thing, let me get that for you.");
   }
+  var NLP_To_File = 'NLP_[Ally Was Polite]: False\n';
+  logger_extInfo(NLP_To_File);
   return ("");
 }
 
@@ -358,41 +324,20 @@ module.exports = {
 
     var CurrentTime = getDateTime();
     var NLP_To_File = 'User Message Sent: ' + CurrentTime + '\n\n';
+    logger_extInfo(NLP_To_File);
 
-    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
-    {
-      if (err) throw err;
-    });
     var CurrentTime = getDateTime();
     var NLP_To_File = 'User Message Sent: ' + CurrentTime + '\n\n';
-
-    fStream.appendFile('src/logger/log',NLP_To_File , function (err)
-    {
-      if (err) throw err;
-    });
-
-/*
-** Loggin Ally's Performance
-*/
+    logger_log (NLP_To_File);
 
 
-    var UserToFile = 'User: ' + msg + '\n';
-    fStream.appendFile('src/logger/log',UserToFile , function (err)
-    {
-      if (err) throw err;
-    });
-
-    fStream.appendFile('src/logger/extInfo',UserToFile , function (err)
-    {
-      if (err) throw err;
-    });
-
-
-
-
-
+    var UserToFile = 'From User: ' + msg + '\n';
+    logger_log(UserToFile);
+    logger_extInfo(UserToFile);
 
     var msg_stem = msg.tokenizeAndStem(true);
+    NLP_To_File = "NLP_[Stemmed Message]: " + msg_stem + "\n";
+    logger_extInfo(NLP_To_File);
 
     var message_type_classification = getGreetingType(msg_stem);
     var fund_name_classification = getFundName(msg_stem);
@@ -403,6 +348,8 @@ module.exports = {
     */
     if (message_type_classification)
     {
+      NLP_To_File = "NLP_[getGreetingType()]: Stemmed Message Recieved\n";
+      logger_extInfo(NLP_To_File);
       final_response = getGreeting(message_type_classification);
     }
 
@@ -423,18 +370,24 @@ module.exports = {
       final_response = "I'm assuming you're referring to your Allan Gray " +
         "Equity Fund? In that case here you go! ";
       fund_name_classification = "Allan Gray Equity Fund";
+      NLP_To_File = "NLP_[Fund Name Classification]: Set To Default -> " + fund_name_classification + "\n";
+      logger_extInfo(NLP_To_File);
     }
     if(fund_name_classification && fund_data_classification)
     {
+      var NLP_To_File = "NLP_[ALLY UNDERSTOOD REQUEST]: true\n";
+      logger_extInfo(NLP_To_File);
       /*
         If request says please, then add "sure thing".
       */
       final_response += handleRequest(msg_stem);
 
+      var NLP_To_File = "NLP_[URL]: http://localhost:3002/funds?fundReportingDescription=" + fund_name_classification + "\n";
+      logger_extInfo(NLP_To_File);
 
       var sync = true;
       request({
-          url:"http://localhost:3002/funds?fundReportingDescription="+fund_name_classification,
+          url:"http://localhost:3002/funds?fundReportingDescription=" + fund_name_classification,
           method:"GET",
           json:true,
           async:false,
@@ -448,6 +401,8 @@ module.exports = {
           else
           {
             data_response = body[0][fund_data_classification];
+            var NLP_To_File = "NLP_[Data Response]: " + data_response + "\n"
+            logger_extInfo(NLP_To_File);
             sync = false;
           }
       });
@@ -462,24 +417,40 @@ module.exports = {
       final_response = "I'm not quite sure what information you're asking" +
         " for. Could you please also mention what you're looking for in your " +
         fund_name_classification + "?";
+        var NLP_To_File = "NLP_[ALLY UNDERSTOOD REQUEST]: false\n";
+        logger_extInfo(NLP_To_File);
     }
     // If a user hasn't asked for anything but made sense
     else if (!fund_name_classification && !fund_data_classification && message_type_classification)
     {
       final_response += " What would you like me to assist you with?";
+      var NLP_To_File = "NLP_[ALLY UNDERSTOOD REQUEST]: false\n";
+      logger_extInfo(NLP_To_File);
     }
     // If a user hasn't asked for anything and made no sense
     else if (!fund_name_classification && !fund_data_classification && !message_type_classification)
     {
       final_response = "unknown";
+      var NLP_To_File = "NLP_[ALLY UNDERSTOOD REQUEST]: false\n";
+      logger_extInfo(NLP_To_File);
     }
 
     // Search for a response if a response was provided from the JSON server
     if (data_response)
     {
       final_response += getResponse(fund_data_classification);
+
+      var NLP_To_File = "NLP_[Final Response Before PregEx]: " + final_response + "\n";
+      logger_extInfo(NLP_To_File);
+
       final_response = final_response.replace(/\{account\}/g, fund_name_classification);
       final_response = final_response.replace(/\{value\}/g, data_response);
+
+      var NLP_To_File = "NLP_[Final Response After PregEx]: " + final_response + "\n";
+      logger_extInfo(NLP_To_File);
+
+            var NLP_To_File = "NLP_[Program Failed]: False\n";
+            logger_extInfo(NLP_To_File);
     }
     // Fail gracefully if no data is returned
     else if (!data_response && fund_name_classification && fund_data_classification)
@@ -487,45 +458,23 @@ module.exports = {
       final_response += "I don't think that's something I can provide." +
         " Try contacting one of our consultants at 0860 000 654 for further"
         + " assistance";
+
+      var NLP_To_File = "NLP_[Program Failed]: True\n";
+      logger_extInfo(NLP_To_File);
     }
 
-
-    /*
-    ** Loggin Ally's Performance
-    */
-
-
-    var AllyToFile = 'ALLY: ' + final_response + '\n\n';
-    fStream.appendFile('src/logger/log',AllyToFile , function (err)
-    {
-      if (err) throw err;
-    });
+    var AllyToFile = 'From ALLY: ' + final_response + '\n\n';
+    logger_log(AllyToFile);
 
     var CurrentTime = getDateTime();
     var NLP_To_File = 'User Message Recieved: ' + CurrentTime + '\n\n\n\n\n';
-    fStream.appendFile('src/logger/log',NLP_To_File , function (err)
-    {
-      if (err) throw err;
-    })
+    logger_log (NLP_To_File);
 
-
-
-
-    fStream.appendFile('src/logger/extInfo',AllyToFile , function (err)
-    {
-      if (err) throw err;
-    });
-
-
+    logger_extInfo(AllyToFile);
 
     var CurrentTime = getDateTime();
     var NLP_To_File = 'User Message Recieved: ' + CurrentTime + '\n\n\n\n\n';
-    fStream.appendFile('src/logger/extInfo',NLP_To_File , function (err)
-    {
-      if (err) throw err;
-    });
-
-
+    logger_extInfo(NLP_To_File);
 
     return (final_response);
   }
