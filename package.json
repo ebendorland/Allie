@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@agct/react-common": "^5.9.0",
     "jsx-loader": "^0.13.2",
     "react-scripts": "0.8.5",
     "webpack": "^1.14.0",
