@@ -1436,3 +1436,41 @@ User Message Recieved:  [Year: 2017 || Month: 01 || Day: 25 || Hour: 17 || Minut
 
 
 
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 26 || Hour: 08 || Minute: 08 || Second: 46 || MiliSecond: 560]
+
+From User: <sdv
+NLP_[Stemmed Message]: sdv
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: NO FUND NAMES FOUND IN USER STRING
+NLP_[Extracted Fund Data]: NO FUND DATA FOUND IN USER MESSAGE
+NLP_[ALLY UNDERSTOOD REQUEST]: false
+From ALLY: unknown
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 26 || Hour: 08 || Minute: 08 || Second: 46 || MiliSecond: 570]
+
+
+
+
+User Message Sent:  [Year: 2017 || Month: 01 || Day: 26 || Hour: 08 || Minute: 09 || Second: 07 || MiliSecond: 530]
+
+From User: Counterpoint MET Value Fund start net market value
+NLP_[Stemmed Message]: counterpoint,met,valu,fund,start,net,market,valu
+NLP_[Extract Greeting Type]: NO GREETING TYPE FOUND IN USER MESSAGE
+NLP_[Extracted Fund Name(s)]: Counterpoint MET Value Fund
+NLP_[Extracted Fund Data]: StartNetMarketValue
+NLP_[ALLY UNDERSTOOD REQUEST]: true
+NLP_[Polite Request List]: can,i,pleas,have,my,give,me,you,get,tell
+NLP_[Polite Request]: false
+NLP_[Ally Was Polite]: False
+NLP_[URL]: http://localhost:3002/funds?fundReportingDescription=Counterpoint MET Value Fund
+NLP_[Data Response]: 39160.871377
+NLP_[Final Response Before PregEx]: The Start Net Market Value for your {account} is R{value} :)
+NLP_[Final Response After PregEx]: The Start Net Market Value for your Counterpoint MET Value Fund is R39160.871377 :)
+NLP_[Program Failed]: False
+From ALLY: The Start Net Market Value for your Counterpoint MET Value Fund is R39160.871377 :)
+
+User Message Recieved:  [Year: 2017 || Month: 01 || Day: 26 || Hour: 08 || Minute: 09 || Second: 07 || MiliSecond: 684]
+
+
+
+
