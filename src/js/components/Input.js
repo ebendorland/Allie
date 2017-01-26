@@ -152,15 +152,15 @@ var Input = React.createClass ({
       <div className="row">
         <div className="col-xs-1"></div>
         <div className="col-xs-10">
-          <div className="input-box">
-                <input className=" Text-field"
+          <div className="row">
+                <input className="col-xs-10 Text-field"
                     placeholder="Type message..." id="usr_input"
                     type="text" value={this.state.inputValue}
                     onChange={this.handleChange} onKeyPress={this.onKeyPress}/>
                 <button className="mic-button" onClick={this.onSend}><img src={mic}/></button>
           </div>
         </div>
-
+        <div className="col-xs-1"></div>
       </div>
     )
   }
