@@ -6,6 +6,7 @@ import timer from './Time.js';
 import Options from "./Options.js";
 import FundList from "./FundList.js";
 import DataList from "./DataList.js";
+import mic from './microphone-black-shape.svg';
 
 export var io = require("socket.io-client");
 
