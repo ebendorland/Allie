@@ -442,7 +442,7 @@ module.exports = {
     // If user specified which account to draw info from but not which DATA
     else if (fund_name_classification && !fund_data_classification)
     {
-      final_response = "I'm not quite sure what information you're asking" +
+      final_response += "I'm not quite sure what information you're asking" +
         " for. Could you please also mention what you're looking for in your " +
         fund_name_classification + "?";
         var NLP_To_File = "NLP_[ALLY UNDERSTOOD REQUEST]: false\n";

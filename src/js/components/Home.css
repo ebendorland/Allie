@@ -20,31 +20,28 @@ body{
 
 
 .App-header {
+
   background-color: black;
-line-height: 1;
+  line-height: 1;
   padding: 20px;
   color: white;
 
+}
 
+.main-header{
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
 }
 
 .navigation_bar{
   padding: 7px 0;
   height:25px;
   background-color:#212121;
-
   font-size: 12px;
   padding-right:150px;
   margin: auto;
-
-}
-
-.navigation_bar_two{
-  height:40px;
-  background-color:black;
-  margin-left: 150px;
-  font-size:15px;
-  /*  margin: auto;*/
 
 }
 
@@ -184,9 +181,23 @@ margin-top:-5px;
   height:150px;
 }
 
-/*New Navigation Bar*/
+/*Hamburger menu*/
 
-.navigation_bar{color:blue;}
+.hamburger_icon img{ display:none;
+}
+
+.dropdown-toggle {
+  display:none;
+}
+
+ul.dropdown-menu{
+  display:none;
+}
+
+
+      /*<img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-256.png"/>*/
+
+/*New Navigation Bar*/
 
 .invest_now:hover{
     opacity: 0.8;
@@ -239,12 +250,57 @@ ul.newnav li.right {float: right;}
 
 @media screen and (max-width: 920px){
   ul.newnav .firstitem{margin-left:0%;}
+}
 
-  ul.newnav .lastitem{margin-right:0%;}
+/*Hamburger Menu Bar*/
+  @media screen and (max-width: 858px){
     ul.newnav{
-      text-align: center;
+      display:none;
 
     }
-    ul.newnav li.right,
-    ul.newnav li {float: none;}
+    .log_in{
+      width:100%;
+    }
+    .invest_now{
+      width:100%;
+    }
+
+    .dropdown-menu
+    {
+      overflow: hidden;
+    }
+
+    .dropdown-toggle
+    {display: block;
+    }
+
+    a{
+      color:black;
+    }
+     a:hover{
+       color:#c53146;
+      cursor:pointer;
+    }
+    .navigation_bar {
+    padding: 7px 0;
+    height: 10px;
+    background-color: #212121;
+    font-size: 12px;
+    padding-right: 150px;
+    margin: auto;
+    }
+    .App-header {
+    background-color: black;
+    line-height: 1;
+    padding: 10px;
+    color: white;
+    }
+
+    .caret{}
+
+    .App-header-hamburger ul li a:hover {
+      color:#c53146;
+      cursor:pointer;
+    }
+
 }

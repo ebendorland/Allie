@@ -5,6 +5,7 @@
 module.exports = {
   chaTime: function(){
   var d = new Date();
+
   var numHours = ('0' + (d.getHours())).slice(-2);
   var numMins = ('0' + (d.getMinutes())).slice(-2);
 
